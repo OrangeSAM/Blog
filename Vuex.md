@@ -93,4 +93,9 @@ computed: {
 }
 // 使用对象展开运算符将getter混入到computed对象中
 // 如果不使用呢
+// 留下的疑问，如何在helloworld页面使用main.js编写的store
 ```
+
+#### Mutation
+
+更改 Vuex 的 store 中的状态的唯一方法时提交 mutation。Vuex 中的 mutation 非常类似于事件
