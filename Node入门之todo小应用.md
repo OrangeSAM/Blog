@@ -36,7 +36,7 @@ const content1 = argus[2];
 
 ```
 // 使用数组来保存这些操作后的内容
-let tasklist = []
+let taskList = []
 if (action === "add") {
     taskList.push([content, false]);
 }
@@ -55,4 +55,53 @@ if (action === "edit") {
 // 对于`edit` 和`done`的动作，这里简单处理为：完成即把该项的状态标志为true，编辑则把输入的第五个参数覆盖原来的任务内容。
 ```
 
-写到这里，我们可以发现的问题是，任务列表的内容
+写到这里，可以发现的问题是，每次执行完命令后的任务列表内容消失了。这是因为写入数组的内容只是临时的存在内存中，程序执行完毕之后内存就销毁了。所以需要找个法子把数组的内容长久地存储起来，就好比新建记事本在里头写点东西，下次开机你还是看到里头内容一样。
+
+通过搜索官方文档，我们可以发现文件系统中的 `readFile & writeFile` API。使用很简单，最基本的是读取内容或者写入内容的路径。
+
+由此，可以编写如下代码
+
+```
+let readContent = fs.readFileSync('F:\\code\demo\mydemo')
+fs.writeFileSync("F:\\Code\\Daily-code\\Demo\\todoDb", taskList);
+
+// 实际用第一行时会发现，log出来的内容是形如 `5b 5b 65 68···` 这样的编码，这是因为没有设定文件编码格式，就像HTTP中的`Accept-Language`请求头。所以需要加上第二个参数`utf-8`，或者在得到readContent后使用toString方法转为字符串。
+```
+
+写到这里，似乎已经把小应用做完了。把前面说到的代码合并起来看看。
+
+```
+let fs = require("fs");
+let argus = process.argv.slice(2);
+
+const action = argus[0];
+const content = argus[1];
+const content1 = argus[2];
+const dbPath = "F:\\Code\\Daily-code\\Demo\\todoDb";
+let readContent;
+let taskList = [];
+
+readContent = fs.readFileSync(dbPath, "utf-8");
+taskList = JSON.parse(readContent);
+
+if (action === "add") {
+    taskList.push([content, false]);
+}
+if (action === "list") {
+    console.log(taskList);
+}
+if (action === "delete") {
+    taskList.splice(content - 1, 1);
+}
+if (action === "done") {
+    taskList[content - 1][1] = true;
+}
+if (action === "edit") {
+    taskList[content - 1][0] = content1;
+}
+fs.writeFileSync(dbPath, JSON.stringify(taskList));
+```
+
+再细想下会发现，还存在 bug。比如当一开始数据库文件不存在时，进行读取就会报错。所以需要一个机制来检查当前访问的路劲是否存在，不存在则建立再写入内容。
+
+使用 stats 还是 isDirectory
