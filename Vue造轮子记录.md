@@ -73,6 +73,10 @@ console.assert() 如果断言为false，则将一个错误消息写入控制台�
 windows中运行这句话，需要开两个bash窗口，分别同时运行这两句命令
 "dev-test": "parcel watch test/* --no-cache & karma start",
 
+> 将 dev-test 对应的命令 parcel watch test/* --no-cache & karma start 分别运行，运行方式如下
+新开一个 Git Bash 窗口运行 npx parcel watch test/* --no-cache
+再开一个 Git Bash 窗口运行 npx karma start
+
 持续集成
 - 持续集成
 - 持续交付
