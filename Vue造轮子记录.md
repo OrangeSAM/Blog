@@ -81,3 +81,12 @@ windows中运行这句话，需要开两个bash窗口，分别同时运行这两
 - 持续集成
 - 持续交付
 - 持续部署
+
+#### 开发时遇到的一些有意思的bug
+Node.js 默认入口是index.js，但是如果有index.js文件，而且不是一个有效的入口，那么项目启动就会有问题，而parcel也没有提示这个问题。
+所以需要在npx parcel后手动加上index.html，因为我们的入口是index.html.
+
+#### input组件
+组件中的name可写可不写？写了能在vue开发者工具中看到对应的标签名。
+
+vue采用HTML语法，即不允许自闭合，所以当自己编写input组件时， 使用`<w-input />`会出现bug。
