@@ -20,8 +20,8 @@
 
 #### 工具
 
-1. 配色 [adobe color](https://color.adobe.com/zh/create/color-wheel/)	[colorhunt](https://colorhunt.co)	[material palette](https://www.materialpalette.com)
-2. 原型设计 [Adobe XD](https://www.adobe.com/cn/products/xd.html)	[墨刀](https://modao.cc)
+1. 配色 [adobe color](https://color.adobe.com/zh/create/color-wheel/) [colorhunt](https://colorhunt.co) [material palette](https://www.materialpalette.com)
+2. 原型设计 [Adobe XD](https://www.adobe.com/cn/products/xd.html) [墨刀](https://modao.cc)
 
 ### 给前端的知识粗略分个类
 
@@ -62,53 +62,71 @@ css 竟然有变量了，了解详情及如何使用。
 常用组件全局引入，不常用组件局部引入。
 
 #### 单元测试
+
 BDD behavior driven develop
-TDD test driven develop 
+TDD test driven develop
 
-console.assert() 如果断言为false，则将一个错误消息写入控制台，如果断言为true， 没有任何反应。
+console.assert() 如果断言为 false，则将一个错误消息写入控制台，如果断言为 true， 没有任何反应。
 
- // parcel去打包test目录下的所有一级文件，不要缓存， 不要最小化，启动 karma, 只允许一次
-    "test": "parcel build test/* --no-cache --no-minify && karma start --single-run"
+// parcel 去打包 test 目录下的所有一级文件，不要缓存， 不要最小化，启动 karma, 只允许一次
+"test": "parcel build test/\* --no-cache --no-minify && karma start --single-run"
 
-windows中运行这句话，需要开两个bash窗口，分别同时运行这两句命令
-"dev-test": "parcel watch test/* --no-cache & karma start",
+windows 中运行这句话，需要开两个 bash 窗口，分别同时运行这两句命令
+"dev-test": "parcel watch test/\* --no-cache & karma start",
 
-> 将 dev-test 对应的命令 parcel watch test/* --no-cache & karma start 分别运行，运行方式如下
-新开一个 Git Bash 窗口运行 npx parcel watch test/* --no-cache
-再开一个 Git Bash 窗口运行 npx karma start
+> 将 dev-test 对应的命令 parcel watch test/_ --no-cache & karma start 分别运行，运行方式如下
+> 新开一个 Git Bash 窗口运行 npx parcel watch test/_ --no-cache
+> 再开一个 Git Bash 窗口运行 npx karma start
 
 持续集成
+
 - 持续集成
 - 持续交付
 - 持续部署
 
-#### 开发时遇到的一些有意思的bug
-Node.js 默认入口是index.js，但是如果有index.js文件，而且不是一个有效的入口，那么项目启动就会有问题，而parcel也没有提示这个问题。
-所以需要在npx parcel后手动加上index.html，因为我们的入口是index.html.
+#### 开发时遇到的一些有意思的 bug
 
-#### input组件
-组件中的name可写可不写？写了能在vue开发者工具中看到对应的标签名。
+Node.js 默认入口是 index.js，但是如果有 index.js 文件，而且不是一个有效的入口，那么项目启动就会有问题，而 parcel 也没有提示这个问题。
+所以需要在 npx parcel 后手动加上 index.html，因为我们的入口是 index.html.
 
-vue采用HTML语法，即不允许自闭合，所以当自己编写input组件时， 使用`<w-input />`会出现bug。
+#### input 组件
+
+组件中的 name 可写可不写？写了能在 vue 开发者工具中看到对应的标签名。
+
+vue 采用 HTML 语法，即不允许自闭合，所以当自己编写 input 组件时， 使用`<w-input />`会出现 bug。
 
 #### 网格系统
-网格系统解决的是横向布局的问题。 
 
-git branch  新建分支 多元宇宙。
+网格系统解决的是横向布局的问题。
 
-vue的一些规则，不能在template里面些style代码
+git branch 新建分支 多元宇宙。
 
-使用flex布局时，即使其中的规定了宽度占50%，且有三个子项。这样在父级没有规flex-wrap为wrap时，子项只是压缩每个的宽度而不会换行。如果要让子项换行，可以在父级设置flex-wrap 为wrap。如果要子项不换行还不压缩，使用flex-shrink: no。
+vue 的一些规则，不能在 template 里面些 style 代码
 
-先声明空数组并log, 此时无论从内外看，数组都为空。再往数组里push内容，此时再去看log内容会发现，内部不为空，而外部看依然为空。
-也就是时间差的问题，log的那一刻并没有值，而是后面添加的。
+使用 flex 布局时，即使其中的规定了宽度占 50%，且有三个子项。这样在父级没有规 flex-wrap 为 wrap 时，子项只是压缩每个的宽度而不会换行。如果要让子项换行，可以在父级设置 flex-wrap 为 wrap。如果要子项不换行还不压缩，使用 flex-shrink: no。
+
+先声明空数组并 log, 此时无论从内外看，数组都为空。再往数组里 push 内容，此时再去看 log 内容会发现，内部不为空，而外部看依然为空。
+也就是时间差的问题，log 的那一刻并没有值，而是后面添加的。
 
 重写，大调整。
 重构，持续地对代码进行微小的调整以使得代码变得更好。
 
 栅格组件就是工程师与设计师妥协以及提高效率的产物。
 
-UI库的历史
+UI 库的历史
 UI BootStrap Material
 
 自适应 和 响应式的差别
+
+#### toast 组件
+
+用例
+
+- 弹出 toast
+  - 自动关闭
+    - N 秒
+  - 点击后关闭
+  - 关闭的回调
+- 弹出第二个
+  - 保证只有一个 toast
+  - 允许多个 toast
