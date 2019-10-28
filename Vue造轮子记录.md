@@ -118,6 +118,8 @@ UI BootStrap Material
 
 自适应 和 响应式的差别
 
+对于 gutter 的实现，element 是通过 this.\$parent 获取父级的 gutter, 但这里就存在一个问题，实际使用中是不是用户一定会 el-col 写为 el-row 的直接子元素呢，也不一定。所以黄轶说用 provide 和 inject 实现。
+
 #### toast 组件
 
 用例
