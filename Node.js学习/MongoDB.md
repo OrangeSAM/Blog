@@ -29,3 +29,11 @@ mongo 没有列的概念
 - db.集合.remove(条件)删除文件数据
 - db.集合.drop() 删除整个集合
 - db.dropDatabase()删除整个数据库,需要先进入某个数据库
+
+#### 用 js 文件写 mongo 命令
+
+使用 let 可能会遇到 mongo 兼容的问题，用 var
+
+执行写好的 mongo 文件，用 mongo 文件名
+
+干啥之前都要先启动 mongo 的服务
