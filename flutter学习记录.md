@@ -1,4 +1,4 @@
-一些疑惑
+### 一些疑惑
 
 - final string name 中的 name 是什么意思
 - @override 之前的代码就是声明的参数？
@@ -14,14 +14,34 @@
   这是在干嘛
 - 没有写 pop 也有返回上一级页面的按钮，是 flutter 框架整的？
 
-一些要点
+### 一些要点
 
 - flutter 一切皆组件！
 - Navigator.push 跳转到下一个页面，接手两个参数，上下文 context 和 要跳转的函数
 - Navigator.pop 返回到上一个页面
 - MaterialPageRoute 传递路由参数
 
-有哪些组件
+### 一些命令
+
+- flutter create 项目名
+- flutter run 跑项目
+- flutter packages get == npm install
+-
+
+### 官方文档中的笔记
+
+- Material 是一种标准的移动端和 web 端的视觉设计语言。 Flutter 提供了一套丰富的 Material widgets。
+- main 函数使用了(=>)符号, 这是 Dart 中单行函数或方法的简写。即 JS 中的箭头函数。
+- 该应用程序继承了 StatelessWidget，这将会使应用本身也成为一个 widget。 在 Flutter 中，大多数东西都是 widget，包括对齐(alignment)、填充(padding)和布局(layout)。
+- Scaffold 是 Material library 中提供的一个 widget, 它提供了默认的导航栏、标题和包含主屏幕 widget 树的 body 属性。widget 树可以很复杂。可以认为是每个页面的骨架。
+- Stateless widgets 是不可变的, 这意味着它们的属性不能改变 - 所有的值都是最终的.
+- Stateful widgets 持有的状态可能在 widget 生命周期中发生变化. 实现一个 stateful widget 至少需要两个类:
+
+#### 使用外部包
+
+类似 npm
+
+### 有哪些组件
 
 - Text Widget
 
