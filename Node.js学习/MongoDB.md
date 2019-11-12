@@ -37,3 +37,12 @@ mongo 没有列的概念
 执行写好的 mongo 文件，用 mongo 文件名
 
 干啥之前都要先启动 mongo 的服务
+
+爬虫相关模块合集
+superagent(chart-set || retry)
+cheerio
+fs
+excel
+
+- node xlsx
+- async
