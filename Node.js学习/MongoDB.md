@@ -34,9 +34,11 @@ mongo 没有列的概念
 
 使用 let 可能会遇到 mongo 兼容的问题，用 var
 
-执行写好的 mongo 文件，用 mongo 文件名
+执行写好的 mongo 文件，用 mongo + 文件名, 而且需要在当前路劲下
 
 干啥之前都要先启动 mongo 的服务
+
+用 load 来执行 js 文件是另一种操作?
 
 爬虫相关模块合集
 superagent(chart-set || retry)
