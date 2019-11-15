@@ -39,6 +39,13 @@
 - Stateful widgets 持有的状态可能在 widget 生命周期中发生变化. 实现一个 stateful widget 至少需要两个类: 一个 StatefulWidget 类, 一个 State 类。StatefulWidget 类本身是不变的，但是 State 类在 widget 生命周期中始终存在。
 - 在 Flutter 的响应式框架柱，调用 setState() 会为 state 对象触发 builde 方法 从而导致对 UI 的更新
 
+* Flutter widget 的中心思想是用 Widget 构建你的 UI。
+* Widget 描述了他们的视图在给定其当前配置和状态时应该看起来像什么。当 widget 的状态发生变化时，widget 会重新构建 UI，Flutter 会对比前后变化的不同， 以确定底层渲染树从一个状态转换到下一个状态所需的最小更改。
+* 框架强制耿 Widget 覆盖整个屏幕。
+* 在编写应用程序时，通常会创建新的 widget，这些 widget 是无状态的 StatelessWidget 或者是有状态的 StatefulWidget， 具体的选择取决于您的 widget 是否需要管理一些状态。widget 的主要工作是实现一个 build 函数，用以构建自身。一个 widget 通常由一些较低级别 widget 组成。Flutter 框架将依次构建这些 widget，直到构建到最底层的子 widget 时，这些最低层的 widget 通常为 RenderObject，它会计算并描述 widget 的几何形状。
+
+-
+
 #### 使用外部包
 
 - 通过 pubspec 文件进行配置, 类似 package.json 文件.
@@ -47,6 +54,9 @@
   类似 npm
 
 ### 有哪些组件
+
+常用的布局 widget
+Text Row Column Stack Container
 
 - Text Widget
 
