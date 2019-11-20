@@ -53,6 +53,9 @@
 - 在页面中使用, import 'package:'
   类似 npm
 
+  flutter packages get 获取项目所有的依赖包。
+  flutter packages upgrade 获取项目所有依赖包的最新版本。
+
 ### 有哪些组件
 
 常用的布局 widget
