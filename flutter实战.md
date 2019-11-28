@@ -57,3 +57,24 @@ flutter 使用 skia 作为他的 2D 渲染引擎.
 #### 异步支持
 
 future, 可理解为 JS 的 promise, 表示一个异步操作的最终状态标识.
+
+## 第一个 flutter 应用
+
+### 计数器示例
+- Flutter在构建页面时，会调用组件的build方法，widget的主要工作是提供一个build()方法来描述如何构建UI界面（通常是通过组合、拼装其它基础widget）。
+- home为flutter应用的首页，它也是一个widget。
+- MaterialApp 是Material库中提供的Flutter APP框架，通过它可以设置应用的名称、主题、语言、首页及路由列表等。MaterialApp也是一个widget。
+- StatefulWidget类 表示他是一个有状态的组件，即可以拥有状态，且这些状态在widget生命周期中是可以变得。
+- Stateful widget至少有两个类组成
+  - 一个StatefulWidget 类
+  - 一个State类，StatefulWidget 类本身是不变的，但是state类中持有的状态在widget生命周期中可能发生变化。
+  - scaffold是material库中提供的页面脚手架，他提供了默认的导航栏、标题和包含主屏幕widget树的body属性。
+
+### 路由管理
+- 路由在移动开发中通常指页面，这跟web开发中单页应用的Router概念意义是相同的。
+- MaterialPageRoute继承自PageRoute类，PageRoute类是一个抽象类，表示占有整个屏幕空间的一个模态路由页面，它还定义了路由构建及切换时过渡动画的相关接口及属性。
+- Navigator是一个路由管理的组件，他提供了打开和退出路由页的方法。通过一个栈来管理活动路由集合。通常当前屏幕显示的页面就是栈顶的路由。
+  - future push (BuildContext, Route route)
+    - 将给定的路由入栈，返回值是一个future对象，用以接手新路由出栈（关闭）时的返回数据。
+  - bool pop(BuildContext context, [result])
+    - 将栈顶路由出栈，result为页面关闭时返回给上一个页面的数据。
