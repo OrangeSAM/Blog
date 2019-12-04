@@ -1,3 +1,13 @@
+// http
+res.writeHead()
+res.write()
+res.end()
+
+// url
+url.parse() // 第二个参数为 true, 表示把 query 转换为对象
+url.format()// 上述的反向操作
+url.resolve()
+
 commonjs 模块化的规范
 
 在 node 中，node 提供的模块称为核心模块，另一类是用户提供的模块，称为文件模块。
