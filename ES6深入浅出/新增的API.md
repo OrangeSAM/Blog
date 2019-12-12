@@ -60,3 +60,31 @@ function x(n, fill) {
 
 find filter
 find 返回值只有一个, filter 可以有多个
+
+```
+// 会导致死循环的一段代码
+var  i = 0;
+while(i != 1) {
+    i+= 0.1
+    console.log(i)
+    if (i> 100) break
+}
+console.log('i is 100')
+// i is 1不会打印出来, 因为js精度的问题
+
+// 结局方法
+// ES5
+while (Math.abs(i-1)< 0.000001>)// 只要误差小于多少就认为相等
+// ES6
+while (Math.abs(i-1)< Number..EPSILON)
+```
+
+// 判断一个数是不是正无穷
+function myIsNaN (n) {
+return n!==n
+// 利用 NaN 不等于他自己的特性
+}
+
+// parseInt 的 bug
+parseInt(811111100000000000000000000000000) // 0
+Math.trunc(811111100000000000000000000000000) // 8.11111e+23
