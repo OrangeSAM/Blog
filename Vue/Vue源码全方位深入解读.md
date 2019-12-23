@@ -34,4 +34,4 @@ flow 是一个静态类型检查工具.
 vue 源码结构设计.
 编译相关的代码都在 compiler
 
-学到 1-4
+Vue.js 源码基于 rollup 构建.
