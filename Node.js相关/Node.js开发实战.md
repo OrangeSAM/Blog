@@ -8,3 +8,6 @@ Node.js 特有的. \_fileName 文件所在位置 \_dirName 文件所在目录
 process 对象, 很重要.
 
 process.argv 能够获取到从命令行输入的参数
+
+
+#### 09 CommonJS规范
