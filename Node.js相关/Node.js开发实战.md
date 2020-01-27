@@ -28,6 +28,8 @@ process.argv 能够获取到从命令行输入的参数
 
 #### 11 NPM
 
+Node.js 包管理工具，包就是别人写的 Node.js 模块。
+
 #### 12 Node.js 内置模块
 
 EventEmitter
