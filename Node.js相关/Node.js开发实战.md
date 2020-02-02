@@ -52,5 +52,33 @@ EventEmitter
 ### 21 HTTP：用 Express 优化石头剪刀布游戏
 
 - 要了解一个框架，最好的方法是
+
   - 了解他的关键功能
   - 推导出他要解决的问题是什么
+
+- Express 核心功能
+  - 路由
+  - request/reponse 简化
+    - request: pathname query
+    - response: send()
+    - json() jsonp()
+
+### 23 什么是 RPC 调用
+
+remote procedure call 远程过程调用
+
+和 AJax 有什么相同点
+
+- 都是两个计算机之间的网络通信
+- 都需要双方约定一个数据格式
+
+不同点
+
+- 不一定适用 DNS 作为寻址服务
+- 应用层协议一般不使用 HTTP
+- 基于 TCP 或者 UDP 协议
+
+RPC 调用采用二进制协议
+
+- 更小的数据包体积
+- 更快的编解码速率
