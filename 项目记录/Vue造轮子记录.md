@@ -73,6 +73,14 @@ windows 中运行这句话，需要开两个 bash 窗口，分别同时运行这
 Node.js 默认入口是 index.js，但是如果有 index.js 文件，而且不是一个有效的入口，那么项目启动就会有问题，而 parcel 也没有提示这个问题。
 所以需要在 npx parcel 后手动加上 index.html，因为我们的入口是 index.html.
 
+项目中使用CSS变量了，具体使用如下
+```
+<!-- 声明 -->
+ --main-color: lightGray
+<!-- 使用 -->
+ var(--main-color)
+```
+
 #### input 组件
 
 组件中的 name 可写可不写？写了能在 vue 开发者工具中看到对应的标签名。
