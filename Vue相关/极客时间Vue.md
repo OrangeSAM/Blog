@@ -201,3 +201,26 @@ Vue 中的数据来源
 课后习题，课程有哪些方法支持响应式更新，
 
 如不支持如何处理，底层原理如何实现。
+
+### 实战环节
+1. 引入的时候可以按需引入，为啥use的时候不可以。
+```
+  import { Button, Layout, Icon, Drawer, Radio } from "ant-design-vue";
+  // 为啥use的时候又只能挨个use呢
+  Vue.use(Button);
+  Vue.use(Layout);
+  Vue.use(Icon);
+  Vue.use(Drawer);
+  Vue.use(Radio);
+```
+
+2. webpackchunk在这里是啥意思；这跟公司项目先用变量保存引入的有没有区别
+```
+   component: () =>
+      import(/* webpackChunkName: "user" */ "../layout/UserLayout.vue"),
+```
+3. 用
+```
+    // 使用JSX语法创建router-view标签
+    // component: { render: h => h("router-view") },
+```

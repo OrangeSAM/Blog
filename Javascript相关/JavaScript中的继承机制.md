@@ -67,3 +67,18 @@ Object.setPrototypeOf(a)
 
 继续看用ES6实现继承的方法。
 
+如果你只要获取到可枚举属性，查看Object.keys或用for...in循环（还会获取到原型链上的可枚举属性，不过可以使用hasOwnProperty()方法过滤掉）。
+
+Object.getOwnProprtyNames()不会获取到原型链上的属性
+
+https://segmentfault.com/a/1190000007908692
+
+遍历对象的属性时，自带的属性不会被遍历。为什么呢
+手动添加的会被遍历。
+
+四种用于拓展原型链的方法
+- new 和 构造函数的配合
+- Object.create
+- Object.setPrototypeOf
+- __proto__
+
