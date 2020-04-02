@@ -125,3 +125,56 @@ function dialog(target) {
     // 如果手动return 值类型，会被忽略
     // 如果手动return 引用类型，会覆盖默认的
 }
+
+--- 
+hasOwnProperty： 是用来判断一个对象是否有你给出名称的属性或对象。不过需要注意的是，此方法无法检查该对象的原型链中是否具有该属性，该属性必须是对象本身的一个成员。
+isPrototypeOf : 是用来判断要检查其原型链的对象是否存在于指定对象实例中，是则返回true，否则返回false。
+什么是原型对象，和对象区别在于？
+
+来自OneNote
+
+---
+```
+object.__proto__ === Object.prototype
+fn.__proto__ === Function.prototype
+fn.__proto__.__proto__ === Object.prototype
+array.__proto__ === Array.prototype
+array.__proto__.__proto__ === Object.prototype
+Function.__proto__ === Object.__proto__ || Function.__proto__===Funtion.prototype
+// 因为他自己可以构造自己，前者对的原因是因为 Function.__proto__ 指向 Object.prototype，
+//而Object.__proto__也指向Object.prototype，所以？ 但好像原因本身就错掉了。
+Array.__proto__ === Object.__proto__ || Function.prototype
+Object.__proto__ === Function.prototype
+true.__proto__ === Boolean.prototype
+Function.prototype.__proto__ === Object.prototype
+```
+
+在JavaScript中，每个函数都是一个Function对象。
+
+--- 
+ECMAScript2015中引入的JavaScript类实质上是JavaScript现有的基于原型的继承的语法糖。类语法不会为JavaScript引入新的面向对象的继承模型。
+
+定义一个类的方法是使用一个类声明。要声明一个类，可以使用带有class关键字的类名
+e.g
+	class rectangle{
+		constructor(height,width){
+			this.width=width
+			this.height=height
+		}
+	}
+
+函数声明和类声明之间的一个重要区别是函数声明会提升，类声明不会，所以需要先声明再访问。
+
+构造函数
+constructor 方法是一个特殊的方法，其用于创建和初始化使用class创建的一个对象。
+一个类只能拥有一个名为“constructor”的特殊方法。如果多个，则报语法错误。
+一个构造函数可以使用super关键字来调用一个父类的构造函数。
+
+使用extends创建子类
+extends关键字在类声明或类表达式中用于创建一个类作为另一个类的子类。
+
+---
+当读取一个对象的属性的时候，JavaScript 会先从对象中查找，如果没有查找到，才会到原型对象中查找该属性（或方法），所以，尤其是对于方法，最好保存到原型对象中以便于共享，并且达到节省内存的目的，而且原型对象还有一个强大的功能，那就是如果通过构造函数实例化一些对象后，再给构造函数的原型对象增加属性和方法，那么它原来实例化的对象实例将会继承这些增加的属性和方法。
+
+
+
