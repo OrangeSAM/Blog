@@ -206,3 +206,5 @@ beforeRouteLeave
 ## 路由元信息
 
 meta
+
+## Router实现的原理
