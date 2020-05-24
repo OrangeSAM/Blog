@@ -1,3 +1,6 @@
+---
+title: Vue文档学习
+---
 v-bind这样的东西称为指令，指令带有前缀v-，以表示他们是vue提供的特殊特性，他们会在渲染的DOM上应用特殊的响应式行为。
 
 使用Vue的省心之处在于，不用触碰DOM，所有的DOM操作都有VUE处理，编写代码时只要关心逻辑层就好了
@@ -6,7 +9,7 @@ v-bind这样的东西称为指令，指令带有前缀v-，以表示他们是vue
 
 所有的Vue组件都是Vue实例，并且接受相同的选项对象（一些根实例特有的选项除外）
 
-for(var msg of ["how","are","you"])
+`for(var msg of ["how","are","you"])`
 
 一个Vue应用由一个通过new Vue创建的根vue实例，以及可选的嵌套的、可复用的组件数组成。
 
@@ -29,10 +32,10 @@ beforedestroy       destroyed
 模板语法
 在底层的实现上，Vue将模板编译成虚拟DOM渲染函数。
 	插值
-		文本	{{data}},使用v-once指令，可以执行一次性地插值。
-		原始HTML	使用v-html输出真正的HTML<p v-html="rawhtml"></p>
+		文本	```data```,使用v-once指令，可以执行一次性地插值。
+		原始HTML	使用v-html输出真正的HTML`<p v-html="rawhtml"></p>`
 		特性	双大括号语法不能作用在HTML特性上，应使用v-bind指令
-		使用js表达式	每个绑定都只能包含单个表达式， {{ok?'yes':'no'}}
+		使用js表达式	每个绑定都只能包含单个表达式， ```{ok?'yes':'no'}}```
 	指令 directive
 		指令是带有v-前缀的特殊特性。
 		指令特性的值预期是单个JavaScript表达式。
@@ -76,15 +79,17 @@ class与style绑定
 		对象语法：还可以把一个数组传给v-bind:class,以应用一个class列表。
 		在数组语法中也可以使用对象语法。
 		用在组件上
+			```
 			Vue.component('my-component', {
 			  template: '<p class="foo bar">Hi</p>'
 			})
 			<my-component class="baz boo"></my-component>
+			```
 			
-			<p class="foo bar baz boo">Hi</p>
+			`<p class="foo bar baz boo">Hi</p>`
 		带数据绑定class也同样适用
-			<my-component v-bind:class="{ active: isActive }"></my-component>
-			<p class="foo bar active">Hi</p>
+			`<my-component v-bind:class="{ active: isActive }"></my-component>`
+			`<p class="foo bar active">Hi</p>`
 	
 	绑定内联样式
 		对象语法：直接绑定到一个样式对象通常更好，会让模板更清晰
@@ -94,12 +99,15 @@ class与style绑定
 	
 条件渲染
 	v-if  v-else  v-else必须紧跟v-if 或者 v-else-if的元素后
-	在<template>上使用v-if渲染分组
+	在`<template>`上使用v-if渲染分组
+	```Vue
 	<template v-if="ok">
 	  <h1>Title</h1>
 	  <p>Paragraph 1</p>
 	  <p>Paragraph 2</p>
 	</template>
+    ```
+
 	用key管理可复用的元素
 	
 	v-show 
@@ -180,9 +188,10 @@ class与style绑定
 		.self	只当在event.target是当前元素自身时触发处理函数
 		.once	点击事件只会触发一次
 		.passive	滚动事件的默认行为，将会立即触发，不等onScroll
+
 		修饰符可以串联，但要注意顺序；也可以只有修饰符
 	按键修饰符
-		<input @:keyup.enter="submit"> 
+		`<input @:keyup.enter="submit">`
 		.enter	.tab	.delete
 		.esc	.space	.up
 		.down	.left	.right
@@ -191,18 +200,18 @@ class与style绑定
 	系统修饰符
 		可以用以下修饰符实现仅在按下相应按键才触发鼠标或键盘事件的监听器
 		.ctrl	.alt	.shift	.meta(徽标键)	.exact
-		<input @keyup.alt.67="clear">
-		<input @click.ctrl="dosomething">
+		`<input @keyup.alt.67="clear">`
+		`<input @click.ctrl="dosomething">`
 		.exact 修饰符允许你控制由精确的系统修饰符组合触发的事件
 		鼠标修饰符
-			.left .right .middle
+			`.left .right .middle`
 		
 表单输入绑定
 	基础用法
-		可以用v-model指令在表单<input><textarea><select>元素上创建双向数据绑定。
+		可以用v-model指令在表单`<input><textarea><select>`元素上创建双向数据绑定。
 		v-model本质是语法糖，负责监听用户的输入事件以更新数据。
 		v-model会忽略所有表单元素的value checked selected 等特性的初始值，
-		而将Vue实例中的data作为数据来源。
+		而将Vue实例中的`data`作为数据来源。
 		
 		在文本区域插值<textarea>不会生效，应使用v-model代替。
 		

@@ -1,16 +1,16 @@
 **唐金州 Vue 实战**
 
-### 01 课程介绍
+## 01 课程介绍
+略
 
-### 02 Vue 简介
+## 02 Vue 简介
+略
 
-### 03 内容综述
+## 03 内容综述
 
 > 前三节无重要内容, 篇幅简短, 略过.
 
----
-
-### 04 第一个Vue程序
+## 04 第一个Vue程序
 
 1. 开发版本与生产版本的不同:
 
@@ -19,7 +19,7 @@
 
 2. 花括号里面支持表达式.
 
-```javascript
+```
 // 编写template的方式
 <input type="text" name="" id="" v-model="info" />
 <button @click="handleClick">添加</button>
@@ -56,7 +56,7 @@ Vue.component("todo-item", {
 
 ---
 
-### 05 组件基础及组件注册
+## 05 组件基础及组件注册
 
 - to-do-item 组件
 
@@ -113,18 +113,21 @@ main.js文件是用来干嘛的
 是用来生成最顶层的vue实例吗
 入口文件怎么理解 我能理解index.html里的#app元素
 以及他的多种写法
+```Vue
 new Vue({
 el: '#app',
 components: { App },
 template: '<App/>'
 })
+```
+
 为什么index.html和APP.vue里的id  app 不会重复
 在vue文件中是地址的图片，到浏览器是base64的图片
 为什么在子组件的slot里写v-bind传个对象，父组件就能用到呢
 
 ---
 
-### 06 核心概念: 属性
+## 06 核心概念: 属性
 
 自定义属性`props`，组件中 props 声明的属性
 
@@ -136,7 +139,7 @@ template: '<App/>'
 
 ---
 
-### 07 核心概念: 事件
+## 07 核心概念: 事件
 
 - 普通事件，@click @input @change @xxx ，通过 this.\$emit('xxx',)触发
 
@@ -146,7 +149,7 @@ template: '<App/>'
 
 ---
 
-### 08 核心概念: 插槽
+## 08 核心概念: 插槽
 
 - 普通插槽
 
@@ -162,7 +165,7 @@ template: '<App/>'
 
 **问题**：相同名称的插槽是替换还是合并，2.5 和 2.6 或有不同。
 
-### 09 双向绑定与单向数据流不冲突
+## 09 双向绑定与单向数据流不冲突
 
 **双向绑定：**model 的更新，触发 view 的更新；view 的更新，触发 model 的更新
 
@@ -176,7 +179,7 @@ template: '<App/>'
 
 // 该如何理解 Vue 的双向绑定不过是语法糖
 
-```JavaScript
+```Vue
 // 语法糖
 <personalInfo v-model="phoneInfo"
 			  :zip-code.sync="zipcode" />
@@ -194,7 +197,7 @@ template: '<App/>'
 单向数据流又是什么概念
 ---
 
-### 10 理解虚拟 DOM 及 key 属性的作用
+## 10 理解虚拟 DOM 及 key 属性的作用
 
 虚拟 DOM 的目的是为了更高效的绘制 DOM,不是全盘重绘，有选择的重绘。
 
@@ -202,7 +205,7 @@ template: '<App/>'
 
 ---
 
-### 11 如何触发组件的更新
+## 11 如何触发组件的更新
 
 数据驱动的视图框架，DOM 是由数据来映射的。
 
@@ -238,7 +241,7 @@ Vue 中的数据来源
 
 ---
 
-### 12 合理应用计算属性和侦听器
+## 12 合理应用计算属性和侦听器
 computed
 	减少模板中的计算逻辑
 	数据缓存 数据没有变化则不计算，不过依赖的数据必须是响应式的
@@ -262,7 +265,7 @@ computed能做的，watch都能做，反之则不行
 
 
 
-### 实战环节
+## 实战环节
 1. 引入的时候可以按需引入，为啥use的时候不可以。
 ```
   import { Button, Layout, Icon, Drawer, Radio } from "ant-design-vue";

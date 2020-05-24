@@ -1,7 +1,8 @@
 ---
 title: Dom是什么
 ---
-DOM 是浏览器中的document对象。
+
+## DOM 是浏览器中的document对象。
 window 对象表示一个包含DOM文档的窗口，其 document 属性指向窗口中载入的 DOM文档 。
 
 DOM的作用是将网页转为一个JavaScript对象，从而可以用脚本进行各种操作。
@@ -21,9 +22,9 @@ DocumentFragment 文档的片断
 
 那么问题来了，DOM的继承机制和js的继承机制有没有关系呢
 
-节点树
+## 节点树
 浏览器原生提供document节点，代表整个文档。
-文档的第一层只有一个节点，就是HTML网页的第一个标签<html>，它构成了树结构的根节点。
+文档的第一层只有一个节点，就是HTML网页的第一个标签`<html>`，它构成了树结构的根节点。
 除了根节点，其他节点都有三层关系
 	父节点关系 parentNodes 
 	子节点关系 childNodes 
@@ -31,7 +32,7 @@ DocumentFragment 文档的片断
 	
 
 
-Node接口
+## Node接口
 所有DOM节点对象都继承了Node接口，拥有一些共同的属性和方法。这是DOM操作的基础。
 属性
 	Node.prototype.Nodetype
@@ -66,8 +67,8 @@ NodeList接口，HTMLCollection接口
 节点都是单个对象，DOM提供两种节点集合，用于容纳多个节点Nodelist和HTMLCollection
 这两种集合都属于接口规范，两者区别Nodelist可以包含各种类型的节点，HTML只能包含HTML元素节点。
 
----
-### 理解DOM结构
+
+## 理解DOM结构
 核心DOM，针对任何结构化文档的标准模型
 XMLDOM，针对XML文档的标准模型
 HTML DOM，针对HTML文档的标准模型
@@ -123,7 +124,7 @@ DOM 事件允许JavaScript在HTML文档元素中注册不同事件处理程序
 
 事件对象
 
-### 节点属性
+## 节点属性
 在DOM中 ，每个节点都是一个对象。DOM节点由三个重要的属性
 nodeName:节点名称
 nodeValue:节点的值

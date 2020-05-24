@@ -1,3 +1,6 @@
+---
+title: 盒模型
+---
 盒模型是网页布局的基础，每个元素都被表示为一个矩形的方框
 
 Width  min-width max-width

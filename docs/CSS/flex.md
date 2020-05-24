@@ -1,3 +1,6 @@
+---
+title: Flex布局
+---
 flex之前
 	normal flow 正常流
 	float + clear

@@ -1,3 +1,6 @@
+---
+title: Node.js开发实战
+---
 #### 08 第一个 Node.js 小程序, 石头剪刀布
 
 和 JS 一样, Node.js 也有 Date Math 对象, settimeout, setInterval.

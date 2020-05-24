@@ -9,13 +9,16 @@ object.onclick=null?
 addeventlistener绑定后，可以用removeeventlistener取消
 
 三种方式 
+```javascript
 	1. onclick="click()"
 	2. object.onclick=function();
 	3. object.addeventlistener("click",click,false);
+```
 	
 第三种方式的好处，可以绑定多次同一个事件，且都会执行；
 但在DOM中不会，脚本中通过匿名函数的方式也只会执行最后一个事件。
 
+```javascript
 1. <div id="btn" onclick="clickone()" onclick="clicktwo()"></div> 
 <script>
 function clickone(){ alert("hello"); } //执行这个
@@ -33,6 +36,7 @@ function clickone(){ alert("hello"); } //先执行
 document.getElementById("btn").addeventlistener("click",clicktwo,false);
 function clicktwo(){ alert("world"); } //后执行
 </script>
+```
 
 来自 <https://www.cnblogs.com/mylove103104/p/4667211.html> 
 

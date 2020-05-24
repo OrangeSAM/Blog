@@ -1,58 +1,48 @@
 ## 起步
 
 如果在一个模块化工程中使用他,必须要通过vue.user()明确地安装路由功能
-
+```
 Import Vue from 'vue'
-
 Import VueRouter from 'vue-router'
-
- 
-
 Vue.use(VueRouter)
-
+```
 如果使用全局的script标签,则无需这样.
 
  
 
  如果在一个模块化工程中使用他,必须要通过vue.user()明确地安装路由功能
 
-`Import Vue from 'vue'
+```
+Import Vue from 'vue'
 Import VueRouter from 'vue-router'
-Vue.use(VueRouter)`
+Vue.use(VueRouter)
+```
 
 如果使用全局的script标签,则无需这样.
-
 Vue-Router的功能
-
 模块化的、基于组件的路由配置
-
 路由参数、查询、通配符
-
 基于Vue过度系统的视图过渡效果
-
 细粒度的导航控制
-
 带有自动激活的CSS Class的链接
-
 HTML5历史模式或hash模式，在IE9中自动降级
-
 自定义的滚动条行为
 
  
 
-使用routerlink组件来导航，通过传入 to 属性指定链接
+使用`routerlink`组件来导航，通过传入 to 属性指定链接
 
-router-view是路由出口，路由匹配到的组件将渲染在这里
+`router-view`是路由出口，路由匹配到的组件将渲染在这里
 
  
 
-通过注入路由器，我们可以在任何组件内通过 this.$router 访问路由器
+通过注入路由器，我们可以在任何组件内通过 `this.$router `访问路由器
 
 也可以通过this.$route访问当前路由
 
  
 
-当<router-link>对应的路由匹配成功，将自动设置class属性值.router-link-active
+当`<router-link>`对应的路由匹配成功，将自动设置class属性值.router-link-active
 
 ---
 
@@ -151,7 +141,7 @@ this.$router.push 和 router.push的不同？？？？
 
 #### 命名路由
 
-```js
+```
 const router = new VueRouter({
   routes: [
     {
@@ -162,7 +152,7 @@ const router = new VueRouter({
   ]
 })
 //即多了name属性
-在routerlink和push方法中的使用
+// 在routerlink和push方法中的使用
 <router-link :to="{ name: 'user', params: { userId: 123 }}">User</router-link>
 router.push({ name: 'user', params: { userId: 123 }})
 ```

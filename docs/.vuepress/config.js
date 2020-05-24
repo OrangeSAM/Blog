@@ -53,8 +53,7 @@ module.exports = {
           "/Javascript/reduce_in_array",
           "/Javascript/this",
           "/Javascript/what_is_js",
-          "/Javascript/开篇一张图，剩下全靠编",
-          "/Javascript/数据类型&运算符&语法专题",
+          "/Javascript/js_grammar"
         ]
       },
       {
@@ -82,6 +81,89 @@ module.exports = {
           "/Browser/devtools",
           "/Browser/how_browser_works",
           "/Browser/url_to_display",
+        ]
+      },
+      {
+        title: "其他", // 必要的
+        // path: '/about/',      // 可选的, 应该是一个绝对路径
+        collapsable: true, // 可选的, 默认值是 true,
+        sidebarDepth: 2, // 可选的, 默认值是 1
+        children: [
+          "/Others/cycling_taiwan",
+          "/Others/FEwechater",
+          "/Others/make_blog",
+        ]
+      },
+      {
+        title: "LeetCode", // 必要的
+        // path: '/about/',      // 可选的, 应该是一个绝对路径
+        collapsable: true, // 可选的, 默认值是 true,
+        sidebarDepth: 2, // 可选的, 默认值是 1
+        children: [
+          "/LeetCode/1.two_num_sum",
+          "/LeetCode/7.integer_reverse",
+          "/LeetCode/9.palindromic",
+          "/LeetCode/13.romeToInteger",
+          "/LeetCode/14.comon_prefix",
+          "/LeetCode/20.valid_brace",
+          "/LeetCode/26.delete_duplicate_in_array",
+          "/LeetCode/27.delete_item",
+          "/LeetCode/28.achieve_strstr",
+          "/LeetCode/35.find_insert_position",
+          "/LeetCode/67.binary_sum",
+          "/LeetCode/121.chance_to_trade",
+          "/LeetCode/189.reverse_array"
+        ]
+      },
+      {
+        title: "小程序", // 必要的
+        // path: '/about/',      // 可选的, 应该是一个绝对路径
+        collapsable: true, // 可选的, 默认值是 true,
+        sidebarDepth: 2, // 可选的, 默认值是 1
+        children: [
+          "/MiniProgram/",
+        ]
+      },
+      {
+        title: "Node", // 必要的
+        // path: '/about/',      // 可选的, 应该是一个绝对路径
+        collapsable: true, // 可选的, 默认值是 true,
+        sidebarDepth: 2, // 可选的, 默认值是 1
+        children: [
+          "/Node/about_node",
+          "/Node/fs_module",
+          "/Node/http_url_module",
+          "/Node/MongoDB",
+          "/Node/Node.js_cheerio_puppeteer_getArticle",
+          "/Node/node_combat",
+          "/Node/node_primary",
+          "/Node/node_todo",
+          "/Node/puppeteer_get_image",
+          "/Node/simple_web_server",
+        ]
+      },
+      {
+        title: "NPM", // 必要的
+        // path: '/about/',      // 可选的, 应该是一个绝对路径
+        collapsable: true, // 可选的, 默认值是 true,
+        sidebarDepth: 2, // 可选的, 默认值是 1
+        children: [
+          "/NPM/how_to_use",
+        ]
+      },
+      {
+        title: "Vue", // 必要的
+        // path: '/about/',      // 可选的, 应该是一个绝对路径
+        collapsable: true, // 可选的, 默认值是 true,
+        sidebarDepth: 2, // 可选的, 默认值是 1
+        children: [
+          "/Vue/vue_component_communication",
+          "/Vue/vue_doc_record",
+          "/Vue/vue_geektime",
+          "/Vue/vue_router",
+          // "/Vue/vue_source_code_Hcysun",
+          "/Vue/vue_source_code_Huangyi",
+          "/Vue/Vuex",
         ]
       },
       {
@@ -124,7 +206,43 @@ module.exports = {
           "/HTTP/http_cache",
           "/HTTP/illustrate_http",
         ]
-      }
+      },
+      {
+        title: "CSS", // 必要的
+        // path: '/about/',      // 可选的, 应该是一个绝对路径
+        collapsable: true, // 可选的, 默认值是 true,
+        sidebarDepth: 2, // 可选的, 默认值是 1
+        children: [
+          "/CSS/BFC",
+          "/CSS/block_inline_inlineBlock",
+          "/CSS/box_module",
+          "/CSS/css_font",
+          "/CSS/css_hard_to_learn",
+          "/CSS/flex",
+          "/CSS/mobile_page",
+          "/CSS/preudo",
+          "/CSS/Sass",
+          "/CSS/width_height",
+        ]
+      },
+      {
+        title: "Dart", // 必要的
+        // path: '/about/',      // 可选的, 应该是一个绝对路径
+        collapsable: true, // 可选的, 默认值是 true,
+        sidebarDepth: 2, // 可选的, 默认值是 1
+        children: [
+          "/Dart/dart_primary",
+        ]
+      },
+      {
+        title: "Work", // 必要的
+        // path: '/about/',      // 可选的, 应该是一个绝对路径
+        collapsable: true, // 可选的, 默认值是 true,
+        sidebarDepth: 2, // 可选的, 默认值是 1
+        children: [
+          "/Work/bug_analysis",
+        ]
+      },
     ],
   }
 };
