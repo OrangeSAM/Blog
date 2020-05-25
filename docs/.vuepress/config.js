@@ -5,7 +5,7 @@ module.exports = {
     ['link', { rel: 'icon', href: '/logo.jpg' }], // 增加一个自定义的 favicon(网页标签的图标)
   ],
   // 这是部署到github相关的配置
-  base: '/Blog',
+  base: '/Blog/',
   markdown: {
     // 代码块显示行号
     lineNumbers: true
