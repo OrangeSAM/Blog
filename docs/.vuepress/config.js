@@ -11,6 +11,7 @@ module.exports = {
   },
   home: true,
   themeConfig: {
+    lastUpdated: '最后更新于',
     // 导航栏配置
     nav:[
       {text: 'Github', link: 'https://github.com/OrangeSAM' },
