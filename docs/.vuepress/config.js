@@ -14,11 +14,15 @@ module.exports = {
     lastUpdated: '最后更新于',
     // 导航栏配置
     nav:[
+      {text: '技术学习', link: 'https://juejin.im'},
+      {text: '项目记录', link: 'https://juejin.im'},
+      {text: '读书笔记', link: 'https://juejin.im'},
       {text: 'Github', link: 'https://github.com/OrangeSAM' },
       {text: '掘金', link: 'https://juejin.im'}
     ],
     // 侧边栏配置
     sidebar: [
+      "/Projects/record_of_wheels",
       {
         title: "JavaScript", // 必要的
         // path: "/MiniProgram/" // 可选的, 应该是一个绝对路径
@@ -62,6 +66,7 @@ module.exports = {
         collapsable: true, // 可选的, 默认值是 true,
         sidebarDepth: 2, // 可选的, 默认值是 1
         children: [
+          "/Projects/make_blog_with_vuepress",
           "/Projects/record_of_wheels",
           "/Projects/vue_wheels_button",
           "/Projects/vue_wheels_layout",
@@ -78,7 +83,6 @@ module.exports = {
         sidebarDepth: 2, // 可选的, 默认值是 1
         children: [
           "/Browser/character_byte_chinese",
-          "/Browser/devtools",
           "/Browser/how_browser_works",
           "/Browser/url_to_display",
         ]
