@@ -1,10 +1,13 @@
+---
+title: 命令行Todo
+---
 前些天公司有个需求需要用到 Node 实现，完成之后觉得自己调自己接口的感觉有点意思。此外，JD 中也总说能够熟练使用 Node 是加分项，现在以一个 ToDo 小应用作为学习 Node 开发的开始。
 
-#### 需要实现的需求
+## 需要实现的需求
 
 在命令行输入形如`node todo add/delete/list/done/edit`等命令完成对待办事项的增删改查。需求很简单，目的是通过增删基本的使用增进对 Node 的了解。
 
-#### 分析如何实现
+## 分析如何实现
 
 首先，我们的命令是直接输入在命令行中的，没有图形化界面。那就需要知道 Node 是如何获取命令行中参数的。
 
@@ -18,11 +21,11 @@
 
 通过搜索`Node.js write and read file`就可以获得相关的解决方案了。但其实更可行的方式是直接在官方文档中直接搜索`write/read`这样的关键字。
 
-#### 编码实现
+## 编码实现
 
 通过我们之前的分析，我们可以编写如下代码：
 
-```
+```javascript
 // 获取命令行中除前面两项路径外的参数
 let argus = process.argv.slice(2);
 
@@ -34,7 +37,7 @@ const content1 = argus[2];
 
 获取到要执行的动作和参数后，就可以进一步操作了，增加删除或者编辑。这里很直接的想到可以用 switch 语句，不过 if 语句也行。可编写代码如下：
 
-```
+```javascript
 // 使用数组来保存这些操作后的内容
 let taskList = []
 if (action === "add") {
@@ -72,7 +75,7 @@ fs.writeFileSync("F:\\Code\\Daily-code\\Demo\\todoDb", taskList);
 
 写到这里，似乎已经把小应用做完了。把前面说到的代码合并起来看看。
 
-```
+```javascript
 let fs = require("fs");
 let argus = process.argv.slice(2);
 
@@ -110,7 +113,7 @@ fs.writeFileSync(dbPath, JSON.stringify(taskList));
 
 选择那个方法完成判断就随个人喜好了。
 
-#### 一些优化
+## 一些优化
 
 **路径不能写死** 之前的路径是直接写死的绝对路径，当脚本在别处使用的时候路径就没用了，应该使用相对路径。这时可以引入 path 对象，利用其中的`join`方法—将当前模块的目录名(当前脚本所处目录)和数据库名连接。这样就能保证无论脚本文件在哪里，数据库文件都跟着在哪里。
 
