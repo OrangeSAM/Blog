@@ -16,7 +16,6 @@ module.exports = {
     nav: [
       {text: '技术学习', link: '/LearnTech/Javascript/apply_call_bind'},
       {text: '项目记录', link: '/Projects/make_blog_with_vuepress'},
-      {text: '读书笔记', link: 'https://juejin.im'},
       {text: 'LeetCode', link: '/LeetCode/1.two_num_sum'},
       {text: '编程工具', link: '/CodingTool/NPM/how_to_use'},
       {text: 'Github', link: 'https://github.com/OrangeSAM'},
@@ -152,16 +151,15 @@ module.exports = {
             "Browser/url_to_display",
           ]
         },
-        {
-          title: "小程序", // 必要的
-          // path: '/about/',      // 可选的, 应该是一个绝对路径
-          collapsable: true, // 可选的, 默认值是 true,
-          sidebarDepth: 2, // 可选的, 默认值是 1
-          children: [
-            "/MiniProgram/",
-          ]
-        },
-
+        // {
+        //   title: "小程序", // 必要的
+        //   // path: '/about/',      // 可选的, 应该是一个绝对路径
+        //   collapsable: true, // 可选的, 默认值是 true,
+        //   sidebarDepth: 2, // 可选的, 默认值是 1
+        //   children: [
+        //     "/MiniProgram/",
+        //   ]
+        // },
         {
           title: "Flutter", // 必要的
           // path: '/about/',      // 可选的, 应该是一个绝对路径
