@@ -4,7 +4,7 @@ heroImage: /hero.jpg
 heroText: 一笔的博客
 tagline: 对技术、对生活的思考
 actionText: 一窥乾坤
-actionLink: /Javascript/apply_call_bind
+actionLink: /LearnTech/Javascript/apply_call_bind
 footer: MIT Licensed | Copyright © 2020 刘一笔
 ---
 ## 一点介绍

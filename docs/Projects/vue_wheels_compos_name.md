@@ -38,3 +38,20 @@ For recursive components make sure to provide the "name" option
 使用则`<my-component-name>` 和 `<MyComponentName>`都可以。
 
 在局部注册时，对于 components 对象中的每个 property 来说，其 property 名就是自定义元素的名字，其 property 值就是这个组件的选项对象。
+
+拓展一下，对于标签名称的编写。官方文档中风格指南里强烈推荐的写法是：
+1. **在单文件组件、字符串模板和JSX中没有内容的组件应该是自闭合的，但在DOM模板里永远不要这样做。**因为HTML
+并不支持自闭合的元素（除了官方的空元素）。
+2. **对于绝大多数项目来说，在单文件组件和字符串模板中组件名应该是PascalCase的，但是在DOM模板中总是kebab-case的。**
+
+## prop名大小写
+**在声明prop的时候，其命名应该始终使用camelCase，而在模板和JSX中应该始终使用kebab-case**。在JavaScript中更自然的是camelCase，
+而在HTML中则是kebab-case。
+```javascript
+props: {
+  isShow: Boolean
+}
+```
+```html
+<Dialog is-show="false">
+```
