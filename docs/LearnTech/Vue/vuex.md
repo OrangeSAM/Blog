@@ -1,4 +1,7 @@
-### what is Vuex
+---
+title: Vuex文档
+---
+## what is Vuex
 
 Vuex 是一个 Vue.js 应用程序开发的**状态管理模式**，采用集中式存储管理应用所有的组件状态。
 
@@ -13,9 +16,9 @@ Vuex 和单纯的全局对象(比如 window)有以下两点不同：
 通过 store.state 来获取对象，以及通过 store.commit 方法触发状态变更。
 由于 store 中的状态是响应式的，在组件中调用 store 中的状态只需要在计算属性中返回即可，触发变化也仅仅是在组件的 methods 中提交 mutation。
 
-### the core concept
+## the core concept
 
-#### State
+## State
 
 Vuex 使用单一状态树，即一个对象包含全部的应用层级状态。这意味着，每个应用将仅仅包含一个 store 实例。
 
@@ -50,19 +53,23 @@ Vuex 使用单一状态树，即一个对象包含全部的应用层级状态。
 
 对象展开运算符？存在与否的不同之处在哪呢
 
-#### Getter
+## Getter
 
 可以认为时 store 的计算属性。
 Getter 接收返回值作为其第一个参数
 
 Getter 接受 state 作为其第一个参数
+```javascript
+
 const store = new Vuex.Store({
-getters: {
-doneTodos: state => {
-return state.todos.filter(todo => todo.done)
-}
-}
+    getters: {
+        doneTodos: state => {
+            return state.todos.filter(todo => todo.done)
+        }
+    }
 })
+```
+
 访问 getters 的几种方式
 
 ```
@@ -96,6 +103,6 @@ computed: {
 // 留下的疑问，如何在helloworld页面使用main.js编写的store
 ```
 
-#### Mutation
+## Mutation
 
 更改 Vuex 的 store 中的状态的唯一方法时提交 mutation。Vuex 中的 mutation 非常类似于事件

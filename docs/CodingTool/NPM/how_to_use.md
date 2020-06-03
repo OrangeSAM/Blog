@@ -15,7 +15,13 @@ Npm list --depth 1 查看顶层级列表
 Rm -rf sams[目录名]
 
 
-***
+查看某个包的信息
+`npm view vue`
+查看某个包当前版本
+`npm view vue version`
+查看某个包的所有版本
+`npm view vue versions`
+
 npm run xxx是执行配置在package.js中的脚本
 dev就是你开发环境，配置了hot-loader之类方便调试的工具。
 build就是发布也就是生产环境，没有其他多余的东西。

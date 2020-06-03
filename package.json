@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/OrangeSAM/Blog/issues"
   },
-  "homepage": "https://github.com/OrangeSAM/Blog#readme"
+  "homepage": "https://github.com/OrangeSAM/Blog#readme",
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.5.0"
+  }
 }

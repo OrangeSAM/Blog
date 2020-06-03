@@ -1,4 +1,8 @@
-#### 安装与配置
+---
+title: MongoDB
+---
+
+## 安装与配置
 
 - 使用环境变量的目的是可以在命令行中直接使用，而不需要输入很长的路径。是不是跟 git bash 的 bias 有点像。
 - 启用服务端的命令是 mongod
@@ -8,7 +12,7 @@
 - 再次打开一个命令行链接服务端，命令是 mongo
 - 几个简单的命令 show dbs db.version()
 
-#### shell 命令
+## shell 命令
 
 - var 声明命令， print 打印
 - 进入某个数据库 use admin

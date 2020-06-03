@@ -1,8 +1,14 @@
+---
+title: Node.js 爬取微信文章
+---
+## 技术点
+cheerio, puppeteer
+
 一朋友在群里问有没有什么办法能够一次性把这个[链接](https://shimo.im/docs/vj38GdGpqDJtGkKJ/read?scene=2&clicktime=1580658023&enterid=1580658023&from=timeline&isappinstalled=0)里的文章保存下来。点开可以看到，其实就是一个文章合集。所以需求就是，把这个文档中的链接里的文章挨个保存下来。保存形式可以有很多种，可以是图片，也可以是网页。这里因为使用[puppeteer](https://github.com/puppeteer/puppeteer)库的原因，故选择保存格式格式为PDF。
 
 ---
 
-### 需求解构
+## 需求解构
 完成整个动作，主要分为这两个部分。获取文档内所有文章的链接；把每个链接里的内容保存为PDF文件。
 
 对于获取链接，有两条路，一是使用request模块请求该网址获取文档；二是把网页保存到本地使用fs模块获取文档内容。拿到文档也就是整个HTML文档后，一开始没想到什么好法子来拿到全部文章链接。如果直接在网页那就好办，直接DOM的`quertSelectorAll`API配合CSS选择器就可以非常方便地拿到所有`a`链接中的`href`属性。但这里是Node，是DOM外之地。又想到的是直接使用正则匹配，后来还是放弃了这个做法。在google搜了下才发现竟然忘了`cheerio`这个好东西。`cheerio`是一个专门为服务端设计的快速灵活而简洁得jQuery实现。
@@ -11,9 +17,9 @@
 
 ---
 
-### 需求实现
+## 需求实现
 
-#### 获取链接
+### 获取链接
 先上这部分代码
 ```
 const getHref = function () {
@@ -37,7 +43,7 @@ const getHref = function () {
 
 如果需要将所有的链接另外保存起来，使用`writeFile`方法。
 
-#### 存为PDF
+### 存为PDF
 同样，先上这部分代码。
 ```
 const saveToPdf = function () {

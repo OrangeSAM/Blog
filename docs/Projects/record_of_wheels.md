@@ -1,8 +1,19 @@
 ---
 title: 造轮子记录
 ---
+[[toc]]
+
+
 ## 造轮子的原因
 
+::: details 点击查看代码
+```js{1}
+console.log('你好，VuePress！')
+```
+:::
+
+{{1 + 1}}
+{{this.$page.lastUpdated}}
 由程序员要经历的几个阶段来看，
 
 1. 自学基础(实习)
