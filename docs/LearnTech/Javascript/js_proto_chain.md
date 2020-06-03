@@ -56,6 +56,10 @@ n 不是一个数值类型吗，为什么是对象。其实，他是一个包装
 
 **原型链存在的意义就在于将一类对象中共有的属性/方法串联起来，而不必每个对象都自己持有一份中。**
 
+当读取一个对象的属性的时候，JavaScript 会先从对象中查找，如果没有查找到，才会到原型对象中查找该属性（或方法）。
+所以，尤其是对于方法，最好保存到原型对象中以便于共享，并且达到节省内存的目的，而且原型对象还有一个强大的功能，
+那就是如果通过构造函数实例化一些对象后，再给构造函数的原型对象增加属性和方法，那么它原来实例化的对象实例将会继承这些增加的属性和方法。
+
 这里结合上一节原型中说到`prototype`是什么，说为什么`Object.prototype.__proto__`是原型链的终点。因为Object可以说是其他一切对象的构造函数，见下代码。
 ```
 Function instanceOf Object // true
@@ -67,6 +71,25 @@ person instanceOf Object   // true
 
 万物由他而来，也终归于他。
 
+另外，今天看今日简史的一点想法就是，你并不是从出生开始就被定义的，而是从有人类开始就被定义了，一代又一代自然选择和遗传造就了你，从这个角度讲，父母起一个基因传递的作用。
+对象的创建亦是如此，一个空对象依然有一些自带的属性和方法。
+
 --- 
 补充，由声明一个对象举例，为什么会有toString方法，多个不同对象的toString()又是如何管理的。
 如何证明公用，判断所指向的原型对象是否相等，因为对象需要相等(===)的话，需要值和地址都相同。
+
+---
+```javascript
+object.__proto__ === Object.prototype
+fn.__proto__ === Function.prototype
+fn.__proto__.__proto__ === Object.prototype
+array.__proto__ === Array.prototype
+array.__proto__.__proto__ === Object.prototype
+Function.__proto__ === Object.__proto__ || Function.__proto__===Funtion.prototype
+// 因为他自己可以构造自己，前者对的原因是因为 Function.__proto__ 指向 Object.prototype，
+//而Object.__proto__也指向Object.prototype，所以？ 但好像原因本身就错掉了。
+Array.__proto__ === Object.__proto__ || Function.prototype
+Object.__proto__ === Function.prototype
+true.__proto__ === Boolean.prototype
+Function.prototype.__proto__ === Object.prototype
+```
