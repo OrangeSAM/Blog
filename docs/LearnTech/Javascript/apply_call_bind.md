@@ -24,4 +24,6 @@ argsArray是可选的。一个数组或者类数组对象，其中的数组元�
 https://www.cnblogs.com/lengyuehuahun/p/5643625.html
 https://blog.csdn.net/ganyingxie123456/article/details/70855586
 
+https://medium.com/@omergoldberg/javascript-call-apply-and-bind-e5c27301f7bb
+
 ## bind

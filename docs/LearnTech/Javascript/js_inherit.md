@@ -188,9 +188,6 @@ function dialog(target) {
 
 什么是原型对象，和对象区别在于？
 
-来自OneNote
-
-
 
 在JavaScript中，每个函数都是一个Function对象。
 
