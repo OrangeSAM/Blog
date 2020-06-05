@@ -194,6 +194,7 @@ module.exports = {
             "record_of_wheels",
             "vue_wheels_button",
             "vue_wheels_layout",
+            "vue_wheels_popover",
             "vue_wheels_tabs",
             "page_screenshot",
             "Node.js_getArticle",
