@@ -21,13 +21,16 @@ module.exports = {
       {text: 'LeetCode', link: '/LeetCode/1.two_num_sum'},
       {text: '编程工具', link: '/CodingTool/NPM/how_to_use'},
       {text: 'Github', link: 'https://github.com/OrangeSAM'},
-      {text: '掘金', link: 'https://juejin.im'},
       {
         text: "友链",
         items: [
           {
             text: "若川博客",
             link: "https://www.lxchuan12.cn/"
+          },
+          {
+            text: "森淼",
+            link: "https://wind-nest.com/"
           },
           {
             text: "北风",
@@ -188,7 +191,7 @@ module.exports = {
           title: "项目记录", // 必要的
           // path: '/about/',      // 可选的, 应该是一个绝对路径
           collapsable: false, // 可选的, 默认值是 true,
-          sidebarDepth: 2, // 可选的, 默认值是 1
+          sidebarDepth: 4, // 可选的, 默认值是 1
           children: [
             "make_blog_with_vuepress",
             "record_of_wheels",

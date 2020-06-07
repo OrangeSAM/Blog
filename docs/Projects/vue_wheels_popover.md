@@ -89,10 +89,10 @@ handle声明函数。而由于function的使用会导致内外`this`不一致，
 ```javascript
 if (this.visible === true) {
     this.$nextTick(() => {
-      console.log('2. 新增document监听')
+      console.log('2. 新增document监听');
       document.body.addEventListener('click', function handle () {
-        this.visible = false
-        console.log('3. 点击body就关闭popover')
+        this.visible = false;
+        console.log('3. 点击body就关闭popover');
         document.removeEventListener('click', handle)
       })
     }).bind(this)
@@ -106,12 +106,12 @@ if (this.visible === true) {
 ```javascript
 if (this.visible === true) {
   setTimeout(() => {
-    console.log('新增document监听')
+    console.log('新增document监听');
     let eventHandler = () => {
-      console.log('点击body就关闭popover')
-      this.visible = false
+      console.log('点击body就关闭popover');
+      this.visible = false;
       document.removeEventListener('click', eventHandler)
-    }
+    };
     document.addEventListener('click', eventHandler)
   }, 0)
 }
@@ -120,14 +120,28 @@ if (this.visible === true) {
 ### 多次关闭
 **问题6.** 在点击组件内的按钮时，由于冒泡机制的原因，关闭时会导致组件关闭一次，`document`又关闭一次。
 
-**解决方案6.** 在按钮处添加`.stop`阻止冒泡。
+**解决方案6.** 在组件的`wrap`处添加`.stop`阻止冒泡。
 
 ### 内容点击
 **问题7.** 点击内容区域也会导致内容隐藏
 
 **解决方案7.** 在内容区域的`wrap`添加`@click.stop`阻止冒泡。
 
-### 内容隐藏
-**问题8.** 如果用户(使用这个UI库的人)在组件上加一个`wrap`，并设置`overflow: hidden`。会导致显示后的内容区域被隐藏。
+### 点击失效
+**问题8.** 因为在组件上添加了阻止冒泡，如果用户在使用组件的时候对组件添加点击事件的监听会无效，因为被阻止了冒泡。
 
-**解决方案.** 设置内容区域的`z-index`，但并不能治本。由此，目前的思路行不通。
+**解决方案8.** 目前无解，即当前阻止冒泡的机制是不行的。
+
+### 内容隐藏
+**问题9.** 如果用户(使用这个UI库的人)在组件上加一个`wrap`，并设置`overflow: hidden`。会导致显示后的内容区域被隐藏。
+
+**解决方案9.** 设置内容区域的`z-index`，但并不能治本。由此，目前的思路行不通。目前的解决方案是将内容区层级提至`body`的直接子元素。
+即点击的时候将内容区移动至`body`直接子元素级别，同时将内容区视觉上的位置处理到按钮边上。代码如下，`HTML`部分的代码略过，此处有两个需要注意的点是，
+当元素的`v-if`为`false`时，无法通过`ref`拿到对应的元素，因为`v-if`处理的是元素是否会存在DOM中；通过`ref`也无法拿到`slot`标签的元素，需要在外面再包裹一层。
+```javascript {3}
+document.body.appendChild(this.$refs.content);
+let {top, left} = this.$refs.trigger.getBoundingClientRect();
+this.$refs.content.style.left = left + window.scrollX + 'px';
+this.$refs.content.style.top = top + window.scrollY 'px';
+```
+在计算content的位置时，需要考虑到可视区域和页面高度的问题。screenX 和scrollX的区别在于?
