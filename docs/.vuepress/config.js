@@ -16,10 +16,10 @@ module.exports = {
     lastUpdated: '最后更新于',
     // 导航栏配置
     nav: [
-      {text: '技术学习', link: '/LearnTech/Javascript/apply_call_bind'},
-      {text: '项目记录', link: '/Projects/make_blog_with_vuepress'},
+      {text: '技术学习', link: '/LearnTech/'},
+      {text: '项目记录', link: '/Projects/'},
       {text: 'LeetCode', link: '/LeetCode/1.two_num_sum'},
-      {text: '编程工具', link: '/CodingTool/NPM/how_to_use'},
+      {text: '编程工具', link: '/CodingTool/'},
       {text: 'Github', link: 'https://github.com/OrangeSAM'},
       {
         text: "友链",

@@ -9,7 +9,6 @@ sidebarDepth: 10
 与之类似的工具还有Hexo、hugo和jekyll等，今天的主角是VuePress。
 ![首页.png](https://i.loli.net/2020/06/07/rLh3ojOdlq5BGsT.png)
 
-
 ## 写东西的一点历史
 最开始的写东西是直接OneNote上，不管是记学习笔记还是写长篇东西，但OneNote本质上只是一个记录的工具，不便与更多人分享里头的东西，
 多少有些浪费。此外，OneNote的单页是一个没有边界的画布，里头可以有文字，可以有图片，甚至视频等文件内容，以至于在内容上显得略微有些松散（用过的朋友应该就懂）。
@@ -42,6 +41,7 @@ sidebarDepth: 10
     "test": "echo \"Error: no test specified\" && exit 1"
   },
 ```
+
 ### 目录结构
 我的代码结构如图
 
@@ -60,7 +60,6 @@ sidebarDepth: 10
 
 这里说说我的结构，之前在纯Markdown文件的博客，没有分类的概念，所有目录都是平级存放，比如LeetCode刷题和JavaScript。但实际上他们是两个不同的类别，一个是语言学习，一个是语言的运用。
 所以在这个博客中，我为他们设置了不同的侧边栏，即LeetCode有单独自己的侧边栏配置，而语言学习又是另外的一组配置。这在侧边栏的配置叫**多个侧边栏**。
-
 
 ### 导航栏的配置
 导航栏的配置较为简单，是一个有对象组成的数组。对象中需要配置`text`(该项导航要显示的名称)、和`link`(该项导航要去去向的地方)。`link`可以是站内链接，也可以是站外链接。
@@ -133,7 +132,7 @@ footer: MIT Licensed | Copyright © 2020 刘一笔
 但我遇到了一个坑，最开始配置VuePress的时候，我的版本还是`1.4.0`，这个版本的内置会搜索不到中文内容。此时，只要将`VuePress`升级版本就好了。我现在的VuePress
 版本是`1.5.0`。
 
-### 发布博客
+## 发布博客
 使用VuePress的一个目的就是更方便配合GitHub Pages将博客的部署到线上，而不是只能线上预览。
 
 部署之前，需要满足以下条件：
@@ -155,8 +154,13 @@ footer: MIT Licensed | Copyright © 2020 刘一笔
 首先需要在`config.js`中设置正确的`base`，比如你打算发布到 `https://<USERNAME>.github.io/<REPO>/（也就是说你的仓库在 https://github.com/<USERNAME>/<REPO>）`，则将 `base` 设置为 `"/<REPO>/"`。
 需要注意的是，前后的斜杠不能少。
 
-然后在项目中，创建如下的`deploy.sh`文件（一般是在根目录下）。因为我是发布到自定义域名商，所以注释了部分用不上的代码。创建这个文件的目的是每次发布
+然后在项目中，创建如下的`deploy.sh`文件（一般是在根目录下）。因为我是发布到自定义域名上，所以注释了部分用不上的代码。创建这个文件的目的是每次发布
 的时候不用手动输出如下命令，而是让脚本自行执行。你甚至可以在`package.json`配置相关命令，而不用手动执行脚本。
+
+如果是发布到自定义域名上，还需要在域名管理处添加相关解析指向你对应github的域名。
+
+![](https://i.loli.net/2020/06/08/uWL6E1GV5oNFaHl.png)
+
 ```shell script
 #!/usr/bin/env sh
 
@@ -185,7 +189,7 @@ git push -f git@github.com:OrangeSAM/Blog.git master:gh-pages
 
 cd -
 ```
-我`package.json`中的scripts，windows可能会遇到`bash deploy`失效的情况，我是替换成`start`就可以了。
+我`package.json`中的scripts如下，windows可能会遇到`bash deploy`失效的情况，我是替换成`start`就可以了。
 ```json {4}
   "scripts": {
     "dev": "vuepress dev docs",
@@ -194,7 +198,8 @@ cd -
     "test": "echo \"Error: no test specified\" && exit 1"
   },
 ```
-### 踩坑
+
+## 踩坑
 小坑不说，一般都是因为自己“近视”造成的。这里分享个我遇到的大坑，当然这个坑也不是`VuePress`造成的，而是因为自己之前写文档时不够规范导致的。
 
 之前在学习`Vue-Router`的时候，也在博客中记录相关的笔记，很多没用代码块包裹，其中一行就是有一个直接的`<router-view>`标签，因为`VuePress`中
