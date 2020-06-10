@@ -8,11 +8,13 @@ module.exports = {
   // 这是部署到github相关的配置
   markdown: {
     // 代码块显示行号
-    lineNumbers: true
+    lineNumbers: true,
+    extractHeaders: [ 'h2', 'h3', 'h4' ]
   },
   evergreen: true,
   home: true,
   themeConfig: {
+    smoothScroll: true,
     lastUpdated: '最后更新于',
     // 导航栏配置
     nav: [
