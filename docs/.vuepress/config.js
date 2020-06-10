@@ -16,18 +16,21 @@ module.exports = {
     lastUpdated: '最后更新于',
     // 导航栏配置
     nav: [
-      {text: '技术学习', link: '/LearnTech/Javascript/apply_call_bind'},
-      {text: '项目记录', link: '/Projects/make_blog_with_vuepress'},
+      {text: '技术学习', link: '/LearnTech/'},
+      {text: '项目记录', link: '/Projects/'},
       {text: 'LeetCode', link: '/LeetCode/1.two_num_sum'},
-      {text: '编程工具', link: '/CodingTool/NPM/how_to_use'},
+      {text: '编程工具', link: '/CodingTool/'},
       {text: 'Github', link: 'https://github.com/OrangeSAM'},
-      {text: '掘金', link: 'https://juejin.im'},
       {
         text: "友链",
         items: [
           {
             text: "若川博客",
             link: "https://www.lxchuan12.cn/"
+          },
+          {
+            text: "森淼",
+            link: "https://wind-nest.com/"
           },
           {
             text: "北风",
@@ -188,12 +191,13 @@ module.exports = {
           title: "项目记录", // 必要的
           // path: '/about/',      // 可选的, 应该是一个绝对路径
           collapsable: false, // 可选的, 默认值是 true,
-          sidebarDepth: 2, // 可选的, 默认值是 1
+          sidebarDepth: 4, // 可选的, 默认值是 1
           children: [
             "make_blog_with_vuepress",
             "record_of_wheels",
             "vue_wheels_button",
             "vue_wheels_layout",
+            "vue_wheels_popover",
             "vue_wheels_tabs",
             "page_screenshot",
             "Node.js_getArticle",
