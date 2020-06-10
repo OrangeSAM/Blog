@@ -255,10 +255,11 @@ module.exports = {
           collapsable: false, // 可选的, 默认值是 true,
           sidebarDepth: 2, // 可选的, 默认值是 1
           children: [
-            "/Others/cycling_taiwan",
-            "/Others/FEwechater",
-            "/Others/make_blog",
-            "/Others/bug_analysis",
+            "cycling_taiwan",
+            "FEwechater",
+            "make_blog",
+            "bug_analysis",
+            "wrong"
           ]
         }
       ]
