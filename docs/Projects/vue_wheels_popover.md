@@ -51,7 +51,7 @@ wrapClick () {
 ### 冒泡机制
 **问题2.** 由于冒泡机制的原因，导致wrap的点击事件传递到body，显示完就又立马被关闭。
 
-**解决方案2.** 异步添加事件监听，有可能会遇到`$nextTick()`失效的问题，可以用`setTimeout`替换。
+**解决方案2.** 异步添加事件监听，有可能会因为Vue版本不同遇到`$nextTick()`失效的问题，详见这篇[文章](https://juejin.im/post/5c7674b5e51d4506304edb99)，可以用`setTimeout`替换。
 ```javascript
 wrapClick () {
   this.visible = !this.visible
