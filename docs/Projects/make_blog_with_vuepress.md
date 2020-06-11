@@ -113,6 +113,8 @@ let sidebar = {
 }
 ```
 
+### Badge <Badge text="beta" type="warning"/> <Badge text="默认主题"/>
+
 ### 首页的配置
 首页的配置较为简单，按照文档说得来就行了。以下是我的配置，需要注意的是`heroImage`的图片路径需要是 .vuepress 目录下的 public 路径。
 如果你要配置 favico，文件的路径也建议是这里。
