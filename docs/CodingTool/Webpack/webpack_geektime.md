@@ -48,3 +48,9 @@ Mode用来指定当前的构建环境是：production development 还是none。
 `production` 设置process.env.NODE_ENV 的值为production. 开启 FlagDependencyUsagePlugin等
 `none` 不开启任何优化项
 webpack 4才有的。
+
+## 解析ECMAScript 6 和 React JSX
+
+## 解析CSS、Less和Sass
+css-loader 用于加载.css文件，并且转换CommonJs对象
+style-loader 将样式通过<style>标签插入到head中
