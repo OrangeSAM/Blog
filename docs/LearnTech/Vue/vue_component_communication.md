@@ -27,7 +27,7 @@ props: {
     default: '文章标题',
     validator (value) => {
       // 这个值必须匹配下列字符串中的一个
-      return title.length > 1 && title.length < 20
+      return value.length > 1 && value.length < 20
     }
   }
 }
@@ -47,6 +47,13 @@ props: {
 
 但总会遇到需要改动props的情况。比如一个弹窗组件，组件提供`isShow`来控制弹窗的显示与否，而关闭的行为还是由弹窗内部来控制的。如果要关闭该怎么办呢。
 1. 使用`$emit`告诉父组件把我关闭了吧。
+
+`$emit`方法可以有多个参数，一是事件名，事件名之外是想传的参数，附加的参数都会传给监听器回调。而对于接受，在对应使用子组件的地方用`@`符号监听，
+回调函数会接收所有传入事件触发函数的额外参数。
+
+测试发现，如果需要获取由子组件传递的多个参数，无法使用`@fromChild='childEvent($event, $event1)'`的方式获得，
+且`$event1`还会报错。此时需要用到`arguments`，即`@fromChild="childEvent(arguments, $event)"`，arguments会以对象的形式获得子组件传递的所有参数，而 `$event`
+只能获取到子组件`$emit`中的第一次参数。具体可见尤大的[回复](https://github.com/vuejs/vue/issues/5735)。
 
 在子组件的关闭按钮中添加事件，事件中通过`$emit`通知父组件将弹窗关闭。虽然可行，但显得很笨拙。
 ```vue {5}
@@ -86,7 +93,7 @@ hidden() {
 <DemoTest :isShow.sync="show"></DemoTest>
 ```
 虽然是默默，但也通知了父组件修改，而不是在子组件内就直接改了。这个`.sync`修饰符本质上还是一个语法糖（让你觉得甜的东西），不甜的代码如下。
-```vuejs
+```vue
 <DemoTest :isShow="show" @update:isShow="show = $event"></DemoTest>
 ```
 
