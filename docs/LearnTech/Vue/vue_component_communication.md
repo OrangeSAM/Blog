@@ -32,7 +32,7 @@ props: {
   }
 }
 ```
-```vuejs
+```vue
 // 父组件
 <demo :title='diamond'></demo>
 ```
@@ -86,7 +86,7 @@ hidden() {
 <DemoTest :isShow.sync="show"></DemoTest>
 ```
 虽然是默默，但也通知了父组件修改，而不是在子组件内就直接改了。这个`.sync`修饰符本质上还是一个语法糖（让你觉得甜的东西），不甜的代码如下。
-```vuejs
+```vue
 <DemoTest :isShow="show" @update:isShow="show = $event"></DemoTest>
 ```
 
