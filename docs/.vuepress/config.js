@@ -20,7 +20,8 @@ module.exports = {
     nav: [
       {text: '技术学习', link: '/LearnTech/'},
       {text: '项目记录', link: '/Projects/'},
-      {text: 'LeetCode', link: '/LeetCode/1.two_num_sum'},
+      {text: 'LeetCode', link: '/LeetCode/'},
+      {text: '阅读记录', link: '/Reading/'},
       {text: '编程工具', link: '/CodingTool/'},
       {text: 'Github', link: 'https://github.com/OrangeSAM'},
       {
@@ -196,17 +197,25 @@ module.exports = {
           sidebarDepth: 4, // 可选的, 默认值是 1
           children: [
             "make_blog_with_vuepress",
-            "record_of_wheels",
-            "vue_wheels_button",
-            "vue_wheels_layout",
-            "vue_wheels_popover",
-            "vue_wheels_tabs",
             "page_screenshot",
             "Node.js_getArticle",
             "node_todo",
             "puppeteer_get_image",
             "yibi_calendar",
             "music_bulk_download",
+          ]
+        },
+        {
+          title: "Vue造轮子", // 必要的
+          // path: '/about/',      // 可选的, 应该是一个绝对路径
+          collapsable: true, // 可选的, 默认值是 true,
+          sidebarDepth: 2, // 可选的, 默认值是 1
+          children: [
+            "record_of_wheels",
+            "vue_wheels_button",
+            "vue_wheels_layout",
+            "vue_wheels_popover",
+            "vue_wheels_tabs",
           ]
         },
       ],
@@ -266,6 +275,24 @@ module.exports = {
             "make_blog",
             "bug_analysis",
             "wrong"
+          ]
+        }
+      ],
+      '/Reading/': [
+        {
+          title: "阅读记录", // 必要的
+          // path: '/about/',      // 可选的, 应该是一个绝对路径
+          collapsable: false, // 可选的, 默认值是 true,
+          sidebarDepth: 2, // 可选的, 默认值是 1
+          children: [
+            '写作是最值得的自我投资',
+            '如何高效学习',
+            '定投十年财务自由',
+            '富爸爸的投资之路',
+            '小狗钱钱',
+            '指数基金定投之南',
+            '秦小明公号文章',
+            '穷查理宝典：查理·芒格智慧箴言录'
           ]
         }
       ]
