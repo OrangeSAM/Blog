@@ -32,7 +32,7 @@ props: {
   }
 }
 ```
-```vuejs
+```vue
 // 父组件
 <demo :title='diamond'></demo>
 ```
