@@ -129,6 +129,34 @@ $refs 只会在组件渲染完成之后生效，并且它们不是响应式的�
 这对选项需要一起使用，以允许一个祖先组件向其所有子孙后代注入一个依赖，不论组件层次有多深，并在起上下游关系成立的时间里始终生效。
 `provide` 选项应该是一个对象或返回一个对象的函数。该对象包含可注入其子孙的 property。
 `inject` 选项应该是一个字符串数组，或一个对象，对象的 key 是本地的绑定名。
+
+:::warning
+provide和inject绑定并不是可响应的，这是刻意为之的。然而，如果你传入了一个可监听的对象，那么其对象的property还是可响应的。
+:::
+
+在2.2.1之后，可以使用注入的值作为`props`或者`data`中的默认值。另外，在2.5.0以上的版本中，你甚至可以为注入设置默认值。
+```vue
+const Child = {
+  inject: ['foo'],
+  // 默认值的形式
+  inject: {
+    foo: {default: 'foo'}
+  }
+  props: {
+    bar: {
+      default () {
+        return this.foo  
+      }
+    }
+  },
+  data () {
+    return {
+      bar: this.foo
+    }
+  }
+}
+```
+
 vuex
 state
 mutation  this.$store.commit
