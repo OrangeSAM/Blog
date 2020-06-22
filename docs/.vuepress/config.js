@@ -293,14 +293,14 @@ module.exports = {
           collapsable: false, // 可选的, 默认值是 true,
           sidebarDepth: 2, // 可选的, 默认值是 1
           children: [
-            '写作是最值得的自我投资',
-            '如何高效学习',
-            '定投十年财务自由',
-            '富爸爸的投资之路',
-            '小狗钱钱',
-            '指数基金定投之南',
-            '秦小明公号文章',
-            '穷查理宝典：查理·芒格智慧箴言录'
+            'xiaomin_qin',
+            'writing_is_investing',
+            'how_to_learn_efficiently',
+            'invest_for_decades',
+            'the_rich_father_investment',
+            'dog_money',
+            'index_funds',
+            'charles_munger'
           ]
         }
       ]

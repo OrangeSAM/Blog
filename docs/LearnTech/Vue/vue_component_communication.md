@@ -156,6 +156,10 @@ const Child = {
   }
 }
 ```
+Provide、inject和EventBus的关系：
+1. eventbus可以不借助provide和inject实现各组件的通信，原理就是vue内部实现的`$emit` `$on ` `$off`事件机制。
+2. provide、inject能够方便地实现各组件间的通信，但方向单一，数据形式单一，即只能由祖宗组件向下提供数据。
+3. provide、inject和eventbus的结合可以更好的实现组件间的通信。
 
 vuex
 state
