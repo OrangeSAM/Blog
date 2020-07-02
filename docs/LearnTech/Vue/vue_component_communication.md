@@ -272,3 +272,27 @@ Provide、inject和EventBus的关系：
 Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
 	
 对于Vuex的使用和原理就可以写好几篇文章了，此处就不展开介绍。
+
+<style>
+.box {
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  color: #fff;
+  background-color: #58a;
+}
+</style>
+
+<!--.md内容-->
+#### 使用原生的JS和CSS
+<div id="container"></div>
+
+<!--js内容-->
+<script>
+window.onload = function() {
+  var dom = document.getElementById('container');
+  dom.innerHTML = 'test content'
+  dom.className = 'box'
+}
+</script>
