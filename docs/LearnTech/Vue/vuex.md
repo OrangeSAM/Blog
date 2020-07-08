@@ -18,7 +18,7 @@ Vuex 和单纯的全局对象(比如 window)有以下两点不同：
 
 ## the core concept
 
-## State
+### State
 
 Vuex 使用单一状态树，即一个对象包含全部的应用层级状态。这意味着，每个应用将仅仅包含一个 store 实例。
 
@@ -53,7 +53,7 @@ Vuex 使用单一状态树，即一个对象包含全部的应用层级状态。
 
 对象展开运算符？存在与否的不同之处在哪呢
 
-## Getter
+### Getter
 
 可以认为时 store 的计算属性。
 Getter 接收返回值作为其第一个参数
@@ -103,6 +103,21 @@ computed: {
 // 留下的疑问，如何在helloworld页面使用main.js编写的store
 ```
 
-## Mutation
+### Mutation
 
 更改 Vuex 的 store 中的状态的唯一方法时提交 mutation。Vuex 中的 mutation 非常类似于事件
+
+这就是单个组件里不用单独引入store的原因？
+为了在 Vue 组件中访问 this.$store property，你需要为 Vue 实例提供创建好的 store。
+Vuex 提供了一个从根组件向所有子组件，以 store 选项的方式“注入”该 store 的机制：
+```javascript
+new Vue({
+  el: '#app',
+  store: store,
+})
+```
+通过在根实例中注册 store 选项，该 store 实例会注入到根组件下的所有子组件中，且子组件能通过 this.$store 访问到。
+
+this.$store.commit
+this.$store.dispatch
+
