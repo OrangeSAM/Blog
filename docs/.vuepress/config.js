@@ -31,6 +31,7 @@ module.exports = {
       {text: '项目记录', link: '/Projects/'},
       {text: 'LeetCode', link: '/LeetCode/'},
       {text: '阅读记录', link: '/Reading/'},
+      {text: '闪念', link: '/IdeaPills/'},
       {text: '编程工具', link: '/CodingTool/'},
       {text: 'Github', link: 'https://github.com/OrangeSAM'},
       {
@@ -314,7 +315,18 @@ module.exports = {
             'charles_munger'
           ]
         }
-      ]
+      ],
+      '/IdeaPills/': [
+        {
+          title: "闪念", // 必要的
+          // path: '/about/',      // 可选的, 应该是一个绝对路径
+          collapsable: false, // 可选的, 默认值是 true,
+          sidebarDepth: 2, // 可选的, 默认值是 1
+          children: [
+            "idea_term_1"
+          ]
+        }
+      ],
     }
   }
 };
