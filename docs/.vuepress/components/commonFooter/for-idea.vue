@@ -1,18 +1,7 @@
 <template>
   <div class="idea-footer">
-    <div>
-      人脑每天产生60000个念头
-    </div>
-    <div>
-      你要吃什么样的特效药
-    </div>
-    <div>
-      才能快速捕捉并记录
-    </div>
-    <div>
-      真正有价值的那37个？
-    </div>
-    <img src="https://i.loli.net/2020/07/12/K2pTget6iqlFsuY.png" />
+    <div class="words">『一笔的闪念』系列更多的意义是作为个人的记录和思考，如果对你有一丝的帮助，那我会很开心。目前更新时间视我输出内容而定，计划每周更一期。</div>
+    <img src="https://i.loli.net/2020/07/12/qKMfYw781AWeUH4.jpg" />
   </div>
 </template>
 
@@ -22,6 +11,11 @@
   }
 </script>
 
-<style scoped>
-
+<style scoped lang="stylus">
+  .idea-footer
+    margin-top 60px
+    padding-top 20px
+    border-top 1px solid lightgray
+    .words
+      margin-bottom 20px
 </style>
