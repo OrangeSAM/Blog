@@ -323,7 +323,8 @@ module.exports = {
           collapsable: false, // 可选的, 默认值是 true,
           sidebarDepth: 2, // 可选的, 默认值是 1
           children: [
-            "idea_term_1"
+            "idea_term_1",
+            "idea_term_2"
           ]
         }
       ],
