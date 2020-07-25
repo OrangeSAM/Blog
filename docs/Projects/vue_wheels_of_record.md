@@ -6,14 +6,6 @@ title: 造轮子记录
 
 ## 造轮子的原因
 
-::: details 点击查看代码
-```js{1}
-console.log('你好，VuePress！')
-```
-:::
-
-{{1 + 1}}
-{{this.$page.lastUpdated}}
 由程序员要经历的几个阶段来看，
 
 1. 自学基础(实习)
@@ -65,13 +57,13 @@ TDD test driven develop
 console.assert() 如果断言为 false，则将一个错误消息写入控制台，如果断言为 true， 没有任何反应。
 
 // parcel 去打包 test 目录下的所有一级文件，不要缓存， 不要最小化，启动 karma, 只允许一次
-"test": "parcel build test/\* --no-cache --no-minify && karma start --single-run"
+"test": "parcel build test/* --no-cache --no-minify && karma start --single-run"
 
 windows 中运行这句话，需要开两个 bash 窗口，分别同时运行这两句命令
-"dev-test": "parcel watch test/\* --no-cache & karma start",
+"dev-test": "parcel watch test/* --no-cache & karma start",
 
-> 将 dev-test 对应的命令 parcel watch test/_ --no-cache & karma start 分别运行，运行方式如下
-> 新开一个 Git Bash 窗口运行 npx parcel watch test/_ --no-cache
+> 将 dev-test 对应的命令 parcel watch test/* --no-cache & karma start 分别运行，运行方式如下
+> 新开一个 Git Bash 窗口运行 npx parcel watch test/* --no-cache
 > 再开一个 Git Bash 窗口运行 npx karma start
 
 持续集成
@@ -93,30 +85,6 @@ Node.js 默认入口是 index.js，但是如果有 index.js 文件，而且不�
  var(--main-color)
 ```
 
-## input 组件
-
-组件中的 name 可写可不写？写了能在 vue 开发者工具中看到对应的标签名。
-
-vue 采用 HTML 语法，即不允许自闭合，所以当自己编写 input 组件时， 使用`<w-input />`会出现 bug。
-
-## 网格系统
-
-网格系统解决的是横向布局的问题。
-
-git branch 新建分支 多元宇宙。
-
-vue 的一些规则，不能在 template 里面些 style 代码
-
-使用 flex 布局时，即使其中的规定了宽度占 50%，且有三个子项。这样在父级没有规 flex-wrap 为 wrap 时，子项只是压缩每个的宽度而不会换行。如果要让子项换行，可以在父级设置 flex-wrap 为 wrap。如果要子项不换行还不压缩，使用 flex-shrink: no。
-
-先声明空数组并 log, 此时无论从内外看，数组都为空。再往数组里 push 内容，此时再去看 log 内容会发现，内部不为空，而外部看依然为空。
-也就是时间差的问题，log 的那一刻并没有值，而是后面添加的。
-
-重写，大调整。
-重构，持续地对代码进行微小的调整以使得代码变得更好。
-
-栅格组件就是工程师与设计师妥协以及提高效率的产物。
-
 UI 库的历史
 UI BootStrap Material
 
@@ -124,24 +92,4 @@ UI BootStrap Material
 
 对于 gutter 的实现，element 是通过 this.\$parent 获取父级的 gutter, 但这里就存在一个问题，实际使用中是不是用户一定会 el-col 写为 el-row 的直接子元素呢，也不一定。所以黄轶说用 provide 和 inject 实现。
 
-## toast 组件
 
-用例
-
-- 弹出 toast
-  - 自动关闭
-    - N 秒
-  - 点击后关闭
-  - 关闭的回调
-- 弹出第二个
-  - 保证只有一个 toast
-  - 允许多个 toast
-  
-  制作官网时遇到的问题，
-  1. 组件无法显示，，报错sass-loader，手动安装sassloader
-  2. 图标不出现，引号问题，文件引入问题
-  
-  一个组件的介绍文档需要有哪些东西
-  1. 组件的基本介绍，简短几句话
-  2. 基础用法，配以示例；各种特性的用法，配以示例；atrributes，表格呈现；slot; event注意事项
-  

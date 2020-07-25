@@ -218,12 +218,14 @@ module.exports = {
         {
           title: "Vue造轮子", // 必要的
           // path: '/about/',      // 可选的, 应该是一个绝对路径
-          collapsable: true, // 可选的, 默认值是 true,
+          collapsable: false, // 可选的, 默认值是 true,
           sidebarDepth: 2, // 可选的, 默认值是 1
           children: [
             "vue_wheels_of_record",
             "vue_wheels_button",
             "vue_wheels_layout",
+            "vue_wheels_input",
+            "vue_wheels_toast",
             "vue_wheels_popover",
             "vue_wheels_tabs",
             "vue_wheels_compos_name",
