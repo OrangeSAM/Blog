@@ -47,4 +47,4 @@ title: 一笔的闪念 | 第三期
    
 8. 有些书或者文章的介绍会写，99%的人都能看懂。那我觉得这种东西就没有看的必要。 `2020.2.23`
 
-9. 
+<commonFooter-for-idea></commonFooter-for-idea>

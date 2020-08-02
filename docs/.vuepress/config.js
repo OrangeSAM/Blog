@@ -327,7 +327,8 @@ module.exports = {
           children: [
             "idea_term_1",
             "idea_term_2",
-            "idea_term_3"
+            "idea_term_3",
+            "idea_term_4"
           ]
         }
       ],
