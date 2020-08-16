@@ -314,7 +314,8 @@ module.exports = {
             'the_rich_father_investment',
             'dog_money',
             'index_funds',
-            'charles_munger'
+            'charles_munger',
+            'replay'
           ]
         }
       ],
