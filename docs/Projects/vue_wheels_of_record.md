@@ -9,22 +9,22 @@ title: 造轮子记录
 由程序员要经历的几个阶段来看，
 
 1. 自学基础(实习)
-2. 在别人的指导下工作
-3. 独立完成工作
-4. 别人能够复用自己写的代码
-5. 有一套完整的编程方法论和代码仓库
+2. 在别人的指导下工作(初级)
+3. 独立完成工作(初级)
+4. 别人能够复用自己写的代码(中级)
+5. 有一套完整的编程方法论和代码仓库(高级)
 
 造轮子其实这里面的第四步，算是程序员进阶路上绕不开的槛。
 
 ## 造轮子的益处
 
-1. 系统而有效地提升编码水平
+1. 系统全面有效地提升编码水平
 2. 让能力不止于解决问题，更在于分析问题，更像是在做一款产品
 3. 提升自身影响力，在社区能混个"脸熟"
 
-## 工具
+## 造轮子用到的工具
 
-1. 配色 [adobe color](https://color.adobe.com/zh/create/color-wheel/) [colorhunt](https://colorhunt.co) [material palette](https://www.materialpalette.com)
+1. 配色 [adobe color](https://color.adobe.com/zh/create/color-wheel/) [Color Hunt](https://colorhunt.co) [material palette](https://www.materialpalette.com)
 2. 原型设计 [Adobe XD](https://www.adobe.com/cn/products/xd.html) [墨刀](https://modao.cc)
 
 ## 给前端的知识粗略分个类
@@ -43,7 +43,7 @@ Npm i -D parcel-bundler 加 D 的原因是给开发者用。
 
 建仓库遇到的问题
 
-在 GitHub 上新建一个仓库并包含诸如 licsence 或者 readme 等文件时，如何与本地已有 git 仓库融合。
+在 GitHub 上新建一个仓库并包含诸如 licence 或者 readme 等文件时，如何与本地已有 git 仓库融合。
 
 - 前端学习不要妄图掌握所有知识点，即不要有执念
 - 梳理做每个组件需要考虑的东西

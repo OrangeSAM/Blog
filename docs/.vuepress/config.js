@@ -56,6 +56,39 @@ module.exports = {
     sidebar: {
       '/LearnTech/': [
         {
+          title: "Vue", // 必要的
+          // path: '/about/',      // 可选的, 应该是一个绝对路径
+          collapsable: true, // 可选的, 默认值是 true,
+          sidebarDepth: 2, // 可选的, 默认值是 1
+          children: [
+            "Vue/vue_component_communication",
+            "Vue/vue_doc_record",
+            "Vue/vue_geektime",
+            "Vue/vue_router",
+            "Vue/vue_source_code_Hcysun",
+            "Vue/vue_source_code_Huangyi",
+            "Vue/vuex",
+          ]
+        },
+        {
+          title: "CSS", // 必要的
+          // path: '/about/',      // 可选的, 应该是一个绝对路径
+          collapsable: true, // 可选的, 默认值是 true,
+          sidebarDepth: 2, // 可选的, 默认值是 1
+          children: [
+            "CSS/BFC",
+            "CSS/block_inline_inlineBlock",
+            "CSS/box_module",
+            "CSS/css_font",
+            "CSS/css_hard_to_learn",
+            "CSS/flex",
+            "CSS/mobile_page",
+            "CSS/preudo",
+            "CSS/Sass",
+            "CSS/width_height",
+          ]
+        },
+        {
           title: "JavaScript", // 必要的
           // path: "/MiniProgram/" // 可选的, 应该是一个绝对路径
           collapsable: true, // 可选的, 默认值是 true,
@@ -90,39 +123,6 @@ module.exports = {
             "Javascript/this",
             "Javascript/what_is_js",
             "Javascript/js_grammar"
-          ]
-        },
-        {
-          title: "Vue", // 必要的
-          // path: '/about/',      // 可选的, 应该是一个绝对路径
-          collapsable: true, // 可选的, 默认值是 true,
-          sidebarDepth: 2, // 可选的, 默认值是 1
-          children: [
-            "Vue/vue_component_communication",
-            "Vue/vue_doc_record",
-            "Vue/vue_geektime",
-            "Vue/vue_router",
-            "Vue/vue_source_code_Hcysun",
-            "Vue/vue_source_code_Huangyi",
-            "Vue/vuex",
-          ]
-        },
-        {
-          title: "CSS", // 必要的
-          // path: '/about/',      // 可选的, 应该是一个绝对路径
-          collapsable: true, // 可选的, 默认值是 true,
-          sidebarDepth: 2, // 可选的, 默认值是 1
-          children: [
-            "CSS/BFC",
-            "CSS/block_inline_inlineBlock",
-            "CSS/box_module",
-            "CSS/css_font",
-            "CSS/css_hard_to_learn",
-            "CSS/flex",
-            "CSS/mobile_page",
-            "CSS/preudo",
-            "CSS/Sass",
-            "CSS/width_height",
           ]
         },
         {
@@ -169,23 +169,13 @@ module.exports = {
             "Browser/url_to_display",
           ]
         },
-        // {
-        //   title: "小程序", // 必要的
-        //   // path: '/about/',      // 可选的, 应该是一个绝对路径
-        //   collapsable: true, // 可选的, 默认值是 true,
-        //   sidebarDepth: 2, // 可选的, 默认值是 1
-        //   children: [
-        //     "/MiniProgram/",
-        //   ]
-        // },
         {
-          title: "Flutter", // 必要的
+          title: "小程序", // 必要的
           // path: '/about/',      // 可选的, 应该是一个绝对路径
           collapsable: true, // 可选的, 默认值是 true,
           sidebarDepth: 2, // 可选的, 默认值是 1
           children: [
-            "Flutter/flutter_geektime",
-            "Flutter/flutter_learn",
+            "/MiniProgram/",
           ]
         },
         {
@@ -195,6 +185,16 @@ module.exports = {
           sidebarDepth: 2, // 可选的, 默认值是 1
           children: [
             "Dart/dart_primary",
+          ]
+        },
+        {
+          title: "Flutter", // 必要的
+          // path: '/about/',      // 可选的, 应该是一个绝对路径
+          collapsable: true, // 可选的, 默认值是 true,
+          sidebarDepth: 2, // 可选的, 默认值是 1
+          children: [
+            "Flutter/flutter_geektime",
+            "Flutter/flutter_learn",
           ]
         },
 
