@@ -85,6 +85,7 @@ module.exports = {
             "CSS/mobile_page",
             "CSS/preudo",
             "CSS/Sass",
+            "CSS/css_img_stretch",
             "CSS/width_height",
           ]
         },
