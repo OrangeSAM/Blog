@@ -330,7 +330,8 @@ module.exports = {
             "idea_term_1",
             "idea_term_2",
             "idea_term_3",
-            "idea_term_4"
+            "idea_term_4",
+            "idea_term_5"
           ]
         }
       ],
