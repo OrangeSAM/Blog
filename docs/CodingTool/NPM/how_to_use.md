@@ -1,3 +1,6 @@
+---
+title: NPM的使用
+---
 安装好后  包放在工程目录下的node_modules目录中，因此在代码中只需要通过require('…')方式来引入
 
 包的安装分为本地安装local  全局安装 global 
@@ -13,6 +16,9 @@ Npm list --depth 1 查看顶层级列表
 
 强制删除非空目录
 Rm -rf sams[目录名]
+
+本地npm I 的时候，dependcy 和devdependcy里的依赖都会安装。
+
 
 
 查看某个包的信息

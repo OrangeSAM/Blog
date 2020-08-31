@@ -56,3 +56,11 @@ Git pull origin master --allow-unrelated-histories
 https://blog.csdn.net/wd2014610/article/details/80854807
 
 https://github.community/t5/How-to-use-Git-and-GitHub/How-to-deal-with-quot-refusing-to-merge-unrelated-histories-quot/td-p/12619
+
+
+### 分支切换与合并
+git checkout -b hot-fix-sam 切换到新分支
+
+如右图，先切换新分支，git checkout -b
+完事把feature分支合并到新分支，git merge feature ---
+处理完冲突，可push，然后在远端处理合并
