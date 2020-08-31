@@ -209,7 +209,7 @@ module.exports = {
           children: [
             "make_blog_with_vuepress",
             "page_screenshot",
-            "Node.js_getArticle",
+            "node_getArticle",
             "node_todo",
             "puppeteer_get_image",
             "yibi_calendar",
