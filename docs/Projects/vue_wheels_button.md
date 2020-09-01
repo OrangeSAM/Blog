@@ -1,5 +1,5 @@
 ---
-title: 造轮子之button组件
+title: Vue造轮子之button组件
 ---
 ### 开发前的设计
 研究`element`和`Ant design`文档后，了解到按钮主要有以下可以配置的属性及功能。横线以上为当前组件库已实现的特性。
@@ -21,7 +21,7 @@ title: 造轮子之button组件
 ## 效果
 ![](https://i.loli.net/2020/08/23/693B2DiJM1XTbcf.gif)
 
-## Attributes
+## 属性
 1. **icon**, 按钮的图标名称，限定类型为字符串。
 
 2. **disabled**，按钮是否为禁用状态，限定类型为Boolean，默认false。

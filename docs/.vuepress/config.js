@@ -227,6 +227,7 @@ module.exports = {
             "vue_wheels_of_record",
             "vue_wheels_button",
             "vue_wheels_layout",
+            "vue_wheels_grid",
             "vue_wheels_input",
             "vue_wheels_toast",
             "vue_wheels_popover",
