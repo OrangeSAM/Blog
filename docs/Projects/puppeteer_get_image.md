@@ -1,5 +1,5 @@
 ---
-title: 使用Puppeteer获取网页上的图片
+title: Puppeteer获取前端页面数据
 ---
 ## 业务上的需求
 
@@ -40,7 +40,7 @@ class todoController extends Controller {
 
 在 todoController 中可以对参数进行校验，校验通过后调用 service 进行业务处理。
 
-在 addTodoItem 中的一般性代码如下：
+在 todoController 中的一般性代码如下：
 
 ```
 try {
@@ -58,3 +58,56 @@ try {
     // service 部分出现问题
 }
 ```
+
+## Service
+
+以下为service中的主要代码，注释都在里头了。
+
+```javascript
+
+url = targetUrl(
+  `${config.webUrl}/exam/report/chart`,
+  {
+    userId: data.userId,
+    userName: data.userName,
+    userType: data.userType
+  }
+)
+// target为截图页面URL，自行配置。
+page.goto(url)
+
+// 进入页面后通过evaluate方法向页面注入请求传来的数据
+// 通过window这个公共桥梁，可以使得两端能够通信
+page.evaluate(score => {
+  // eslint-disable-next-line no-undef
+  window.chartData = score
+  // if (data.token) {
+  //   // eslint-disable-next-line no-undef
+  //   window.token = data.token
+  // }
+  setTimeout(() => {
+    // eslint-disable-next-line no-undef
+    window.startRender()
+  }, 1000) 
+  // 为了解决一个怪异的问题，延迟执行页面端的渲染
+  // startRender 是页面端提供的渲染方法，等待注入数据后，开始渲染页面
+}, data)
+
+// 等待页面渲染完成 #render-finish
+// 持续监听目标页面的相关DOM元素的display情况，如果未true，则可以认定渲染完成
+page.waitForSelector('#renderFinish', {visible: true, timeout: 1000 * 60})
+
+// 获取渲染完之后，上传至OSS的URL
+const ossUrl = page.evaluate(() => {
+  // eslint-disable-next-line no-undef
+  return window.ossUrl
+})
+
+page.close()
+browser.disconnect()
+
+logger.info('word报告图片渲染完成')
+return ossUrl
+```
+
+前端页面就相对简单了，就只是个工具人，一切都被Node端安排的明明白白。
