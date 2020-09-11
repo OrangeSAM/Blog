@@ -1,5 +1,5 @@
 ---
-title: 造轮子记录
+title: Vue造轮子之开篇言
 ---
 [[toc]]
 
@@ -31,13 +31,15 @@ title: 造轮子记录
 
 - 工具 `scss webpack parcel vuecli babel`
 
+- 抽象 `代码组织 流程化 设计模式 前端工程化`
+
 - 语言特性 `promise css 选择器 html 语义化 框架 语言也分框架和原生`
 
-- 抽象 `代码组织 流程化 设计模式 前端工程化`
+- ...
 
 ## 其他知识
 
-有关开源许可证，查看阮一峰文章。
+开原许可，详细参考阮一峰相关[文章](https://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html)
 
 Npm i -D parcel-bundler 加 D 的原因是给开发者用。
 

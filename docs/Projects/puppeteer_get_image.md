@@ -1,5 +1,5 @@
 ---
-title: Puppeteer获取前端页面数据
+title: Puppeteer 获取前端页面数据
 ---
 ## 业务上的需求
 

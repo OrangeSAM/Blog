@@ -21,7 +21,7 @@ cheerio, puppeteer
 
 ### 获取链接
 先上这部分代码
-```
+```javascript
 const getHref = function () {
     let file = fs.readFileSync('./index.html').toString()
     const $ = cheerio.load(file)
@@ -45,7 +45,7 @@ const getHref = function () {
 
 ### 存为PDF
 同样，先上这部分代码。
-```
+```javascript
 const saveToPdf = function () {
     async () => {
         const browser = await puppeteer.launch({
@@ -102,7 +102,7 @@ const saveToPdf = function () {
 
 这个时候就要用到 page 类中的`$eval`方法，`$eval`方法主要有两个参数，一是选择器，二是在浏览器上下文中执行的函数。$eval方法会页面中运行document.querySelector方法，并将其返回值传递给第二个参数，也就是我们写好的方法中。以获取新浪网页文章title为例，`title`为传入选择器，我们需要的是其标签内容。
 
-```
+```javascript
  pageTitle = await page.$eval('title', el => el.innerHTML)
 ```
 

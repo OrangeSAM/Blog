@@ -1,9 +1,10 @@
 ---
-title: 网页截图的实现
+title: 网页截图的两种方式
 ---
-## 需求
 
-上礼拜做了一个需求：将网页上的内容按顺序保存为图片，并上传至OSS返回URL给后端生成PPT。这里主要分享如何将网页的上的内容保存为图片。至于保存为图片之后的事，比如直接保存为本地，或者上传至服务器等，这里就不探索了。
+## 需求
+上礼拜做了一个需求：将网页上的内容按顺序保存为图片，并上传至OSS返回URL给后端生成PPT。这里主要分享如何将网页的上的内容保存为图片。
+至于保存为图片之后的事，比如直接保存为本地，或者上传至服务器等，这里就不探索了。
 
 ## 实现
 
@@ -13,40 +14,40 @@ html2canvas是一个实现网页截图的库，允许你直接在用户浏览器
 如官网所说的，它的使用非常之简单。
 
 ```bash
-	npm install html2canvas
-	import html2canvas from 'html2canvas'
-    
-    html2canvas(document.body).then(function(canvas) {
-    	document.body.appendChild(canvas);
-	});
+npm install html2canvas
+import html2canvas from 'html2canvas'
+
+html2canvas(document.body).then(function(canvas) {
+    document.body.appendChild(canvas);
+});
 ```
 实际上只要一行代码就能拿到转换好的canvas数据，`await html2canvas(the element you want to convert)`。
 
 > 我的示例代码
 ```HTML
-    <button @click="shot">click me to convert</button>
-    <div>below here are something that i want to take them to screenshot</div>
-    <div class="wrap" ref="wrap">
-      <div>尤雨溪说，看不懂文档你就回家去喂猪吧。IE说，你们都看我干嘛。</div>
-      <img alt="Vue logo" src="../assets/logo.png" />
-    </div>
+<button @click="shot">click me to convert</button>
+<div>below here are something that i want to take them to screenshot</div>
+<div class="wrap" ref="wrap">
+  <div>尤雨溪说，看不懂文档你就回家去喂猪吧。IE说，你们都看我干嘛。</div>
+  <img alt="Vue logo" src="../assets/logo.png" />
+</div>
 ```
 ```javascript
-    async shot() {
-      let ele = this.$refs["wrap"];
-      let canvas = await html2canvas(ele);
-      var img = canvas.toDataURL("image/png");
-      this.debugBase64(img);
-    },
-    // 这个方法会将渲染好的图片在新页面打开。
-    debugBase64(base64URL) {
-      var win = window.open();
-      win.document.write(
-        '<iframe src="' +
-          base64URL +
-          '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>'
-      );
-    },
+async function shot(){
+  let ele = this.$refs["wrap"];
+  let canvas = await html2canvas(ele);
+  var img = canvas.toDataURL("image/png");
+  this.debugBase64(img);
+},
+// 这个方法会将渲染好的图片在新页面打开。
+debugBase64(base64URL) {
+  var win = window.open();
+  win.document.write(
+    '<iframe src="' +
+      base64URL +
+      '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>'
+  );
+},
 ```
 效果如下图所示：
 ![](https://i.loli.net/2020/05/17/8GWBVvXzb4OfLk5.png)

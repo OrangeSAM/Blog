@@ -210,11 +210,11 @@ module.exports = {
           sidebarDepth: 4, // 可选的, 默认值是 1
           children: [
             "make_blog_with_vuepress",
+            "yibi_calendar",
             "page_screenshot",
             "node_getArticle",
             "node_todo",
             "puppeteer_get_image",
-            "yibi_calendar",
             "music_bulk_download",
           ]
         },
@@ -224,7 +224,7 @@ module.exports = {
           collapsable: false, // 可选的, 默认值是 true,
           sidebarDepth: 2, // 可选的, 默认值是 1
           children: [
-            "vue_wheels_of_record",
+            "vue_wheels_start",
             "vue_wheels_button",
             "vue_wheels_layout",
             "vue_wheels_grid",
