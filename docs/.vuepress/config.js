@@ -285,7 +285,8 @@ module.exports = {
           collapsable: false, // 可选的, 默认值是 true,
           sidebarDepth: 2, // 可选的, 默认值是 1
           children: [
-            "Webpack/webpack_geektime"
+            "Webpack/webpack_geektime",
+            "Webpack/webpack_lagou",
           ]
         }
       ],
@@ -334,7 +335,8 @@ module.exports = {
             "idea_term_2",
             "idea_term_3",
             "idea_term_4",
-            "idea_term_5"
+            "idea_term_5",
+            "idea_term_6",
           ]
         }
       ],
