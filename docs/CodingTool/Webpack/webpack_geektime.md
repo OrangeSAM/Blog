@@ -10,7 +10,7 @@ title: 玩转Webpack
 5. 图片压缩
 
 ## 4. 前端构建演变之路
-ant + YUI tool => grunt => fis3 gulp => rollup webpack parcel
+`ant + YUI tool => grunt => fis3 gulp => rollup webpack parcel`
 
 ## 5. 为什么选择webpack
 1. 社区生态丰富
@@ -49,11 +49,11 @@ Mode用来指定当前的构建环境是：production development 还是none。
 `none` 不开启任何优化项
 webpack 4才有的。
 
-## 15. 解析ECMAScript 6 和 React JSX
+## 15. 解析`ECMAScript 6 `和 `React JSX`
 
 ## 16. 解析CSS、Less和Sass
 css-loader 用于加载.css文件，并且转换CommonJs对象
-style-loader 将样式通过<style>标签插入到head中
+style-loader 将样式通过`<style>`标签插入到head中
 
 ## 17. 解析图片和字体
 file-loader 用于处理文件
@@ -64,6 +64,7 @@ file-loader 用于处理文件
 webpack 开启监听模式，有两种方式。
 - 在启动webpack命令时，带上--watch参数
 - 在配置webpack.config.js中设置watch: true
+
 
 文件监听的原理
 轮询判断文件的最后编辑时间是否发生变化。
