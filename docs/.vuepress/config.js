@@ -337,6 +337,7 @@ module.exports = {
             "idea_term_4",
             "idea_term_5",
             "idea_term_6",
+            "idea_term_7",
           ]
         }
       ],
