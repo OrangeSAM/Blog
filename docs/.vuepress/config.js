@@ -268,7 +268,8 @@ module.exports = {
           children: [
             "Git/git&github",
             "Git/how_to_keep_sync_with_fork_project",
-            "Git/how_to_use_git"
+            "Git/how_to_use_git",
+            "Git/git_geektime"
           ]
         },
         {
@@ -320,7 +321,8 @@ module.exports = {
             'dog_money',
             'index_funds',
             'charles_munger',
-            'replay'
+            'replay',
+            'value_what_i_thought_during_the_investment'
           ]
         }
       ],
