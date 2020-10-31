@@ -299,6 +299,16 @@ module.exports = {
           sidebarDepth: 2, // 可选的, 默认值是 1
           children: [
             "cycling_taiwan",
+            "anything_about_wechat",
+            "cheerio-readme",
+            "command_line_trick",
+            "cycling_taiwan",
+            "frame_lib_sdk",
+            "get_outdoor_info",
+            "interview",
+            "interview_summary",
+            "MVC、MVP&MVVM",
+            "wechatread_use",
             "FEwechater",
             "make_blog",
             "bug_analysis",

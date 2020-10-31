@@ -1,5 +1,5 @@
 ---
-title: 软件架构中的MVC、MVP和MVVM
+title: MVC、MVP和MVVM
 ---
 
 ## `MVC ``
