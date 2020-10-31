@@ -2,8 +2,14 @@
 title: Vue造轮子之popover组件
 ---
 
+popover组件，实现上拍脑袋一想的话，其实很简单，主要是两部分组成，一是触发器，而是显示的内容，通过触发器和其他条件来判断是否显示内容区就Ok了。
+
+但做完会发现，拍脑袋拍出来的都是坑。下面一一分解。
+
+
 ## 代码实现
 **demo版本**
+
 ```html
   <div class='popover' @click='wrapClick'>
     <div class='content-wrapper' v-if='visible'>
@@ -31,6 +37,18 @@ wrapClick () {
 ```
 组件内部包含两部分，按钮和要显示的内容。在最外层添加点击事件，点击显示内容部分，再次点击隐藏内容。
 位置上将外层包裹容器定位设为`position: relative`，内容部分定位设置`position: absolute`。
+示例如下(不知codesandbox有没有被限制)：
+
+<div>   
+    <iframe src="https://codesandbox.io/embed/exciting-stallman-klzsf?fontsize=14&hidenavigation=1&theme=dark"
+         style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+         title="exciting-stallman-klzsf"
+         allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+         sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+       ></iframe>
+</div>
+
+## 遇到的各式问题
 
 ### body点击
 **问题1.** 点击body应该也能将内容部分隐藏。
@@ -145,3 +163,8 @@ this.$refs.content.style.left = left + window.scrollX + 'px';
 this.$refs.content.style.top = top + window.scrollY 'px';
 ```
 在计算content的位置时，需要考虑到可视区域和页面高度的问题。screenX 和scrollX的区别在于?
+
+但即便完成这些，相比ElementUI的Popover组件，也还是很多没实现的地方。这里就不放源码一一比较了。
+
+## 最终效果
+![](https://i.loli.net/2020/10/25/1RqJY6gWQsX9SZf.gif)
