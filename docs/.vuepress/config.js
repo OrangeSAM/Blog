@@ -311,6 +311,7 @@ module.exports = {
             "wechatread_use",
             "FEwechater",
             "make_blog",
+            "the_thanks_to_zcl",
             "bug_analysis",
             "wrong"
           ]
