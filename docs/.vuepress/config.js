@@ -333,7 +333,8 @@ module.exports = {
             'index_funds',
             'charles_munger',
             'replay',
-            'value_what_i_thought_during_the_investment'
+            'value_what_i_thought_during_the_investment',
+            'how_to_do_well_in_internet'
           ]
         }
       ],
