@@ -2,6 +2,7 @@ module.exports = {
   title: '刘一笔的博客',
   description: '博客，日常记录，JavaScript，CSS，LeetCode，Node，HTTP',
   serviceWorker: true,
+  base: '/blog/',
   plugins: ['@vuepress/back-to-top', '@vuepress/pwa', require('./plugin')],
   head: [ // 注入到当前页面的 HTML <head> 中的标签
     ['link', {rel: 'icon', href: '/logo.jpg'}],// 增加一个自定义的 favicon(网页标签的图标)
