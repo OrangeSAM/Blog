@@ -1,4 +1,35 @@
 ---
 title: 从输入URL到展示页面发生的事
 ---
-: https://www.cnblogs.com/xianyulaodi/p/6547807.html#_labelTop
+https://www.cnblogs.com/xianyulaodi/p/6547807.html#_labelTop
+
+DNS解析
+    递归查询
+        浏览器缓存 => 本级host => 家里的路由器 => 城市的路由器 => 继续向上层查找 => 顶级域名
+    迭代查询
+        自己挨个问
+    缓存
+        找到后会缓存，除Host外
+        浏览器缓存，路由器缓存，IPS服务器缓存，根域名服务器缓存，顶级域名服务器缓存
+    DNS 负载均衡
+        将用户导向不同的IP，以用不同的服务器来响应
+
+发起TCP链接
+    三次握手，有点像去拜访别人家，先敲门看有没人在（syn_send状态），有人答应后（syn_recv状态），就准备进门（established状态）
+    必须三次是为了保证有序，两次无法得到服务端的状态
+
+发起HTTP请求
+
+服务器处理
+？
+
+浏览器解析渲染
+    HTML标记
+    style/link 标记
+    script 标记
+    DOM 树和 CSSOM树合并成一个渲染树
+    根据渲染树来计算布局，计算每个节点的几何信息
+    将每个节点绘制到页面上
+连接结束
+    四次挥手
+ 
