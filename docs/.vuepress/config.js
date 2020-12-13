@@ -337,7 +337,8 @@ module.exports = {
             'replay',
             'value_what_i_thought_during_the_investment',
             'how_to_do_well_in_internet',
-            'civilization_modernization_valueInvestment_china'
+            'civilization_modernization_valueInvestment_china',
+            'life_efficiency'
           ]
         }
       ],
