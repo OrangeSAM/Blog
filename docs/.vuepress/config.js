@@ -315,7 +315,8 @@ module.exports = {
             "the_thanks_to_zcl",
             "get_my_money_back",
             "bug_analysis",
-            "wrong"
+            "wrong",
+            "try_to_touch_the_market"
           ]
         }
       ],
