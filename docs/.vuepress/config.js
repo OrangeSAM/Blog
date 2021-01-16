@@ -206,7 +206,8 @@ module.exports = {
           collapsable: true,
           sidebarDepth: 2,
           children: [
-            "NetCourse/office_ability"
+            "NetCourse/office_ability",
+            "NetCourse/FEer_advance"
           ]
         }
       ],
@@ -323,7 +324,8 @@ module.exports = {
             "get_my_money_back",
             "bug_analysis",
             "wrong",
-            "try_to_touch_the_market"
+            "try_to_touch_the_market",
+            'life_efficiency'
           ]
         }
       ],
@@ -345,8 +347,7 @@ module.exports = {
             'replay',
             'value_what_i_thought_during_the_investment',
             'how_to_do_well_in_internet',
-            'civilization_modernization_valueInvestment_china',
-            'life_efficiency'
+            'civilization_modernization_valueInvestment_china'
           ]
         }
       ],

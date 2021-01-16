@@ -20,7 +20,7 @@ title: JavaScript核心原理精讲
 
 null == undefined // true
 // 解析
-// 如果其中一个操作值是null或者undefined，那么另一个操作符必须为null或者undefined，才会返回true，否则都返回false
+// 对于'=='，如果其中一个操作值是null或者undefined，那么另一个操作符必须为null或者undefined，才会返回true，否则都返回false
 
 Number(null) // 0
 // 规定，记着就好了
@@ -33,3 +33,7 @@ parseInt('') // NaN
 // 解析： 对象在作为操作数时，解释器总是优先调用valueOf()， 而其他情况，解释器总是认为我们想要的是字符串，所以会优先调用toString() 因此对象在前面返回结果就是Number;其他情况对象默认用toString
 10 + {} // 10[object Object]
 ```
+
+*强制类型转换的方法*
+
+`Number(), String(), Boolean, ParseInt, ParseFloat, toString()`
