@@ -201,7 +201,14 @@ module.exports = {
             "Flutter/flutter_learn",
           ]
         },
-
+        {
+          title: '网课',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            "NetCourse/office_ability"
+          ]
+        }
       ],
       '/Projects/': [
         {
