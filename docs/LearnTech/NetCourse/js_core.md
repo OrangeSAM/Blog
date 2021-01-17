@@ -40,6 +40,8 @@ parseInt('') // NaN
 
 ## 基本功测试之深浅拷贝
 
+引用与浅拷贝的区别就在于： 对第一层数据是否依旧修改后互相影响。
+
 ### 浅拷贝的方法
 - Object.assign()
 - ...
@@ -106,3 +108,12 @@ function deepClone(obj) {
   return cloneObj
 }
 ```
+
+*你写的每一行代码都是需要经过深思熟虑并且非常清晰明白的，这样你才能经得住面试官的推敲。*
+
+- 改进版
+上面两种版本中尚待解决的问题：
+1. 针对能够遍历对象的不可枚举属性以及symbol类型，我们可以使用reflect.ownKeys方法；
+2. 当参数为Date、RegExp类型，则直接生成一个新的实例返回。
+3. 利用Object的getOwnPropertyDescriptors方法可以获得对象的所有属性，以及对应的特性，顺便结合Object的create方法创建一个新对象，并继承传入原对象的原型链
+4. 利用 WeakMap 类型作为 Hash 表，因为 WeakMap 是弱引用类型，可以有效防止内存泄漏（你可以关注一下 Map 和 weakMap 的关键区别，这里要用 weakMap），作为检测循环引用很有帮助，如果存在循环，则引用直接返回 WeakMap 存储的值。
