@@ -109,11 +109,65 @@ function deepClone(obj) {
 }
 ```
 
-*你写的每一行代码都是需要经过深思熟虑并且非常清晰明白的，这样你才能经得住面试官的推敲。*
+**你写的每一行代码都是需要经过深思熟虑并且非常清晰明白的，这样你才能经得住面试官的推敲。**
 
 - 改进版
+
 上面两种版本中尚待解决的问题：
 1. 针对能够遍历对象的不可枚举属性以及symbol类型，我们可以使用reflect.ownKeys方法；
 2. 当参数为Date、RegExp类型，则直接生成一个新的实例返回。
 3. 利用Object的getOwnPropertyDescriptors方法可以获得对象的所有属性，以及对应的特性，顺便结合Object的create方法创建一个新对象，并继承传入原对象的原型链
 4. 利用 WeakMap 类型作为 Hash 表，因为 WeakMap 是弱引用类型，可以有效防止内存泄漏（你可以关注一下 Map 和 weakMap 的关键区别，这里要用 weakMap），作为检测循环引用很有帮助，如果存在循环，则引用直接返回 WeakMap 存储的值。
+
+
+## 继承的六种方式
+
+`Object.create()`，用于创建一个新对象，且新对象的__proto__等于所提供的现有的对象。
+```javascript
+let sam = {
+  name: 'sam'
+}
+let a = Object.create(sam)
+a//打印出a为一个空对象，其上一级原型为对象sam
+__proto__:
+    name: "sam"
+    __proto__:
+// 如果想通过先给a赋值，再使用object.create改变其原型，那么不会有用。我的理解是再赋值就有点字面量的感觉了，会覆盖掉之前的赋值。
+// 如果想在改变a原型的时候，同时给a设置属性，需要用到第二个参数。
+let b = Object.create(sam, {
+  name: {
+    value: 'b'
+  }
+})
+b//
+name: "cc"
+    __proto__:
+        name: "sam"
+        __proto__
+
+// 创建一个没有原型的对象
+let c = Object.create(null, {
+  name: {
+    value: 'cc'
+  }
+})
+let c = {}
+c.__proto__ = null
+```
+### 原型链继承
+```javascript
+function Parent1() {
+    this.name = 'parent1';
+    this.play = [1, 2, 3]
+}
+
+function Child1() {
+    this.type = 'child2';
+}
+
+Child1.prototype = new Parent1();
+
+console.log(new Child1());
+```
+不明白的点：
+1. 对于一个函数来说，prototype和__proto__的差别

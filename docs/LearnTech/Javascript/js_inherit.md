@@ -21,10 +21,9 @@ title: 继承
 而现在的`create`是直接将新创建对象的原型指向create方法的参数。
 ```javascript
 let a = {a: 1}; 
-// a --> Object.prototype --> null
 
 let b = Object.create(a);
-// b --> a --> Object.prototype --> null
+
 console.log(b.a); 
 // 1 (继承而来)
 ```
@@ -176,15 +175,14 @@ constructor 方法是一个特殊的方法，其用于创建和初始化使用cl
 实例化和继承是两个不同的概念
 其中的称呼是  类和实例 & 父类和子类
 
----
+```javascript
 function dialog(target) {
     this.dialog = target
     // 默认return this
     // 如果手动return 值类型，会被忽略
     // 如果手动return 引用类型，会覆盖默认的
 }
-
---- 
+``` 
 
 什么是原型对象，和对象区别在于？
 

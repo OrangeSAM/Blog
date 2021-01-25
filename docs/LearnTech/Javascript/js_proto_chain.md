@@ -80,16 +80,37 @@ person instanceOf Object   // true
 
 ---
 ```javascript
-object.__proto__ === Object.prototype
-fn.__proto__ === Function.prototype
+Object.__proto__.__proto__ === Object.prototype
+fn.__proto__ === Function.prototype // (此处假定fn是某构造函数的实例)
 fn.__proto__.__proto__ === Object.prototype
 array.__proto__ === Array.prototype
 array.__proto__.__proto__ === Object.prototype
 Function.__proto__ === Object.__proto__ || Function.__proto__===Funtion.prototype
 // 因为他自己可以构造自己，前者对的原因是因为 Function.__proto__ 指向 Object.prototype，
-//而Object.__proto__也指向Object.prototype，所以？ 但好像原因本身就错掉了。
+// 而Object.__proto__也指向Object.prototype，所以？ 但好像原因本身就错掉了。
 Array.__proto__ === Object.__proto__ || Function.prototype
 Object.__proto__ === Function.prototype
-true.__proto__ === Boolean.prototype
+true.__proto__ === Boolean.prototype // 对象字面量的背后也是构造函数
 Function.prototype.__proto__ === Object.prototype
 ```
+
+---
+
+2021.1.24 补充
+prototype是原型对象，__proto__是对象原型
+
+设置和获取原型对象，
+Object.setPrototypeOf
+Object.getPrototypeOf
+
+instanceOf运算符用于检测构造函数的prototype属性是否出现在某个实例对象的原型链上。
+isPrototypeOf()方法用于测试一个对象是否存在另一个对象的原型链上。
+
+in 操作符还会检测原型链上是否存在指定属性
+```javascript
+let a = {}
+Object.prototype.heihei = 33
+"heihei" in a // true
+```
+
+Object.create

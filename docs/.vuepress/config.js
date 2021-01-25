@@ -207,7 +207,8 @@ module.exports = {
           sidebarDepth: 2,
           children: [
             "NetCourse/office_ability",
-            "NetCourse/FEer_advance"
+            "NetCourse/FEer_advance",
+            "NetCourse/js_core"
           ]
         }
       ],
@@ -325,7 +326,8 @@ module.exports = {
             "bug_analysis",
             "wrong",
             "try_to_touch_the_market",
-            'life_efficiency'
+            'life_efficiency',
+            'the_cognition_gain_in_market'
           ]
         }
       ],
