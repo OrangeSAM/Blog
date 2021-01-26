@@ -66,6 +66,7 @@ Function instanceOf Object // true
 Array instanceOf = Object  // true
 let person = {name: 'sam'}
 person instanceOf Object   // true
+Object.getPrototypeOf(Object.prototype)
 ```
 > instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。
 
@@ -114,3 +115,23 @@ Object.prototype.heihei = 33
 ```
 
 Object.create
+```javascript
+function User() {
+    
+}
+function Admin() {
+    
+}
+let a = new Admin()
+
+Admin.prototype = Object.create(User.prototype)
+
+Admin.prototype.role = function() {
+    console.log('admin.role')
+}
+a.role()
+// 这样会报错，因为先实例化的a所能访问到Admin.prototype不拥有role方法，role方法存在create方法返回的新的原型对象上。
+// 如果换成这句就不会报错，因为只是在原来原型的基础上修改，即只是改了Admin.prototype的__proto__指向，由指向Object.prototype改为指向User.prototype
+Admin.prototype.__proto__ = Object.create(User.prototype
+
+```
