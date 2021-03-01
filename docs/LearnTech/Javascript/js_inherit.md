@@ -65,6 +65,7 @@ function Human (obj = {}) {
 
 Human.prototype = Object.create(Animal.prototype) // 这个写法只会拿到其原型上的属性
 // Human.prototype = new Animal() // 这个写法会导致私有属性重复
+// 2021.1.26 但是发现使用create会导致constructor属性的丢失
 
 Human.prototype.species = '人类';
 Human.prototype.toolUse = function() {

@@ -215,3 +215,19 @@ for(var i=1;i<=5;i++){
 }
 
 ```
+
+## 数组原理
+
+1. 伪数组转数组的几个方式
+```javascript
+Array.prototype.slice.call(arguments);
+
+args = [].slice.call(arguments);
+
+Array.prototype.concat.apply([], arguments);
+
+args = Array.from(arguments);
+
+args = [...arguments];
+
+```

@@ -132,6 +132,6 @@ Admin.prototype.role = function() {
 a.role()
 // 这样会报错，因为先实例化的a所能访问到Admin.prototype不拥有role方法，role方法存在create方法返回的新的原型对象上。
 // 如果换成这句就不会报错，因为只是在原来原型的基础上修改，即只是改了Admin.prototype的__proto__指向，由指向Object.prototype改为指向User.prototype
-Admin.prototype.__proto__ = Object.create(User.prototype
+Admin.prototype.__proto__ = Object.create(User.prototype)
 
 ```
