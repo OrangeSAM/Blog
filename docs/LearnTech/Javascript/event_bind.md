@@ -1,5 +1,5 @@
 ---
-title: 事件绑定
+title: JS | 事件绑定
 ---
 https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener
 

@@ -1,5 +1,5 @@
 ---
-title: call apply bind
+title: JS | call apply bind
 ---
 ## call
 apply方法调用一个函数，其具有一个指定的this值，以及作为一个数组提供参数。

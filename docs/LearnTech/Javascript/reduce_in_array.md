@@ -1,5 +1,5 @@
 ---
-title: 数组中的reduce方法
+title: JS | reduce
 ---
 reduce 函数接受4个参数
 accumulator acc 累计器

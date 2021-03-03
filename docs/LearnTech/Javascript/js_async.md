@@ -1,5 +1,5 @@
 ---
-title: JS异步
+title: JS | 异步
 ---
 单线程模型
 单线程模型指的是，JavaScript只在一个线程上运行，即JavaScript只能同时执行一个任务，其他任务都必须在后面排队等待。

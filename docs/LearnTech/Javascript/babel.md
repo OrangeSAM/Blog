@@ -1,5 +1,5 @@
 ---
-title: babel
+title: JS | babel
 ---
 babel是一个广泛使用的es6转码器，可以将es6代码转换为es5代码。
 Babel的配置文件是.babelrc，存放在项目的根目录下，该文件用来设置转码规则和插件。

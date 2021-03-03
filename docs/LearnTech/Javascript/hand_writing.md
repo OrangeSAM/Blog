@@ -1,15 +1,6 @@
 ---
-title: 各种手写
+title: JS | 各种手写
 ---
-
-<!--
- * @Author: Sam Liu
- * @LastEditors: Sam Liu
- * @Description: 各种手写
- * @Date: 2021-01-14 20:01:17
- * @LastEditTime: 2021-01-14 20:25:08
--->
-
 1. 手写`instanceof`
 
 ```javascript

@@ -1,5 +1,5 @@
 ---
-title: let 和 const
+title: JS | let & const
 ---
 ## 有JavaScript以来声明变量的四种方式
 

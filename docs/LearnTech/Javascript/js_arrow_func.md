@@ -1,5 +1,5 @@
 ---
-title: 箭头函数
+title: JS | 箭头函数
 ---
 不写花括号的同时也不能写return，但可以有花括号没有return，会自动加上undefined。
 this是call的第一个参数。

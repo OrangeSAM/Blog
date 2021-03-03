@@ -69,6 +69,44 @@ module.exports = {
             "Vue/vue_source_code_Hcysun",
             "Vue/vue_source_code_Huangyi",
             "Vue/vuex",
+            "Vue/element_ui",
+            "Vue/virtual_dom",
+          ]
+        },
+        {
+          title: "JavaScript", // 必要的
+          // path: "/MiniProgram/" // 可选的, 应该是一个绝对路径
+          collapsable: true, // 可选的, 默认值是 true,
+          sidebarDepth: 2,    // 可选的, 默认值是 1
+          children: [
+            "Javascript/apply_call_bind",
+            "Javascript/event_bind",
+            "Javascript/event_loop_translate",
+            "Javascript/babel",
+            "Javascript/filter_in_array",
+            "Javascript/forin_forof",
+            "Javascript/func_declare_expression",
+            "Javascript/hand_writing",
+            "Javascript/Iterator_generator",
+            "Javascript/js_arrow_func",
+            "Javascript/js_async",
+            "Javascript/js_dataType",
+            "Javascript/js_datatype_convert",
+            "Javascript/js_destructuring_assign",
+            "Javascript/js_excute_context",
+            "Javascript/js_inherit",
+            "Javascript/js_new",
+            "Javascript/js_new_api",
+            "Javascript/js_oop",
+            "Javascript/js_proto_chain",
+            "Javascript/let_const_interview",
+            "Javascript/new_string",
+            "Javascript/property_modification",
+            "Javascript/reduce_in_array",
+            "Javascript/this",
+            "Javascript/what_is_js",
+            "Javascript/tool_function",
+            "Javascript/js_grammar"
           ]
         },
         {
@@ -88,43 +126,6 @@ module.exports = {
             "CSS/Sass",
             "CSS/css_img_stretch",
             "CSS/width_height",
-          ]
-        },
-        {
-          title: "JavaScript", // 必要的
-          // path: "/MiniProgram/" // 可选的, 应该是一个绝对路径
-          collapsable: true, // 可选的, 默认值是 true,
-          sidebarDepth: 2,    // 可选的, 默认值是 1
-          children: [
-            "Javascript/apply_call_bind",
-            "Javascript/event_bind",
-            "Javascript/babel",
-            "Javascript/FCC",
-            "Javascript/filter_in_array",
-            "Javascript/forin_forof",
-            "Javascript/func_declare_expression",
-            "Javascript/Iterator_generator",
-            "Javascript/Jsdeep",
-            "Javascript/js_arrow_func",
-            "Javascript/js_async",
-            "Javascript/js_dataStructure_algoritem",
-            "Javascript/js_dataType",
-            "Javascript/js_datatype_convert",
-            "Javascript/js_destructuring_assign",
-            "Javascript/js_excute_context",
-            "Javascript/js_false_nowcoder",
-            "Javascript/js_inherit",
-            "Javascript/js_new",
-            "Javascript/js_new_api",
-            "Javascript/js_oop",
-            "Javascript/js_proto_chain",
-            "Javascript/let_const_interview",
-            "Javascript/new_string",
-            "Javascript/property_modification",
-            "Javascript/reduce_in_array",
-            "Javascript/this",
-            "Javascript/what_is_js",
-            "Javascript/js_grammar"
           ]
         },
         {
@@ -208,7 +209,8 @@ module.exports = {
           children: [
             "NetCourse/office_ability",
             "NetCourse/FEer_advance",
-            "NetCourse/js_core"
+            "NetCourse/js_core",
+            "NetCourse/js_deep",
           ]
         }
       ],
