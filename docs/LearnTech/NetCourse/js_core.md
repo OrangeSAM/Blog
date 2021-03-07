@@ -231,3 +231,81 @@ args = Array.from(arguments);
 args = [...arguments];
 
 ```
+
+## 数组排序
+
+时间复杂度由小到大：`O(1) => O(log n) => O(n) => O(n log n) => O(n^2) => O(2^n) => O(n!)`，尽量不要超过n^2
+
+![排序算法](https://s0.lgstatic.com/i/image/M00/94/A8/CgqCHmAZALyAd98RAAE5AoAl_us191.png)
+
+### 冒泡排序
+效率低
+冒泡排序中i 计算是第几趟，还是前后坐标中的一个
+```javascript
+// 我这里算的就是第几趟，还需要再研究下课程里的代码
+let a = [9,2,46,23,99]
+let bubbleSort = (arr) => {
+  // 优化
+  const len = arr.length
+  if (len < 2) return
+  for(let i = 0; i < len; i++) {
+    for (let j = 0; j < i - 1; j++) {
+      if (arr[j] > arr[j+1]) {
+        let temp = a[j]
+        arr[j] = arr[j+1] 
+        arr[j+1] = temp
+      }
+    }
+  }
+  return arr
+}
+console.log(bubbleSort(a))
+```
+
+### 快速排序
+```javascript
+// 我觉得比较容易理解的
+// 要有递归思想，reclusive
+let a = [92,12,34,83,2,922]
+
+let quickSort = (arr) => {
+  if (arr.length <= 1) return arr
+  let pivot = Math.floor(arr.length / 2)
+  let pivotVal = arr.splice(pivot, 1)[0]
+  let left = [], right = []
+  arr.forEach(e => {
+    if (e < pivotVal) {
+      left.push(e)
+    } else {
+      right.push(e)
+    }
+  })
+  return quickSort(left).concat(pivotVal).concat(quickSort(right))
+}
+
+console.log(quickSort(a))
+```
+
+### 选择排序
+找出最小的值，和第一项交换
+除开第一项，再找出最小的值，和第一项交换
+
+```javascript
+let a = [92, 12, 34, 83, 2, 922]
+
+let selectSort = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    let minIndex = i
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[minIndex]) {
+        minIndex = j
+      }
+    }
+    // 结构赋值，快速交换
+    [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]]
+  }
+  return arr
+}
+
+console.log(selectSort(a))
+```
