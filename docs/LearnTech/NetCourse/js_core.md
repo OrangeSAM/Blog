@@ -33,7 +33,7 @@ parseInt('') // NaN
 // 解析： 对象在作为操作数时，解释器总是优先调用valueOf()， 而其他情况，解释器总是认为我们想要的是字符串，所以会优先调用toString() 因此对象在前面返回结果就是Number;其他情况对象默认用toString
 10 + {} // 10[object Object]
 ```
-
+`Object.prototype.toString.call()// 判断数据类型`
 *强制类型转换的方法*
 
 `Number(), String(), Boolean, ParseInt, ParseFloat, toString()`
@@ -286,6 +286,31 @@ let quickSort = (arr) => {
 console.log(quickSort(a))
 ```
 
+```javascript
+// 错误代码示范
+// 问题出在取pivot值的时候，直接取了值，没有splice，这样留下中值就会在后面比较的时候遇到问题
+// 以如下代码为例，在进行到第三轮的时候，pivot为3131，此时没有任何值大于3131，包括他自身，这样会陷入quickSort(right)的死循环
+// 如果添加等于大于等于处理，仍然会遇到问题，在进行到第二轮的时候，21为left的中指，而由于等于号，也会进入left的死循环
+let a2 = [2,29,292,38,21,3131,44,1]
+
+let quickSort = (arr) => {
+  if (arr.length < 2) return arr
+  let pivot = arr[Math.floor(arr.length / 2)]
+  console.log(pivot,222)
+  let left = [], right = []
+  arr.forEach(e => {
+    if (e > pivot) {
+      left.push(e)
+    } else {
+      right.push(e)
+    }
+  })
+  console.log(left, right)
+  return quickSort(left).concat(quickSort(right))
+}
+console.log(quickSort(a2))
+```
+
 ### 选择排序
 找出最小的值，和第一项交换
 除开第一项，再找出最小的值，和第一项交换
@@ -309,3 +334,10 @@ let selectSort = (arr) => {
 
 console.log(selectSort(a))
 ```
+
+## JS异步编程
+- 回调函数
+- 事件监听
+- promise
+- Generator
+- async/await

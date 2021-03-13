@@ -1,5 +1,5 @@
 ---
-title: Vue造轮子之栅格系统
+title: Vue造轮子之layout组件
 ---
 
 ## 网格系统

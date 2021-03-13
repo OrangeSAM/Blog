@@ -106,7 +106,8 @@ module.exports = {
             "Javascript/this",
             "Javascript/what_is_js",
             "Javascript/tool_function",
-            "Javascript/js_grammar"
+            "Javascript/js_grammar",
+            "Javascript/advanced_program_design"
           ]
         },
         {
