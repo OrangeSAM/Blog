@@ -81,10 +81,11 @@ Function.prototype.call = function (context, ...args) {
 5. apply的实现
 ```javascript
 Function.prototype.apply = function (context, args) {
-  let context = context || window;
-  context.fn = this;
-  let result = eval('context.fn(...args)');
-  delete context.fn
+  let contexts; 
+  contexts=context || window;
+  contexts.fn = this;
+  let result = eval('contexts.fn(...args)');
+  delete contexts.fn
   return result;
 }
 ```
@@ -108,5 +109,85 @@ Function.prototype.bind = function (context, ...args) {
 
   return fbound;
 }
+```
+
+7. 深拷贝的实现
+```javascript
+// 判断是不是复杂类型，其实就是判断数据类型是不是object，但有两个例外要考虑，一个例外是null要排除，一个例外是function要包含。
+const isComplexDataType = (obj) => (typeof obj === "object" || typeof obj === "function") && obj !== null;
+
+// 深拷贝的核心方法
+const deepClone = function (obj, hash = new WeakMap()) {
+  // 日期对象直接返回一个新的日期对象
+  if (obj.constructor === Date) return new Date(obj);
+  // 正则对象直接返回一个新的正则对象
+  if (obj.constructor === RegExp) return new RegExp(obj); 
+
+  // 如果循环引用了就用 weakMap 来解决
+  if (hash.has(obj)) return hash.get(obj);
+
+  // getOwnPropertyDescriptors方法返回指定对象上一个自有属性对应的属性描述符
+  let allDesc = Object.getOwnPropertyDescriptors(obj);
+
+  //遍历传入参数所有键的特性，Object.create方法创建一个新对象，使用现有的对象来提供新创建对的__proto__
+  let cloneObj = Object.create(Object.getPrototypeOf(obj), allDesc);
+
+  //继承原型链
+  hash.set(obj, cloneObj);
+
+  for (let key of Reflect.ownKeys(obj)) {
+    cloneObj[key] =
+      isComplexDataType(obj[key]) && typeof obj[key] !== "function"
+        ? deepClone(obj[key], hash)
+        : obj[key];
+  }
+
+  return cloneObj;
+};
+
+// 下面是验证代码
+
+let obj = {
+  num: 0,
+
+  str: "",
+
+  boolean: true,
+
+  unf: undefined,
+
+  nul: null,
+
+  obj: { name: "我是一个对象", id: 1 },
+
+  arr: [0, 1, 2],
+
+  func: function () {
+    console.log("我是一个函数");
+  },
+
+  date: new Date(0),
+
+  reg: new RegExp("/我是一个正则/ig"),
+
+  [Symbol("1")]: 1,
+};
+
+Object.defineProperty(obj, "innumerable", {
+  enumerable: false,
+  value: "不可枚举属性",
+});
+
+obj = Object.create(obj, Object.getOwnPropertyDescriptors(obj));
+
+obj.loop = obj; // 设置loop成循环引用的属性
+
+let cloneObj = deepClone(obj);
+
+cloneObj.arr.push(4);
+
+console.log("obj", obj);
+
+console.log("cloneObj", cloneObj);
 
 ```

@@ -19,7 +19,7 @@ title: 图片拉伸的解决方案
 **居中**
 图片按照原大小，整体居中处于包裹区水平垂直居中。
 
-以上效果总结至windows的桌面壁纸设置项，不一定全，欢迎大家补充。另外，也并不一定和CSS中概念一致。
+以上效果总结至windows的桌面壁纸设置项，不一定全。当然，也并不一定和CSS中概念一致。
 
 如下图所示，这就是图片拉伸的效果。本是一个长图，但硬是塞在了一个不等比的矩形区域内。
 ![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d960861d93344882beb4409adfd59f8b~tplv-k3u1fbpfcp-zoom-1.image)
@@ -27,7 +27,7 @@ title: 图片拉伸的解决方案
 
 图片拉伸的问题在日常的开发中也很常见，即便你会温柔地提示用户“请上传770 * 450 大小或符合此比例的图片”，然而还是会遇到没按照上传的情况。下面分享两种处理图片拉伸的解决方案。废话少说，先上[代码](https://codepen.io/Samliu/pen/ZEWLxGj)。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/301d13f019d544b4ad79551af41b095a~tplv-k3u1fbpfcp-zoom-1.image)
+![](https://i.loli.net/2021/03/14/1D8dMyeN3ArKslJ.png)
 
 
 ## background 属性
@@ -112,5 +112,5 @@ title: 图片拉伸的解决方案
 - initial, 设置默认值。
 - inherit, 从该元素的父元素继承属性。
 
-这里的`cover`和`contain`与上面在`background-size`中说到的还是较为一致的，而`fill`的效果就是我们想解决的问题。确切的效果体验还是到编辑器中会好一些，点击[这里](https://codepen.io/Samliu/pen/ZEWLxGj)。
+这里的`cover`和`contain`与上面在`background-size`中说到的还是较为一致的，而`cover`的效果就是我们想解决的问题。确切的效果体验还是到编辑器中会好一些，点击[这里](https://codepen.io/Samliu/pen/ZEWLxGj)。
 
