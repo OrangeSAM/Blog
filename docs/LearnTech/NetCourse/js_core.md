@@ -369,3 +369,40 @@ chrome的v8引擎将堆内存分为两类，新生代的回收机制和老生代
     - 减少不必要的全局变量，使用严格模式避免意外创建全局变量
     - 使用完数据后，及时解除引用（闭包中的变量，DOM引用，定时器清除）
     - 优化代码逻辑
+    
+## 事件轮询：如何理解浏览器中EventLoop
+- 事件轮询是JS引擎做的事
+
+- JS引擎背后在同时运转的东西
+    
+    - 调用堆栈 call stack 负责跟踪所有要执行的代码，调用堆栈存储要被执行的函数
+    - 事件队列 event queue 负责将新的function发送到调用堆栈中处理
+    - 每当调用事件队列 event queue 中的异步函数时，都会将其发送到浏览器API
+        - 比如 settimeout，API会一直等到指定的时间后再将此操作（我理解为函数）送会事件队列处理
+            - 在这里来说，我的理解是JS引擎不管计时的问题，他只管函数的执行，计时的事交给浏览器去做。
+            - 而浏览器计时不准的原因也出现在这里，当“此操作被送回事件队列时”，事件队列如果还有还有别的事件待处理，耗时或多或少都会导致计时器的不准，所以不是计时器算的不准，是在执行的时候被迫不准
+    - JS语言本身是单线程的，而浏览器API充当单独的线程
+        - 事件循环促进了这一过程
+        - 它会不断检查调用堆栈是否为空，如果为空，则从事件队列中添加新的函数进入调用堆栈 call stack；
+        - 如果不为空，则处理当前函数的调用？疑惑，主语问题，主语是call stack 还是线程？
+        现在的疑惑，什么控制了从队列添加到调用栈，因为他说有的话就不加，但是我们又会遇到调用栈有很多个函数的情况
+        那是不是call stack也不一定被退路，也有主动拉入的情况，比如在函数里面调用了另一个函数
+        
+        事件队列 任务队列 两种叫法没大差别，意思一样，重点在队列
+    
+    ![事件循环EventLoop逻辑](https://s0.lgstatic.com/i/image6/M00/17/43/CioPOWBHaz-AIvXzAAMjXUqLjBw024.png)    
+    e.g
+    ```javascript
+    function fn() {
+      setTimeout(() => {
+        console.log('sam')
+      }, 1000)
+    }
+    ```
+    以如上代码理解调用堆栈和事件队列以及浏览器API的运转，首先函数fn出现在事件队列event queue 中，
+
+    - Evenloop 内部通过两个队列来实现Event Queue放进来的异步任务。
+        - 以settimeout为代表的任务被称为宏任务，放到宏任务队列 macrotask queue，又还包括 script（整体代码）、settInterval、setImmediate、I/O，UI rendering， event listener
+        - 以promise为代表的的微任务被称为微任务，放到微任务队列 microtask queue，又还包括 process.nextTick，Object.observe，MutationObserver
+    
+    - 一次EventLoop会处理一个宏任务和所有这次循环中产生的微任务
