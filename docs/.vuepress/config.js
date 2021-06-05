@@ -203,6 +203,7 @@ module.exports = {
             "NetCourse/FEer_advance",
             "NetCourse/js_core",
             "NetCourse/js_deep",
+            "NetCourse/fe_attack",
           ]
         }
       ],

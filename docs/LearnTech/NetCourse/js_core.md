@@ -406,3 +406,35 @@ chrome的v8引擎将堆内存分为两类，新生代的回收机制和老生代
         - 以promise为代表的的微任务被称为微任务，放到微任务队列 microtask queue，又还包括 process.nextTick，Object.observe，MutationObserver
     
     - 一次EventLoop会处理一个宏任务和所有这次循环中产生的微任务
+
+```javascript
+// 一段没有理解的代码
+async function a() {
+    console.log('a')
+    await b()
+    console.log('a end')
+}
+
+async function b() {
+    console.log('b')
+}
+
+a()
+
+setTimeout(function () {
+    console.log('setTimeout')
+}, 0)
+
+new Promise(function (resolve, reject) {
+    console.log('promise')
+    resolve()
+}).then(function () {
+    console.log('then')
+})
+
+console.log('main end')
+```
+
+## 引擎进阶（上）：探究宏任务 & 微任务
+- 微任务就是一个需要异步执行的函数，执行时机是在主函数执行结束之后、当前宏任务结束之前。
+- 咋
