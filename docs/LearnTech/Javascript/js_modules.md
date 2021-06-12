@@ -38,21 +38,20 @@ title: JavaScript 和 Node.js 中的模块化
 #### AMD、CMD、UMD等等
 此处略去不做展开，大部分都已成为早期开发者的记忆。后文主要分享 CommonJs 和 ES Modules 。
 
+## 正当时的模块化方案
+
 ### CommonJS
 
-Node.JS体系下的模块化方案。
+CommonJS是一系列标准规范的统称，ServerJS(Modules/0.1) => CommonJS(Modules/1.0) => Modules/1.1，Node.JS体系下的模块化即采用Modules/1.0方案实现。
 
-Modules/1.0，即CommonJS的标准规范
-1. 模块的标识应遵循一定的书写原则
-2. 定义全局函数 require(dependency)，通过传入模块标识来引入其他依赖模块，执行的结果即为别的模块暴露出来的API
 
-CommonJS是一系列标准规范的统称，ServerJS(Modules/0.1) => CommonJS(Modules/1.0) => Modules/1.1
+在CommonJS中，模块的加载机制是，
+输入的是被输出的值的拷贝，也就是说，一旦输出一个值，模块内部的变化就影响不到这个值。
 
-CommonJS模块的加载机制是，输入的是被输出的值的拷贝。也就是说，一旦输出一个值，模块内部的变化就影响不到这个值。
+在CommonJS中，module代表整个模块，exports代表对外暴露的属性。
 
-在common.js中，module代表整个模块，exports代表对外暴露的属性。通过打印可以发现，module是一个对象，而exports是其中的一个属性。
+CommonJS中导出引入的基本语法：
 
-CommonJs导出引入的基本语法：
 对于导出，有两种写法
 ```javascript
 // 一
@@ -76,7 +75,19 @@ const math = require('./math')
 math.add(1, 1)
 ```
 
-在node中，模块系统为.js文件默认添加了导出引入相关的代码
+Node.js实现模块化的关键在于，在一个模块的代码被执行之前，Node.js都会为其包裹上一层如下的函数
+```javascript
+(function(exports, require, module, __filename, __dirname) {
+// Module code actually lives in here
+});
+```
+这样，能够将模块内的变量，无论let const，还是var 声明的，隔绝在模块内部而不是暴露全局作用域中。
+
+此外，这样还为模块内部提供了类全局的变量，比如module、require以及exports，以便进行模块化相关的操作；
+
+最后，还提供了两个常用的__filename和__dirname变量，这也是我们在Node.js中不用声明就可以使用它们的原因。
+
+在Node.js中，模块系统为js文件默认添加了导出引入相关的代码
 ```javascript
 let module = {
   exports: {
@@ -90,18 +101,19 @@ let exports = module.exports
 // 最终导出的是module.exports
 return module.exports
 ```
-这一点可以通过在模块中打印module得到印证，如下图，在打印的module对象，有一个key为exports值为空对象的字段。
+这一点可以通过在模块中打印module得到印证，如下图，在打印的module对象中，有一个key为exports值为空对象的字段。
 
 ![](https://i.loli.net/2021/06/06/XnmWPNqzRp9sgjQ.png)
 
 common.js的特点是
 - 所有代码都运行在模块作用域，不会污染全局作用域，模块可以多次加载，但只会在加载的时候运行一次，然后运行结果就被缓存了，以后再加载的，直接读取缓存结果
 - 模块的加载顺序，是按照代码出现的顺序同步加载的
+- 模块输入的值是复制（基础类型为复制，引用类型为值引用），也就是说，一旦输出一个值，模块内部的变化就影响不到这个值。
 
 
 **exports 与 module.exports 的关系**
 
-在如下代码中，导入test.js 只会得到`getSome`函数，即便在test.js 内部的打印中可以看到`module`的`exports`属性是`getSome`函数
+在如下代码中，导入test.js 只会得到`getSome`函数，即便在test.js 内部的打印中可以看到`exports`属性的值是`getNum`函数
 
 ```javascript
 // test.js
@@ -120,6 +132,7 @@ console.log('-------------------------------')
 ```
 
 其实也很好理解，在common.js中 exports 和 module.exports 是指向同一块内存的，即`exports => {} <=module.exports.`，exports 只是 module.exports 的快捷方式罢了。
+module.exports直接等于一个函数的话，即主动将其与`exports`的关系解除绑定。
 
 这一点，在早期的[官方文档](https://nodejs.org/docs/latest-v0.12.x/api/modules.html)中亦有过解释。如下图所示
 
@@ -187,7 +200,42 @@ module.exports/exports 只有node支持的导出
 
 5. ES Modules 在Node.js的问题
 
+### ES Modules
+ES6 模块的设计思想是尽量的静态化，使得编译时就能确定模块的依赖关系（node.js有编译的过程吗），以及输入输出的变量。
+commonJS和AMD模块都只能在运行时确定这些东西，比如，CommonJS 模块就是对象，输入时必须查找对象属性。
+```javascript
+// CommonJS模块
+let { stat, exists, readfile } = require('fs');
+
+// 等同于
+let _fs = require('fs');
+let stat = _fs.stat;
+let exists = _fs.exists;
+let readfile = _fs.readfile;
+```
+
+上面代码的实质是整体加载fs模块（即加载fs的所有方法），生成一个对象（_fs），然后再从这个对象上面读取 3 个方法。
+这种加载称为“运行时加载”，因为只有运行时才能得到这个对象，导致完全没办法在编译时做“静态优化”。
+
+而ES module的模块不是对象，而是通过export命令显式指定输出的代码，再通过import命令输入。
+
+// ES6模块
+import { stat, exists, readFile } from 'fs';
+上面代码的实质是从fs模块加载 3 个方法，其他方法不加载。这种加载称为“编译时加载”或者静态加载，即 ES6 可以在编译时就完成模块加载，效率要比 CommonJS 模块的加载方式高。
+当然，这也导致了没法引用 ES6 模块本身，因为它不是对象。
+
+ES6的模块自动采用严格模式，那如何确定这就是一个ES6模块呢。
+```javascript
+foo();
+
+import { foo } from 'my_module';
+```
+
+上面的代码不会报错，因为import的执行早于foo的调用。这种行为的本质是，import命令是编译阶段执行的，在代码运行之前。
 
 ## 参考文章
 
 [module.exports和exports的区别](https://segmentfault.com/a/1190000021438613)
+https://segmentfault.com/a/1190000010426778
+https://juejin.cn/post/6844903744518389768#heading-8
+https://juejin.cn/post/6844903744518389768#heading-8

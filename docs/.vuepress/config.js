@@ -88,6 +88,7 @@ module.exports = {
             "Javascript/func_declare_expression",
             "Javascript/hand_writing",
             "Javascript/Iterator_generator",
+            "Javascript/js_modules",
             "Javascript/js_arrow_func",
             "Javascript/js_async",
             "Javascript/js_dataType",
@@ -107,7 +108,7 @@ module.exports = {
             "Javascript/what_is_js",
             "Javascript/tool_function",
             "Javascript/js_grammar",
-            "Javascript/advanced_program_design"
+            "Javascript/advanced_program_design",
           ]
         },
         {
@@ -344,7 +345,8 @@ module.exports = {
             'replay',
             'value_what_i_thought_during_the_investment',
             'how_to_do_well_in_internet',
-            'civilization_modernization_valueInvestment_china'
+            'civilization_modernization_valueInvestment_china',
+            'xiaoping_cushijian'
           ]
         }
       ],
