@@ -234,7 +234,7 @@ import { foo } from 'my_module';
 上面的代码不会报错，因为import的执行早于foo的调用。这种行为的本质是，import命令是编译阶段执行的，在代码运行之前。
 
 ## 参考文章
-
+https://huangxuan.me/2015/07/09/js-module-7day/
 [module.exports和exports的区别](https://segmentfault.com/a/1190000021438613)
 https://segmentfault.com/a/1190000010426778
 https://juejin.cn/post/6844903744518389768#heading-8
