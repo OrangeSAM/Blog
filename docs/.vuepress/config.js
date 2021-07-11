@@ -176,6 +176,15 @@ module.exports = {
             "Browser/cache",
           ]
         },
+        {
+          title: "开课吧", // 必要的
+          // path: '/about/',      // 可选的, 应该是一个绝对路径
+          collapsable: true, // 可选的, 默认值是 true,
+          sidebarDepth: 2, // 可选的, 默认值是 1
+          children: [
+            "Kaikeba/chapter_2",
+          ]
+        },
         // {
         //   title: "小程序", // 必要的
         //   // path: '/about/',      // 可选的, 应该是一个绝对路径
