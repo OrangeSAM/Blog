@@ -125,7 +125,9 @@ set getters(v) {
 ---
 
 ## 2. 手写Vue
-
+更新dom的两种策略
+1. 一块视图对应一个updater，数据更新，对应的视图就会被更新
+2. 使用虚拟dom，更新视图的事交给patch去解决 // patch(oldvdom, vdom)
 数据响应式原理
 Object.defineProperty()
 Vue.util.defineReactive()
@@ -146,46 +148,11 @@ new Vue({
 |-vue
   |-.circleci
   |-.git
-  |  |-hooks
-  |  |-info
-  |  |-logs
-  |  |  |-refs
-  |  |  |  |-heads
-  |  |  |  |-remotes
-  |  |  |  |  |-origin
-  |  |-objects
-  |  |  |-info
-  |  |  |-pack
-  |  |-refs
-  |  |  |-heads
-  |  |  |-remotes
-  |  |  |  |-origin
-  |  |  |-tags
   |-.github
-  |  |-ISSUE_TEMPLATE
   |-.idea
-  |  |-inspectionProfiles
   |-benchmarks
-  |  |-big-table
-  |  |-dbmon
-  |  |  |-lib
-  |  |-reorder-list
-  |  |-ssr
-  |  |-svg
-  |  |-uptime
   |-dist
   |-examples // 范例
-  |  |-commits
-  |  |-elastic-header
-  |  |-firebase
-  |  |-grid
-  |  |-markdown
-  |  |-modal
-  |  |-move-animations
-  |  |-select2
-  |  |-svg
-  |  |-todomvc
-  |  |-tree
   |-flow
   |-packages // 核心代码之外的独立库
   |  |-vue-server-renderer
@@ -233,45 +200,26 @@ new Vue({
   |  |-sfc
   |  |-shared
   |-test
-  |  |-e2e
-  |  |  |-specs
-  |  |-helpers
-  |  |-ssr
-  |  |  |-fixtures
-  |  |-unit
-  |  |  |-features
-  |  |  |  |-component
-  |  |  |  |-directives
-  |  |  |  |-filter
-  |  |  |  |-global-api
-  |  |  |  |-instance
-  |  |  |  |-options
-  |  |  |  |-transition
-  |  |  |-modules
-  |  |  |  |-compiler
-  |  |  |  |-observer
-  |  |  |  |-server-compiler
-  |  |  |  |-sfc
-  |  |  |  |-util
-  |  |  |  |-vdom
-  |  |  |  |  |-modules
-  |  |  |  |  |-patch
-  |  |-weex
-  |  |  |-cases
-  |  |  |  |-event
-  |  |  |  |-recycle-list
-  |  |  |  |  |-components
-  |  |  |  |-render
-  |  |  |-compiler
-  |  |  |-helpers
-  |  |  |-runtime
-  |  |  |  |-components
-  |-types
+   |-types
   |  |-test
 
 ```
 
 运行时和编译器又是啥
+
+|  版本\模块化方式         | UMD       | CommonJS              | ES Module(基于构建工具使用) | ES Module(直接用于浏览器) | 
+| ---- | ---- | ---- | ---- | ---- |
+|  完整版                 | vue.js              | vue.common.js         | vue.esm.js                | vue.esm.browser.js      |
+|  只包含运行时版          | vue.runtime.js      | vue.runtime.common.js | vue.runtime.esm.js        | -                       |
+|  完整版(生产环境)        | vue.min.js          | -                     | -                         | vue.esm.browser.min.js  |
+|  只包含运行时版(生产环境) | vue.runtime.min.js  | -                     | -                         | -                       |
+
+- *完整版*： 同时包含编译器和运行时的版本
+- *编译器*： 用来将模板字符串编译成为JavaScript渲染函数的代码
+- *运行时*： 用来创建Vue实例，渲染并处理虚拟DOM等的代码，基本就是出去编译器的其他一切
+- *UMD*  ： UMD版本可以通过<script>标签直接用在浏览器上
+- *CommonJS*：CommonJS版本用来配合老的打包工具比如Browserify 或webpack1，这些打包工具的默认文件pkg.main是只包含运行时的CommonJS版本(Vue.runtime.common.js)
+- *ES Module*： 为打包工具提供的ESM(webpack2、Rollup)；为浏览器提供的ESM
 
 浏览器快捷键
 打开文件 ctrl + p
@@ -282,3 +230,8 @@ render > template > el
 ## Vue2源码剖析02
 
 ## Vue2源码剖析03
+
+
+
+## 6.Vue组件化实践
+slotProps

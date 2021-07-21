@@ -214,6 +214,7 @@ module.exports = {
             "NetCourse/js_core",
             "NetCourse/js_deep",
             "NetCourse/fe_attack",
+            "NetCourse/geektime_git",
           ]
         }
       ],
