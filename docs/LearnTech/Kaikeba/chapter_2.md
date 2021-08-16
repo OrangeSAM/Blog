@@ -74,7 +74,7 @@ title: Vue.js全家桶及源码剖析
     但又感到迷惑的是，每个子组件上都直接的拥有$router属性，本以为是挂载Vue的原型上，顺着原型链去获取使用的，#迷惑
 
 ### 作业
-1. 解决router无线循环的问题
+1. 解决router无限循环的问题
 
 
 
@@ -141,7 +141,7 @@ new Vue({
 依赖收集  
 
 
-## Vue2源码剖析01
+## 3. Vue2源码剖析01
 ```markdown
 
 .
@@ -161,35 +161,25 @@ new Vue({
   |  |  |-types
   |  |-weex-template-compiler
   |  |-weex-vue-framework
-  |-scripts
+  |-scripts // 构建脚本
   |  |-git-hooks
-  |-src
+  |-src // 源码
   |  |-compiler // 编译器相关
   |  |  |-codegen
   |  |  |-directives
   |  |  |-parser
   |  |-core // 核心代码，重要
   |  |  |-components // 通用组件如keep-alive
-  |  |  |-global-api // 全局api
+  |  |  |-global-api // 全局api Vue.component
   |  |  |-instance // 构造函数
-  |  |  |  |-render-helpers 
   |  |  |-observer // 响应式相关
   |  |  |-util
   |  |  |-vdom // 虚拟dom
-  |  |  |  |-helpers
-  |  |  |  |-modules
   |  |-platforms
   |  |  |-web
   |  |  |  |-compiler
-  |  |  |  |  |-directives
-  |  |  |  |  |-modules
   |  |  |  |-runtime
-  |  |  |  |  |-components
-  |  |  |  |  |-directives
-  |  |  |  |  |-modules
   |  |  |  |-server
-  |  |  |  |  |-directives
-  |  |  |  |  |-modules
   |  |  |  |-util
   |  |  |-weex
   |  |-server
@@ -200,7 +190,7 @@ new Vue({
   |  |-sfc
   |  |-shared
   |-test
-   |-types
+  |-types // ts 类型声明，上面flow是针对flow的类型声明
   |  |-test
 
 ```
@@ -216,16 +206,45 @@ new Vue({
 
 - *完整版*： 同时包含编译器和运行时的版本
 - *编译器*： 用来将模板字符串编译成为JavaScript渲染函数的代码
-- *运行时*： 用来创建Vue实例，渲染并处理虚拟DOM等的代码，基本就是出去编译器的其他一切
-- *UMD*  ： UMD版本可以通过<script>标签直接用在浏览器上
+- *运行时*： 用来创建Vue实例，渲染并处理虚拟DOM等的代码，基本就是除去编译器的其他一切
+- *UMD*  ： UMD版本可以通过`<script>`标签直接用在浏览器上
 - *CommonJS*：CommonJS版本用来配合老的打包工具比如Browserify 或webpack1，这些打包工具的默认文件pkg.main是只包含运行时的CommonJS版本(Vue.runtime.common.js)
 - *ES Module*： 为打包工具提供的ESM(webpack2、Rollup)；为浏览器提供的ESM
+
+1. 为啥webpack打包不需要编译器版本的？21.45
+
+
+2. 把new vue到页面渲染的全流程写下来，直到页面呈现
+
+3. 各种文件
+    - src/platforms/web/entry-runtime-with-compiler.js
+        - 打包入口文件，拓展$mount
+    - src/platforms/web/runtime/index.js 
+        - 安装平台特有patch函数，patch作用是将vdom转换为dom
+            - init 完整创建
+            - update diff oldvnode & vnode
+        - 实现挂载方法
+    - src/core/index.js
+        - 初始化所有全局API Vue.component/filter
+    - src/core/instance/index.js
+        - 声明Vue
+    - src/core/instance/init.js
+        - 初始化Vue
+    - src/core/instance/lifecycle.js
+        - 挂载
+        - updateComponent
+        - new Watcher 一个组件一个watcher
+        - 执行render获得虚拟dom
+        - patch => dom
 
 浏览器快捷键
 打开文件 ctrl + p
 运行命令 ctrl + shift + p
 D:\Repo\openSource\famous\vue\src\platforms\web\entry-runtime-with-compiler.js // 打包入口文件
 render > template > el
+
+
+
 
 ## Vue2源码剖析02
 
@@ -235,3 +254,17 @@ render > template > el
 
 ## 6.Vue组件化实践
 slotProps
+
+
+## Vue2源码剖析03
+
+1. 父子组件的创建挂载
+- 创建过程自上而下
+- 挂载过程自下而上
+- 异步组件另当别论
+parent
+    created
+    child
+        created
+        mounted
+    mounted

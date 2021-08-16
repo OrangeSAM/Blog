@@ -1,0 +1,12 @@
+---
+title: web性能优化
+---
+
+
+### preload prefetch preconnect
+
+https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf
+https://3perf.com/blog/link-rels/
+https://blog.fundebug.com/2019/04/11/understand-preload-and-prefetch/
+https://www.keycdn.com/blog/resource-hints
+https://developer.chrome.com/docs/devtools/network/reference/
