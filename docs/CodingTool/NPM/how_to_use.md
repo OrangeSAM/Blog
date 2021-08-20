@@ -49,3 +49,9 @@ npm hooks
 
 npm scripts 使用指南 - 阮一峰的网络日志
 http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html
+
+
+Cnpm 为了解决的问题是在国内下载国外服务器上的npm包慢的问题
+
+如果仅仅是为了下载的包的速度有提升，直接使用cnpm 和 把npm的registry设置为"https://registry.npm.taobao.org/ 是一样的
+
