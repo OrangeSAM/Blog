@@ -55,3 +55,19 @@ Cnpm 为了解决的问题是在国内下载国外服务器上的npm包慢的问
 
 如果仅仅是为了下载的包的速度有提升，直接使用cnpm 和 把npm的registry设置为"https://registry.npm.taobao.org/ 是一样的
 
+---
+
+如何获取命令行的输入
+cross-env是为了设置跨平台变量而存在的。
+process变量携带了命令执行的信息。
+process.argv，属性返回数组，
+- 第一个元素是process.execPath，命令的发起方（node
+- 第二个参数是正在执行的JavaScript文件的路径，命令的执行方（vue-cli-service
+- 后面的都是命令行参数
+  -（serve
+  -（--open open跟openpage有关系吗
+
+
+process.env
+- BUILD_ARGVS
+- Node_ENV

@@ -321,8 +321,6 @@ module.exports = {
             "cycling_taiwan",
             "frame_lib_sdk",
             "get_outdoor_info",
-            "interview",
-            "interview_summary",
             "MVC、MVP&MVVM",
             "wechatread_use",
             "FEwechater",
@@ -378,6 +376,20 @@ module.exports = {
             "idea_term_9",
             "idea_term_10",
             "idea_term_11",
+          ]
+        }
+      ],
+      '/Interview/': [
+        {
+          title: "面经", // 必要的
+          // path: '/about/',      // 可选的, 应该是一个绝对路径
+          collapsable: false, // 可选的, 默认值是 true,
+          sidebarDepth: 2, // 可选的, 默认值是 1
+          children: [
+            "interview",
+            "interview_summary",
+            "nowcoder_record",
+            "零散的记录"
           ]
         }
       ],
