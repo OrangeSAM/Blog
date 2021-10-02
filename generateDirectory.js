@@ -48,9 +48,6 @@ generateDirectory(path)
 // 如果不生成默认的数组兜底，就会导致在有目录的情况下，直接子文件不知放置何处
 function generateDirectory (dir) {
   function handleDirectory(err, res) {
-
-  }
-  fs.readdir(dir, function (err, res) {
     if (err) {
       console.log(err)
     } else {
@@ -110,21 +107,22 @@ function generateDirectory (dir) {
                   finalConfig[`/${dirSplitArr[2]}/`] = currentConfig
 
                   console.log(finalConfig)
+                  fs.writeFileSync('directoryConfig.js', JSON.stringify(finalConfig))
                 }
               }
             })
           })
         }
       }
+
       // 需要去除的目录
       removeArrItem(res, '.vuepress')
 
       // 处理获取到的目录
       judgeDir(res)
-
-      return finalConfig
     }
-  })
+  }
+  fs.readdir(dir, handleDirectory)
 }
 
 
