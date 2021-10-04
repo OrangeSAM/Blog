@@ -76,16 +76,10 @@ function generateDirectory (dir) {
 
           Array.prototype.forEach.call(innerRes, childDir => {
             fs.stat(`${dir}/${childDir}`, function (err, res) {
-
-
               if (res.isDirectory()) {
                 // 参数都是字符串
                 judgeDir(`${dir}/${childDir}`)
               } else {
-                // 当前目录的配置
-                let currentConfig = []
-
-
                 // ['.', 'docs']
                 // ['.', 'docs', 'CodingTool']
                 // 除了docs目录下直接子文件readme.md，disSplitArr都至少会有三个元素
@@ -96,18 +90,38 @@ function generateDirectory (dir) {
 
                 // 处理最终配置的key
                 if (dirSplitArr[2]) {
-                  childrenConfig.push(targetStr)
+                  if (targetStr.indexOf('readme') === -1) {
+                  } else {
+                    // 为readme的情况，直接返回不处理
+                    return
+                  }
+                  // 当前目录的配置
+                  let currentConfig
+                  if (typeof finalConfig[`/${dirSplitArr[2]}/`] !== 'undefined') {
+                    currentConfig = finalConfig[`/${dirSplitArr[2]}/`]
+                    let obj = currentConfig.find(e => {
+                      return e.title === dirSplitArr[3] ? dirSplitArr[3] : dirSplitArr[2]
+                    })
+                    console.log('obj', obj)
+                    obj.children.push(targetStr)
+                  } else {
+                    currentConfig = []
+                    // 对于目录title的修正，
+                    let title = dirSplitArr[3] ? dirSplitArr[3] : dirSplitArr[2]
 
-                  currentConfig.push({
-                    title: `${dirSplitArr[3]}`,
-                    collapsable: true,
-                    sidebarDepth: 4,
-                    children: childrenConfig
-                  })
+                    childrenConfig.push(targetStr)
+                    currentConfig.push({
+                      title,
+                      collapsable: true,
+                      sidebarDepth: 4,
+                      children: childrenConfig
+                    })
+                  }
                   finalConfig[`/${dirSplitArr[2]}/`] = currentConfig
 
-                  console.log(finalConfig)
-                  fs.writeFileSync('directoryConfig.js', JSON.stringify(finalConfig))
+                  fs.writeFileSync('directoryConfig4.js', JSON.stringify(finalConfig))
+                } else {
+                  // doc 下的直接子文件readme的情况会走到这
                 }
               }
             })
