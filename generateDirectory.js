@@ -38,7 +38,7 @@ const fs = require('fs')
 
 // 文件名
 const timeNow = new Date()
-let generateTime = `${timeNow.getMonth() + 1}.${timeNow.getDate()}_${timeNow.getHours()}_${timeNow.getMinutes()}`
+let generateTime = `${timeNow.getMonth() + 1}.${timeNow.getDate()}_${timeNow.getHours()}.${timeNow.getMinutes()}`
 
 const path = './docs'
 // 最后导出的配置对象
@@ -122,7 +122,7 @@ function generateDirectory (dir) {
                   finalConfig[`/${dirSplitArr[2]}/`] = currentConfig
 
                   // 这里其实执行几乎文件数量的写入次数。
-                  fs.writeFileSync(`${generateTime}_Directory.js`, JSON.stringify(finalConfig))
+                  fs.writeFileSync(`Directory__${generateTime}.js`, JSON.stringify(finalConfig))
                 } else {
                   // doc 下的直接子文件readme的情况会走到这
                 }
@@ -150,5 +150,9 @@ function generateDirectory (dir) {
 // 传数组，内部是不是就得两次循环
 function removeArrItem (originalArr = [], deleteItem = '') {
   const targetIndex = originalArr.indexOf(deleteItem)
-  originalArr.splice(targetIndex, 1)
+  if (targetIndex === -1) {
+    return
+  } {
+    originalArr.splice(targetIndex, 1)
+  }
 }
