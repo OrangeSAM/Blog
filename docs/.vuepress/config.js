@@ -316,7 +316,7 @@ module.exports = {
           children: [
             "cycling_taiwan",
             "anything_about_wechat",
-            "cheerio-readme",
+            "cheerio_doc",
             "command_line_trick",
             "cycling_taiwan",
             "frame_lib_sdk",

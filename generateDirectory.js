@@ -36,6 +36,10 @@
 // children的值为由最后已层级的文件与之前目录名组成的字符串构成的数组
 const fs = require('fs')
 
+// 文件名
+const timeNow = new Date()
+let generateTime = `${timeNow.getMonth() + 1}.${timeNow.getDate()}_${timeNow.getHours()}_${timeNow.getMinutes()}`
+
 const path = './docs'
 // 最后导出的配置对象
 let finalConfig = {}
@@ -90,9 +94,8 @@ function generateDirectory (dir) {
 
                 // 处理最终配置的key
                 if (dirSplitArr[2]) {
-                  if (targetStr.indexOf('readme') === -1) {
-                  } else {
-                    // 为readme的情况，直接返回不处理
+                  // 为readme的情况，暂时返回不处理
+                  if (targetStr.indexOf('readme') !== -1) {
                     return
                   }
                   // 当前目录的配置
@@ -102,7 +105,6 @@ function generateDirectory (dir) {
                     let obj = currentConfig.find(e => {
                       return e.title === dirSplitArr[3] ? dirSplitArr[3] : dirSplitArr[2]
                     })
-                    console.log('obj', obj)
                     obj.children.push(targetStr)
                   } else {
                     currentConfig = []
@@ -119,7 +121,8 @@ function generateDirectory (dir) {
                   }
                   finalConfig[`/${dirSplitArr[2]}/`] = currentConfig
 
-                  fs.writeFileSync('directoryConfig4.js', JSON.stringify(finalConfig))
+                  // 这里其实执行几乎文件数量的写入次数。
+                  fs.writeFileSync(`${generateTime}_Directory.js`, JSON.stringify(finalConfig))
                 } else {
                   // doc 下的直接子文件readme的情况会走到这
                 }
