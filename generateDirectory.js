@@ -32,6 +32,7 @@ const fs = require('fs')
 const timeNow = new Date()
 let generateTime = `${timeNow.getMonth() + 1}.${timeNow.getDate()}_${timeNow.getHours()}.${timeNow.getMinutes()}`
 
+// 需要处理的目录，后续可以考虑从命令行配置
 const path = './docs'
 
 // 最后导出的配置对象
@@ -69,9 +70,6 @@ function generateDirectory (dir) {
 
         // 处理一开始传入是数组的情况 [CodingTool, IdeaPills, ...]
         if (innerRes instanceof Array) {
-          // 当前目录的children
-          let childrenConfig = []
-
           Array.prototype.forEach.call(innerRes, childDir => {
             fs.stat(`${dir}/${childDir}`, function (err, res) {
               if (res.isDirectory()) {
@@ -90,17 +88,36 @@ function generateDirectory (dir) {
                 if (dirSplitArr[2]) {
                   // 为readme的情况，暂时返回不处理
                   if (targetStr.indexOf('readme') !== -1) {
+                    // 这里似乎return不了，foreach会强制执行完, 但为啥最终目录里没有
                     return
                   }
                   // 当前目录的配置
                   let currentConfig
+                  // 如果存在就不新建，否则新建
                   if (typeof finalConfig[`/${dirSplitArr[2]}/`] !== 'undefined') {
                     currentConfig = finalConfig[`/${dirSplitArr[2]}/`]
+
                     let obj = currentConfig.find(e => {
-                      return e.title === dirSplitArr[3] ? dirSplitArr[3] : dirSplitArr[2]
+                      return e.title === (dirSplitArr[3] ? dirSplitArr[3] : dirSplitArr[2])
                     })
-                    obj.children.push(targetStr)
+                    if (obj) {
+                      obj.children.push(targetStr)
+                    } else {
+                      let title = dirSplitArr[3] ? dirSplitArr[3] : dirSplitArr[2]
+                      let childrenConfig = []
+
+                      childrenConfig.push(targetStr)
+                      currentConfig.push({
+                        title,
+                        collapsable: true,
+                        sidebarDepth: 4,
+                        children: childrenConfig
+                      })
+                    }
                   } else {
+                    // 当前目录的children
+                    let childrenConfig = []
+
                     currentConfig = []
                     // 对于目录title的修正，
                     let title = dirSplitArr[3] ? dirSplitArr[3] : dirSplitArr[2]
@@ -113,6 +130,7 @@ function generateDirectory (dir) {
                       children: childrenConfig
                     })
                   }
+                  // 以docs下直接子目录名称作为最终配置key值
                   finalConfig[`/${dirSplitArr[2]}/`] = currentConfig
 
                   // 这里其实执行几乎文件数量的写入次数。
