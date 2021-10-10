@@ -4,6 +4,14 @@
  * Description: 用于生成vuepress专用格式的目录配置
  */
 
+// 获取 docs 目录下除去.vuepress目录外的所有目录以及文件
+// 并遍历相关目录，导出如上结构的对象
+//
+// 第一层目录名为key值
+// title值为目录下第一层级readme文件的title
+// collapsable和sidebarDepth目前写死，后续考虑可配置
+// children的值为由最后已层级的文件与之前目录名组成的字符串构成的数组
+//
 // const config = {
 //   '/LearnTech/': [
 //     {
@@ -13,27 +21,11 @@
 //       sidebarDepth: 4, // 可选的, 默认值是 1
 //       children: [
 //         "Vue/vue_component_communication",
-//         "Vue/vue_doc_record",
-//         "Vue/vue_geektime",
-//         "Vue/vue_router",
-//         "Vue/vue_source_code_Hcysun",
-//         "Vue/vue_source_code_Huangyi",
-//         "Vue/vuex",
-//         "Vue/element_ui",
-//         "Vue/virtual_dom",
 //       ]
 //     }
 //   ]
 // }
 
-
-// 获取 docs 目录下除去.vuepress目录外的所有目录以及文件
-// 并遍历相关目录，导出如上结构的对象
-
-// 第一层目录名为key值
-// title值为目录下第一层级readme文件的title
-// collapsable和sidebarDepth目前写死，后续考虑可配置
-// children的值为由最后已层级的文件与之前目录名组成的字符串构成的数组
 const fs = require('fs')
 
 // 文件名
@@ -41,9 +33,11 @@ const timeNow = new Date()
 let generateTime = `${timeNow.getMonth() + 1}.${timeNow.getDate()}_${timeNow.getHours()}.${timeNow.getMinutes()}`
 
 const path = './docs'
+
 // 最后导出的配置对象
 let finalConfig = {}
 
+// 生成配置
 generateDirectory(path)
 
 
@@ -144,7 +138,7 @@ function generateDirectory (dir) {
 
 
 // 参数：原数组，需要删除的项
-
+//
 // 这里有设计上的考量，第二个参数应该传入数组还是字符串
 // 传字符串，就无法应对需要删除数组中多项的情况，需要使用方自行多次调用处理。
 // 传数组，内部是不是就得两次循环
