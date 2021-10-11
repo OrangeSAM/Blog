@@ -28,10 +28,6 @@
 
 const fs = require('fs')
 
-// 文件名
-const timeNow = new Date()
-let generateTime = `${timeNow.getMonth() + 1}.${timeNow.getDate()}_${timeNow.getHours()}.${timeNow.getMinutes()}`
-
 // 需要处理的目录，后续可以考虑从命令行配置
 const path = './docs'
 
@@ -91,6 +87,10 @@ function generateDirectory (dir) {
                     // 这里似乎return不了，foreach会强制执行完, 但为啥最终目录里没有
                     return
                   }
+
+                  // 最终的文件路径配置
+                  let finalFileDir = targetStr.split(`${dirSplitArr[2]}/`)[1]
+
                   // 当前目录的配置
                   let currentConfig
                   // 如果存在就不新建，否则新建
@@ -101,12 +101,14 @@ function generateDirectory (dir) {
                       return e.title === (dirSplitArr[3] ? dirSplitArr[3] : dirSplitArr[2])
                     })
                     if (obj) {
-                      obj.children.push(targetStr)
+                      // 这里又分能不能找到子目录，能找到直接push
+                      obj.children.push(finalFileDir)
                     } else {
+                      // 不能找到则创建新的
                       let title = dirSplitArr[3] ? dirSplitArr[3] : dirSplitArr[2]
                       let childrenConfig = []
 
-                      childrenConfig.push(targetStr)
+                      childrenConfig.push(finalFileDir)
                       currentConfig.push({
                         title,
                         collapsable: true,
@@ -122,7 +124,7 @@ function generateDirectory (dir) {
                     // 对于目录title的修正，
                     let title = dirSplitArr[3] ? dirSplitArr[3] : dirSplitArr[2]
 
-                    childrenConfig.push(targetStr)
+                    childrenConfig.push(finalFileDir)
                     currentConfig.push({
                       title,
                       collapsable: true,
@@ -134,7 +136,8 @@ function generateDirectory (dir) {
                   finalConfig[`/${dirSplitArr[2]}/`] = currentConfig
 
                   // 这里其实执行几乎文件数量的写入次数。
-                  fs.writeFileSync(`Directory__${generateTime}.js`, JSON.stringify(finalConfig))
+                  // fs.writeFileSync(`Directory__${generateTime}.js`, 'let a = ' + JSON.stringify(finalConfig))
+                  fs.writeFileSync('directoryConfig.js', 'module.exports = '+JSON.stringify(finalConfig))
                 } else {
                   // doc 下的直接子文件readme的情况会走到这
                 }
