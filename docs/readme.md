@@ -5,7 +5,7 @@ heroText: 一笔的博客
 tagline: 对技术、对生活的思考
 actionText: 一窥乾坤
 actionLink: /LearnTech/
-footer: MIT Licensed | Copyright © 2020 刘一笔
+footer: MIT Licensed | Copyright © 2021 刘一笔
 ---
 ## 一点介绍
 这是一笔的博客，最早期的时候我记录东西用OneNote，但是OneNote排版太松散。另外，在OneNote上记录的笔记和思考观众只有一个，稍显浪费。
