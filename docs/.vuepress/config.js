@@ -1,4 +1,6 @@
+// 侧边栏目录配置
 const dirConfig = require('../../directoryConfig')
+
 module.exports = {
   title: '刘一笔的博客',
   description: '博客，日常记录，JavaScript，CSS，LeetCode，Node，HTTP',

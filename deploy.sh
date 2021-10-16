@@ -3,6 +3,9 @@
 # 确保脚本抛出遇到的错误
 set -e
 
+# 重新生成目录配置
+npm run dir
+
 # 生成静态文件
 npm run build
 
