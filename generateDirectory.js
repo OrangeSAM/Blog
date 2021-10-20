@@ -77,7 +77,6 @@ function generateDirectory (dir) {
                 if (dirSplitArr[2]) {
                   // 为readme的情况，暂时返回不处理
                   if (targetStr.indexOf('readme') !== -1) {
-                    // 这里似乎return不了，foreach会强制执行完, 但为啥最终目录里没有
                     return
                   }
 

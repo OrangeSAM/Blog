@@ -4,7 +4,7 @@
   "description": "my blog",
   "main": "index.js",
   "scripts": {
-    "dev": "vuepress dev docs",
+    "dev": "node generateDirectory.js && vuepress dev docs",
     "dir": "node generateDirectory.js",
     "build": "vuepress build docs",
     "deploy": "start deploy.sh",

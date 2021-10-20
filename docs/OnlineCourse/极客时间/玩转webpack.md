@@ -1,7 +1,6 @@
 ---
-title: 玩转Webpack
+title: 玩转webpack
 ---
-
 ## 3. 为什么需要构建工具
 1. 转换ES6语法
 2. 转换JSX 

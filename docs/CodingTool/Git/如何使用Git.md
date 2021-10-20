@@ -46,3 +46,7 @@ git checkout -b hot-fix-sam 切换到新分支
 
 5. 代码回滚：Reset、Checkout、Revert 的选择 · geeeeeeeeek/git-recipes Wiki
 https://github.com/geeeeeeeeek/git-recipes/wiki/5.2-%E4%BB%A3%E7%A0%81%E5%9B%9E%E6%BB%9A%EF%BC%9AReset%E3%80%81Checkout%E3%80%81Revert-%E7%9A%84%E9%80%89%E6%8B%A9
+
+6. 如何与fork的项目保持同步
+   https://www.cnblogs.com/haore147/p/4218611.html
+   http://blog.csdn.net/binglumeng/article/details/59534975
