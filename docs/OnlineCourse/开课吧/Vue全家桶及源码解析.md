@@ -6,9 +6,63 @@ title: Vue.js全家桶及源码剖析
 
 ### 问题
 1. Vue.use到底做了什么
+   1. 目的是安装Vue插件
+   2. 会将Vue作为参数传入插件的install方法(如果插件是个函数，那么他就是install方法本身)
+   3. Vue.use的核心方法在`src/core/global-api/use.js`下
+      1. 总计不到20行，核心逻辑如下
+      2. 获取已安装的插件数组，如果存在则直接返回this
+      3. 不存在则执行插件的install方法
 2. 为什么要把router的实例挂载到Vue实例的选项中
+   1. 
 3. 为什么要加上router-view
 4. 为什么可以直接用router-link和router-view
+
+### 官方文档中的插件
+```markdown
+Vue.use( plugin )
+参数：
+
+{Object | Function} plugin
+用法：
+
+安装 Vue.js 插件。如果插件是一个对象，必须提供 install 方法。如果插件是一个函数，它会被作为 install 方法。install 方法调用时，会将 Vue 作为参数传入。
+
+该方法需要在调用 new Vue() 之前被调用。
+
+当 install 方法被同一个插件多次调用，插件将只会被安装一次。
+```
+```markdown
+Vue.js 的插件应该暴露一个 install 方法。这个方法的第一个参数是 Vue 构造器，第二个参数是一个可选的选项对象：
+```
+```javascript
+MyPlugin.install = function (Vue, options) {
+  // 1. 添加全局方法或 property
+  Vue.myGlobalMethod = function () {
+    // 逻辑...
+  }
+
+  // 2. 添加全局资源
+  Vue.directive('my-directive', {
+    bind (el, binding, vnode, oldVnode) {
+      // 逻辑...
+    }
+    ...
+  })
+
+  // 3. 注入组件选项
+  Vue.mixin({
+    created: function () {
+      // 逻辑...
+    }
+    ...
+  })
+
+  // 4. 添加实例方法
+  Vue.prototype.$myMethod = function (methodOptions) {
+    // 逻辑...
+  }
+}
+```
 
 ### Vue-Router需求分析
 单页面应用程序中，url发生变化时候，不能刷新，显示对应视图内容
@@ -48,6 +102,10 @@ title: Vue.js全家桶及源码剖析
       如果插件是一个函数，它会被作为 install 方法。install 方法调用时，会将 Vue 作为参数传入。
       该方法需要在调用 new Vue() 之前被调用。
     - Vue.use 中的Vue是一个构造函数，而不是一个实例
+    - 从Vue源码中可以发现，Use函数的参数应该是函数或者对象
+      - export function initUse (Vue: GlobalAPI) {
+          Vue.use = function (plugin: Function | Object) {}
+        }
 7. new Vue({
      router,
      store,
@@ -72,6 +130,14 @@ title: Vue.js全家桶及源码剖析
 9. ![](https://i.loli.net/2021/07/10/AJlxji5vCV9EOFH.png)
     从如上图可以看出，只有根实例的options中才有传入的VueRouter实例，但是每个组件都能直接获取到VueRouter
     但又感到迷惑的是，每个子组件上都直接的拥有$router属性，本以为是挂载Vue的原型上，顺着原型链去获取使用的，#迷惑
+10.Vue生态内实现数据响应式的两个方案，vue.util.defineReactive && new Vue({})
+
+### 疑惑
+1. 在视频59‘左右说到，在实现router-view的时候不能直接写模板，因为我们cli环境下，用的是runtime版本的vue。
+疑惑在于，我们写业务代码不是写了很多模板吗，为什么就可以呢。临时贴图如下。
+![img.png](img.png)
+重看到1.30分
+
 
 ### 作业
 1. 解决router无限循环的问题
@@ -268,3 +334,4 @@ parent
         created
         mounted
     mounted
+
