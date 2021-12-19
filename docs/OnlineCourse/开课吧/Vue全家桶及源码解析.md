@@ -135,7 +135,8 @@ MyPlugin.install = function (Vue, options) {
 ### 疑惑
 1. 在视频59‘左右说到，在实现router-view的时候不能直接写模板，因为我们cli环境下，用的是runtime版本的vue。
 疑惑在于，我们写业务代码不是写了很多模板吗，为什么就可以呢。临时贴图如下。
-![img.png](img.png)
+![](https://s2.loli.net/2021/12/19/tbBgV2ZFaixD6jI.png)
+
 重看到1.30分
 
 
