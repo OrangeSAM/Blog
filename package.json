@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node generateDirectory.js && vuepress dev docs",
     "dir": "node generateDirectory.js",
-    "build": "vuepress build docs",
+    "build": "node generateDirectory.js && vuepress build docs",
     "deploy": "start deploy.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
