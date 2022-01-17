@@ -17,4 +17,5 @@ title: 一笔的闪念 | 第十三期
 
 8. 不要对工作有消极情绪，不利于解决问题
 
-9. 不断打破自己的经验主义 
+9. 不断打破自己的经验主义
+   <commonFooter-for-idea></commonFooter-for-idea>
