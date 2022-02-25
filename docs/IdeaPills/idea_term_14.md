@@ -126,3 +126,5 @@ title: 一笔的闪念 | 第十四期（CoalKen特别版）
 阿肯: 都是靠推演与思考，也是那时候让我了解到一个关键性问题。经验最大的风险，就是在他失败之前都是有效的。
 
 刘一笔: 表哥之前在推文有重点写过这句话。
+
+<commonFooter-for-idea></commonFooter-for-idea>
