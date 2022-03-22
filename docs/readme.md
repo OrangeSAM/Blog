@@ -2,7 +2,7 @@
 home: true
 heroImage: /hero.jpg
 heroText: 一笔的博客
-tagline: 对技术、对生活的思考
+tagline: 对这个世界的一些回应
 actionText: 一窥乾坤
 actionLink: /LearnTech/
 ---
