@@ -59,7 +59,7 @@ em是相对数值，pt为绝对数值
 首行缩进 
 text－indent 
 text－ indent：length    length表示百分比数字也可以是由浮点数字和单位标识符组成的长度值，允许为赋值
-eg  p{text-indnet:2em}
+eg  p{text-indent:2em}
 
 实例
 	Display:inline语句的作用就是把元素设置为行内元素
