@@ -14,7 +14,7 @@ title: JavaScript 和 Node.js 中的模块化
 2. 依赖管理混乱
 
 ## 模块化的历史
-### 早起模块化产生的原因
+### 早期模块化产生的原因
  - 那个时候没有let，声明的变量很容易变为全局变量，即便有语言的闭包特性可以减少全局变量。但项目一大，也不可避免的容易造成全局变量污染。
  - 此外，还得通过人来维护script 脚本的引入顺序
 
@@ -22,6 +22,8 @@ title: JavaScript 和 Node.js 中的模块化
 
 #### 闭包模块化
 利用JavaScript的IIFE（立即执行函数）和闭包的特性，将所依赖的外部变量传给一个包装了自身代码的匿名函数，在函数内部就可以使用这些依赖，最后在函数结尾把自身暴露给window。
+
+可以点击这个 [链接](https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js) 浏览器打开，搜索window.jQuery。
 ```javascript
 (function(root) {
   root.jQuery = root.$ = jQuery
@@ -75,7 +77,7 @@ const math = require('./math')
 math.add(1, 1)
 ```
 
-Node.js实现模块化的关键在于，在一个模块的代码被执行之前，Node.js都会为其包裹上一层如下的函数
+Node.js实现模块化的关键在于，在一个模块的代码被执行之前，Node.js都会为其包裹上一层如下的函数。详见[文档](http://nodejs.cn/api/modules.html#:~:text=%E5%BF%AB%EF%BC%8C%E6%9B%B4%E5%8F%AF%E9%9D%A0%E3%80%82-,%E6%A8%A1%E5%9D%97%E5%B0%81%E8%A3%85%E5%99%A8,-%23) 。
 ```javascript
 (function(exports, require, module, __filename, __dirname) {
 // Module code actually lives in here
@@ -218,7 +220,7 @@ let readfile = _fs.readfile;
 这种加载称为“运行时加载”，因为只有运行时才能得到这个对象，导致完全没办法在编译时做“静态优化”。
 
 而ES module的模块不是对象，而是通过export命令显式指定输出的代码，再通过import命令输入。
-
+ES6 模块使用import和export。
 // ES6模块
 import { stat, exists, readFile } from 'fs';
 上面代码的实质是从fs模块加载 3 个方法，其他方法不加载。这种加载称为“编译时加载”或者静态加载，即 ES6 可以在编译时就完成模块加载，效率要比 CommonJS 模块的加载方式高。
@@ -241,3 +243,6 @@ https://juejin.cn/post/6844903744518389768#heading-8
 https://juejin.cn/post/6844903744518389768#heading-8
 
 https://juejin.cn/post/6940163713345257486#heading-17
+
+对于cjs esm 导出的值还是引用的问题
+https://www.baobangdong.cn/use-webpack-to-understand-the-difference-between-commonjs-and-esmodules/
