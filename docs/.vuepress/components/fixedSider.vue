@@ -18,6 +18,7 @@
 
 
 <style lang="stylus" scoped>
+@media screen and (min-width: 426px)
   .wrap
     animation-name breath
     animation-duration 3000ms
@@ -40,6 +41,7 @@
       img
         width 150px
 
+  // 心跳动画
   @keyframes breath {
     0% {
       transform scale(.95);
