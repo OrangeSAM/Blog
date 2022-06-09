@@ -191,7 +191,11 @@ console.log(b);
 - **require() 返回的是 module.exports 而不是 exports**
 
 
-    
+## cjs 和esm 值拷贝 值引用问题
+结论
+- cjs 基本类型拷贝，引用类型浅拷贝
+- esm 都是浅拷贝
+
 require node 和 es6 都支持的引入语法
 export/import 只有es6支持的导出导入
 module.exports/exports 只有node支持的导出 
@@ -243,6 +247,9 @@ https://juejin.cn/post/6844903744518389768#heading-8
 https://juejin.cn/post/6844903744518389768#heading-8
 
 https://juejin.cn/post/6940163713345257486#heading-17
+
+https://www.ruanyifeng.com/blog/2012/10/javascript_module.html
+https://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html
 
 对于cjs esm 导出的值还是引用的问题
 https://www.baobangdong.cn/use-webpack-to-understand-the-difference-between-commonjs-and-esmodules/
