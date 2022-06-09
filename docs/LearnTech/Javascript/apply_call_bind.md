@@ -166,3 +166,44 @@ logName.apply()
 ```
 
 ## bind的实现
+
+```javascript
+Function.prototype.myBind = function (cxt, ...bindArgs) {
+  cxt = cxt ? Object(cxt) : window
+
+  const key = Symbol()
+  cxt[key] = this
+
+  return function (...newArgs) {
+    const args = [...bindArgs, ...newArgs]
+    return cxt[key](...args)
+  }
+}
+```
+
+```javascript
+// 偏函数case
+function sam(v1, v2) {
+  console.log('函数打印', v1, v2)
+  return v1 + v2
+}
+let a = sam.bind({name: 'sam'}, 11)
+let b = sam.myBind({name: 'sam'}, 11)
+
+console.log('标准的', a(2))
+console.log('-----------')
+console.log('手写的', b(2))
+
+// this绑定case
+function logNameAndElse(val) {
+  console.log(this.name + val)
+}
+
+let aa = logNameAndElse.bind({name: 'sam'}, 'heihei')
+
+let bb = logNameAndElse.myBind({name: 'sam'}, 'hehe')
+
+console.log('***************')
+console.log(aa())
+console.log(bb())
+```
