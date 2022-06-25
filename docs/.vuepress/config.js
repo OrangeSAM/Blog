@@ -8,6 +8,20 @@ module.exports = {
   // base: '/blog/',
   plugins: ['@vuepress/back-to-top', '@vuepress/pwa', require('./plugin')],
   head: [ // 注入到当前页面的 HTML <head> 中的标签
+    [
+      'script',
+      {
+        async: true,
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-0X7CLSMP1X',
+      },
+    ],
+    [
+      'script',
+      {},
+      [
+        "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-0X7CLSMP1X');",
+      ],
+    ],
     ['link', {rel: 'icon', href: '/logo.jpg'}],// 增加一个自定义的 favicon(网页标签的图标)
     ['link', { rel: 'manifest', href: '/manifest.json' }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],

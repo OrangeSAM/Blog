@@ -272,3 +272,4 @@ a.__proto__.__proto__ === Object.prototype // 能理解
 
 ## 9. 继承的实现方案、ES6面向对象
 
+0.58.23
