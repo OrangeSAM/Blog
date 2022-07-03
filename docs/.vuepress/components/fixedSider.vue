@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="wrap" v-if="showSider" @dblclick="hideSider">
     <div class="tips">扫码添加我的微信</div>
     <div class="img-wrap">
       <img src="../public/personal.jpg" alt="个人">
@@ -12,7 +12,17 @@
 
 <script>
   export default {
-    name:"fixedSider"
+    name:"fixedSider",
+    data() {
+      return {
+        showSider: true
+      }
+    },
+    methods: {
+      hideSider() {
+        this.showSider = false
+      }
+    }
   }
 </script>
 

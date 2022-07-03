@@ -4,7 +4,15 @@ title: JS | 继承
 ## 什么是继承
 继承是什么，我的一点粗浅的理解就是汉语中的“同上”。目的在于代码的复用。继承这个概念，按照其字面意思直接理解即接收前人的东西。在计算机科学中，则是指支持面向对象编程语言中的专用术语。
                                     
-> 如果一个类别B“继承自”另一个类别A，就把这个B称为“A的子类”，而把A称为“B的父类别”也可以称“A是B的超类”。继承可以使得子类具有父类别的各种属性和方法，而不需要再次编写相同的代码。在令子类别继承父类别的同时，可以重新定义某些属性，并重写某些方法，即覆盖父类别的原有属性和方法，使其获得与父类别不同的功能。另外，为子类追加新的属性和方法也是常见的做法。 ---维基百科
+> 如果一个类别B“继承自”另一个类别A，就把这个B称为“A的子类”，而把A称为“B的父类别”也可以称“A是B的超类”。
+> 
+> 继承可以使得子类具有父类别的各种属性和方法，而不需要再次编写相同的代码。
+> 
+> 在令子类别继承父类别的同时，可以重新定义某些属性，并重写某些方法，即覆盖父类别的原有属性和方法，使其获得与父类别不同的功能。
+> 
+> 另外，为子类追加新的属性和方法也是常见的做法。 
+> 
+> ---维基百科
 
 但并不是所有的编程语言都有继承机制，前面有说到，继承是面向对象中的术语，C语言就没有。为什么JavaScript需要继承机制的存在，这里贴一小段阮一峰老师对历史的探究。原文点击[这里](http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html)。
 > 如果真的是一种简易的脚本语言，其实不需要有"继承"机制。但是，Javascript里面都是对象，必须有一种机制，将所有对象联系起来。所以，Brendan Eich最后还是设计了"继承"。
@@ -13,7 +21,7 @@ title: JS | 继承
 
 俗话说就是，继承机制的存在使得代码中各个对象能够产生联系，而不是独立的，产生的联系的意义在于可以少写代码。说到底，还是为了“偷点懒”(提高效率)。
 
-如何实现继承，**其实，当一个对象的`__proto__`属性指向一个有效的对象时，继承就发生了，但实现继承的方式远不止这一种。**
+如何实现继承，**其实，在JavaScript中，当一个对象的`__proto__`属性指向一个有效的对象时，继承就发生了，但实现继承的方式远不止这一种。** // 突然觉得这句话不对，原型链的存在就一定意味着是继承的关系吗。
 
 在 JavaScript 中，构造函数其实就是一个普通的函数。当使用 new 操作符来作用这个函数时，它就可以被称为构造方法（构造函数）。
 
@@ -106,7 +114,7 @@ extends实现
 
 类的返回值是对象，构造函数的返回值也是对象，所以在ES6之前，类这个概念是通过构造函数来实现。
 
-ECMAScript2015中引入的JavaScript类实质上是JavaScript现有的基于原型的继承的语法糖。类语法并没有为JavaScript引入新的面向对象的继承模型。
+ES6中引入的JavaScript类实质上是JavaScript现有的基于原型的继承的语法糖。类语法并没有为JavaScript引入新的面向对象的继承模型。
 
 定义一个类的方法是使用一个类声明。要声明一个类，需要使用带有class关键字的类名。
 ```javascript
@@ -126,7 +134,7 @@ let rectangle = class (className) {
 ```
 函数声明和类的声明之间的一个重要区别是函数声明会提升，类声明不会，所以需要先声明再访问。
 
-构造函数、静态方法、原型方法、getter、setter、父类、子类，这些名词是类这一概念中术语。
+构造函数、静态方法、原型方法、getter、setter、父类、子类，这些名词是类这一概念中的术语。
 
 据此来实现前面提到的继承题目如下：
 
@@ -137,7 +145,8 @@ class Animal {
 
 class Human extends Animal {
 	constructor (params) {
-        super()
+    super()
+    // name和birth 称为实例属性
 		this.name = params.name
 		this.birth = params.birth
 	}
@@ -202,3 +211,44 @@ https://zhuanlan.zhihu.com/p/57336944
 https://www.zcfy.cc/article/master-the-javascript-interview-what-s-the-difference-between-class-amp-prototypal-inheritance-2185.html
 
 https://2ality.com/2015/09/proto-es6.html
+
+
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes
+
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/Public_class_fields#%E7%A7%81%E6%9C%89%E5%AD%97%E6%AE%B5
+
+```javascript
+// ES6实现继承中的一些概念
+class Person {
+    static a = '静态公有字段'
+    b = '公有实例字段'
+     
+     
+     // 静态私有字段可以在类声明内部的构造函数上被访问到
+     static #c
+     
+     // 私有实例字段
+     #privateField
+     
+     constructor() {
+      this.#privateField =83
+     }
+     
+     static logName() {
+      console.log('这是一个静态公共方法')
+     }
+     logAge() {
+      console.log('这是一个公共实例方法')
+     }
+     
+     static #privateStaticMethod() {
+      console.log('这是一个静态私有方法')
+     }
+     
+     #privateMethod() {
+      console.log('私有实例方法')
+     }
+}
+
+
+```
