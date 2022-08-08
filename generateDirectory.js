@@ -67,7 +67,7 @@ function generateDirectory (dir) {
               } else {
                 // ['.', 'docs']
                 // ['.', 'docs', 'CodingTool']
-                // 除了docs目录下直接子文件readme.md，disSplitArr都至少会有三个元素
+                // 除了docs目录下直接子文件readme.md，dirSplitArr都至少会有三个元素
                 const dirSplitArr = dir.split('/')
 
                 // 不管下面是目录还是文件，都以字符串的形式拼接
