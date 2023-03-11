@@ -109,3 +109,38 @@ then方法可以接受两个回调函数，第一个是异步操作成功时的�
 promise的报错具有传递性。
 
 但是，Promise 的回调函数不是正常的异步任务，而是微任务（microtask）。它们的区别在于，正常任务追加到下一轮事件循环，微任务追加到本轮事件循环。这意味着，微任务的执行时间一定早于正常任务。
+
+Promise执行顺序的例子
+```javascript
+function testSometing() {
+    console.log("testSomething");
+    return "return testSomething";
+}
+
+async function testAsync() {
+    console.log("testAsync");
+    return Promise.resolve("hello async");
+}
+
+async function test() {
+    console.log("test start...");
+
+    const testFn1 = await testSometing();
+    console.log(testFn1);
+
+    const testFn2 = await testAsync();
+    console.log(testFn2);
+
+    console.log('test end...');
+}
+
+test();
+
+var promiseFn = new Promise((resolve)=> { 
+                    console.log("promise START...");
+                    resolve("promise RESOLVE");
+                });
+promiseFn.then((val)=> console.log(val));
+
+console.log("===END===")
+```
