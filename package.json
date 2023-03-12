@@ -4,9 +4,9 @@
   "description": "my blog",
   "main": "index.js",
   "scripts": {
-    "dev": "node generateDirectory.js && vuepress dev docs",
+    "dev": "set NODE_OPTIONS=--openssl-legacy-provider && node generateDirectory.js && vuepress dev docs",
     "dir": "node generateDirectory.js",
-    "build": "vuepress build docs",
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider && vuepress build docs",
     "deploy": "start deploy.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
