@@ -1,4 +1,5 @@
 <template>
+  <!-- 应该可以更好的设计成一个名片页面 -->
   <div class="wrap" v-if="showSider" @dblclick="hideSider">
     <div class="tips">扫码添加我的微信</div>
     <div class="img-wrap">
@@ -28,7 +29,10 @@
 
 
 <style lang="stylus" scoped>
-@media screen and (min-width: 426px)
+@media(max-width : 425px)
+  .wrap
+    display none
+@media(min-width: 426px)
   .wrap
     animation-name breath
     animation-duration 3000ms
