@@ -10,7 +10,7 @@ title: Vue3源码训练营
    2. 而打包工具可以不用写是因为打包工具的兼容
 3. 保存到devDependency是 --save-dev
 4. 在effect包裹的fn里面访问，会触发依赖收集的过程
-5. ![img.png](img.png)有计算属性依赖的，还要通知下计算属性？
+5. ![img.png](https://s2.loli.net/2023/03/13/hqW6GHkRXBPZOEy.png)有计算属性依赖的，还要通知下计算属性？
 
 ## 0-1-2 
 1. Map的key可以是一个对象
