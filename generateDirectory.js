@@ -36,6 +36,7 @@ const path = './docs'
 // 最后导出的配置对象
 let finalConfig = {}
 
+let logCount = 0
 // 生成配置
 generateDirectory(path)
 
@@ -84,6 +85,8 @@ function generateDirectory (dir) {
                   finalConfig[`/${dirSplitArr[2]}/`] = handleFinalConfig(targetStr, dirSplitArr)
 
                   // 这里其实执行几乎文件数量的写入次数。
+                  logCount = logCount + 1
+                  console.log(logCount)
                   fs.writeFileSync('directoryConfig.js', 'module.exports = '+JSON.stringify(finalConfig))
                 } else {
                   // doc 下的直接子文件readme的情况会走到这
