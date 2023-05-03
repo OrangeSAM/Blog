@@ -46,7 +46,6 @@ module.exports = {
     // 导航栏配置
     nav: [
       {text: '技术学习', link: '/LearnTech/'},
-      {text: '交易复盘', link: '/TradeReview/'},
       {text: '项目记录', link: '/Projects/'},
       {text: '年终回顾', link: '/YearReview/'},
       {text: '阅读记录', link: '/Reading/'},
