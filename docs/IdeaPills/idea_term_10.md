@@ -24,4 +24,4 @@ title: 一笔的闪念 | 第十期
    
 8. 我相信认真去思考将一段话有逻辑有道理的说出来，就是静水流深，最后或有水到渠成。
 
-<commonFooter-for-idea></commonFooter-for-idea>
+<CommonFooter-ForIdea></CommonFooter-ForIdea>

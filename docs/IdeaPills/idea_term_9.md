@@ -24,4 +24,4 @@ title: 一笔的闪念 | 第九期
    
 9. 作为一个打工人，我觉得一个最基本的要求是自己的成长速度不能慢于公司的发展速度。
 
-<commonFooter-for-idea></commonFooter-for-idea>
+<CommonFooter-ForIdea></CommonFooter-ForIdea>

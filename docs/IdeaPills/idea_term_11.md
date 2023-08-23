@@ -34,4 +34,4 @@ title: 一笔的闪念 | 第十一期
    
 7. 我们都说只要做到不懂不碰这 4 个字就已经能够避免很多亏损，但是如何界定懂还是不懂，很多人的标准又不一样了。很多笨蛋包括我亏就亏在不知道自己不知道即以为自己知道。
 
-<commonFooter-for-idea></commonFooter-for-idea>
+<CommonFooter-ForIdea></CommonFooter-ForIdea>

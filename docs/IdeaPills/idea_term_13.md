@@ -21,4 +21,4 @@ title: 一笔的闪念 | 第十三期
 
 9. 不断打破自己的经验主义
  
-<commonFooter-for-idea></commonFooter-for-idea>
+<CommonFooter-ForIdea></CommonFooter-ForIdea>

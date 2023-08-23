@@ -18,4 +18,4 @@ title: 一笔的杀念 | 第十二期
 
 7. 当只看数据的时候，就是在和只看数据的人在同一个维度竞争。但如果除此之外，从另外一个维度，比如真正去感受去认识去研究数据背后真实的公司。那就可以叠加多个维度，形成碾压。
 
-<commonFooter-for-idea></commonFooter-for-idea>
+<CommonFooter-ForIdea></CommonFooter-ForIdea>

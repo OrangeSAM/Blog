@@ -68,4 +68,4 @@ title: 一笔的闪念 | 第十七期（CoalKen特别版）
 一笔：比较熟悉的倒还真没有见过。你说的立错标，我的理解就是把把媒介上宣传出来这些案例当成自己的信仰。但这些东西其实只是一个例子，并不是真理。这让我想起了刘鑫说的那段话，你当时提醒我说。并不是所有的折腾都是值得的。
 
 
-<commonFooter-for-idea></commonFooter-for-idea>
+<CommonFooter-ForIdea></CommonFooter-ForIdea>

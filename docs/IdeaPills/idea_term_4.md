@@ -40,4 +40,4 @@ title: 一笔的闪念 | 第四期
 
 瞥了眼我的库存，有意思的能发出来的闪念所剩不多，下期大概率会鸽。这一个礼拜都奔波各公司的面试现场，很费脑力和体力，下次应该会说说工作上的事。
 
-<commonFooter-for-idea></commonFooter-for-idea>
+<CommonFooter-ForIdea></CommonFooter-ForIdea>

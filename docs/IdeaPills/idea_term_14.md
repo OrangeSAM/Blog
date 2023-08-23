@@ -127,4 +127,4 @@ title: 一笔的闪念 | 第十四期（CoalKen特别版）
 
 刘一笔: 表哥之前在推文有重点写过这句话。
 
-<commonFooter-for-idea></commonFooter-for-idea>
+<CommonFooter-ForIdea></CommonFooter-ForIdea>

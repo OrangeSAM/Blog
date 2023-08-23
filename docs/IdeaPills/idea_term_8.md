@@ -25,4 +25,4 @@ title: 一笔的闪念 | 第八期
 
 11. 每个人心中都有一根金线，且这根金线的纯度应该不断跟着自己的认知提高而变得越来越纯。
 
-<commonFooter-for-idea></commonFooter-for-idea>
+<CommonFooter-ForIdea></CommonFooter-ForIdea>

@@ -32,4 +32,4 @@ title: 一笔的闪念 | 第五期
 
    我一单身狗瞎说啥呢...
 
-<commonFooter-for-idea></commonFooter-for-idea>
+<CommonFooter-ForIdea></CommonFooter-ForIdea>

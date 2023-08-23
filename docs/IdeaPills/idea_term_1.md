@@ -42,4 +42,4 @@ title: 一笔的闪念 | 第一期
    
 10. 骑车上路就要做好最差情况的准备。`2018.7.6`
 
-<commonFooter-for-idea></commonFooter-for-idea>
+<CommonFooter-ForIdea></CommonFooter-ForIdea>

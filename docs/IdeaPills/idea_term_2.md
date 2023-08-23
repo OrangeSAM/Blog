@@ -35,4 +35,4 @@ title: 一笔的闪念 | 第二期
 
     这句是当时第一次骑长途时翻车后一点感想的后一句。
 
-<commonFooter-for-idea></commonFooter-for-idea>
+<CommonFooter-ForIdea></CommonFooter-ForIdea>

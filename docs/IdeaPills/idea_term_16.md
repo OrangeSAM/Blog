@@ -23,4 +23,4 @@ title: 一笔的闪念 | 第十六期
 
 8. 逃顶的顶，抄底的底，就像录取分数线一样，不是定出来的，是由场上的人决定的，有趣的点也在于，她不是由某一个人决定的，而是由每一个人相互影响动态决定的。刚入市的时候，一直会纠结买早了还继续跌卖早了还继续涨。今年算是完全想明白了。
 
-<commonFooter-for-idea></commonFooter-for-idea>
+<CommonFooter-ForIdea></CommonFooter-ForIdea>

@@ -23,4 +23,4 @@ title: 一笔的闪念 | 第六期
 
 8. 你无法欺骗你自己的感觉，尤其是对于一个人。
 
-<commonFooter-for-idea></commonFooter-for-idea>
+<CommonFooter-ForIdea></CommonFooter-ForIdea>

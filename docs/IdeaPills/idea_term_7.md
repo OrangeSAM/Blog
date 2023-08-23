@@ -29,4 +29,4 @@ title: 一笔的闪念 | 第七期
    
 8. 现在互联网的课程，很多都能买到盗版的，但盗版买不到的是和大佬沟通的机会，买不到一块学习的氛围。
 
-<commonFooter-for-idea></commonFooter-for-idea>
+<CommonFooter-ForIdea></CommonFooter-ForIdea>
