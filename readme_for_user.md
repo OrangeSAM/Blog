@@ -23,3 +23,12 @@
 6. 项目记录
 7. 阅读记录
 
+---
+
+## Todo
+1. 从VuePress迁移到vitepress
+   1. https://v2.vuepress.vuejs.org/zh/guide/migration.html
+   2. https://v2.vuepress.vuejs.org/zh/guide/migration.html
+   3. https://vitepress.dev/guide/migration-from-vuepress
+   4. https://nanova.me/posts/vitepress-migration
+   5. https://world.hey.com/bensinclair/vuepress-2-vs-vitepress-7356e319
