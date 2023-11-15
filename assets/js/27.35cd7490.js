@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[27],{224:function(t,e,n){"use strict";n.r(e);var s=n(3),l=Object(s.a)({},(function(){var t=this.$createElement,e=this._self._c||t;return e("ContentSlotsDistributor",{attrs:{"slot-key":this.$parent.slotKey}},[e("ol",[e("li",[this._v("块级注释\n/** + enter，斜杆带两星 然后回车")])])])}),[],!1,null,null,null);e.default=l.exports}}]);
