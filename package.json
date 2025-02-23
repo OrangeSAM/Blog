@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "之前写的东西分散在Onenote和纯markdown文件git仓库中，现在整体迁移到VuePress搭建的博客中。一般公开分享的东西都可以[博客](https://blog.yibi.host/)找到，谢谢`Star` :smiley: 。",
   "main": "index.js",
+  "type": "module",
   "directories": {
     "doc": "docs"
   },
