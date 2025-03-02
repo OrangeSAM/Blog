@@ -17,6 +17,7 @@ async function generateSidebarConfig(rootDir = 'docs') {
         if (subItems.length > 0) {
           items.push({
             text: entry.name,
+            collapsed: true,
             items: subItems
           });
         }
@@ -46,7 +47,7 @@ async function generateSidebarConfig(rootDir = 'docs') {
       }
     }
   }
-
+console.log(sidebarConfig)
   return sidebarConfig;
 }
 
