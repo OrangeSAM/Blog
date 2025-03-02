@@ -7,7 +7,7 @@ actionText: 一窥乾坤
 actionLink: /LearnTech/
 ---
 
-<img class="hero-pic" src="./.vuepress/public/hero.jpg" />
+<!-- <img class="hero-pic" src="./.vuepress/public/hero.jpg" /> -->
 
 srcDir
 

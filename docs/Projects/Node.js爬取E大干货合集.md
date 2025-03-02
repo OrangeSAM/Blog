@@ -74,7 +74,7 @@ node index idea official
 具体方法为，在浏览器（建议chrome）中打开有知有行官网[此链接](https://youzhiyouxing.cn/topics/ezone/nodes/2) 后，
 点击鼠标右键选择检查，出现开发人员工具界面，点击network一栏，刷新页面，找到 path 为 `topics/ezone/nodes/2`的请求，点击右键后如图操作。
 
-![](img/Snipaste_2022-03-03_20-54-18.png)
+<!-- ![](img/Snipaste_2022-03-03_20-54-18.png) -->
 
 替换掉当前目录下 config 文件中requestHeader 等号后的值。
 

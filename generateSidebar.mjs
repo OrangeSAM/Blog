@@ -47,7 +47,7 @@ async function generateSidebarConfig(rootDir = 'docs') {
       }
     }
   }
-console.log(sidebarConfig)
+
   return sidebarConfig;
 }
 
